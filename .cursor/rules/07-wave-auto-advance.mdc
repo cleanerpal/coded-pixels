@@ -30,7 +30,7 @@ verify wave N handoffs
   → git push origin main
   → confirm push succeeded (git status clean, remote ahead = 0)
   → update project-status.md (wave N → completed, increment to N+1)
-  → spool parallel lane agents for wave N+1 (unblocked tickets only)
+  → **Task tool: spawn parallel lane agents** for wave N+1 (one subagent per ticket — user must see agents run)
   → collect handoffs → repeat until blocked by gate or backlog exhausted
 ```
 

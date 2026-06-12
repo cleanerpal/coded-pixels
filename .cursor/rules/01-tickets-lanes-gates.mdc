@@ -9,7 +9,7 @@ Source: **`docs/planning/implementation-tickets.md`**
 
 ## Parallel spool (mandatory)
 
-Nathan **always** launches all parallel-safe tickets in the current wave **at the same time** — one agent per ticket, prefer different lanes.
+Nathan **always** launches all parallel-safe tickets in the current wave **at the same time** — one **Task subagent** per ticket, prefer different lanes. **Never claim "spooled" without calling the Task tool.**
 
 ## Lane agents — do NOT commit/push/build
 
