@@ -10,4 +10,15 @@ export const SIGNUP_STATUS_PENDING = 'pending';
 export const RATE_LIMIT_MAX = 5;
 export const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000;
 
-export type RateLimitAction = 'submitSignup' | 'submitSiteImportWaitlist';
+export const PUBLISH_RATE_LIMIT_MAX = 30;
+
+export type RateLimitAction =
+  | 'submitSignup'
+  | 'submitSiteImportWaitlist'
+  | 'publishSite';
+
+/** Max sections per page — firestore-schema.md §7.2 */
+export const MAX_SECTIONS_PER_PAGE = 50;
+
+/** Max retained published versions per page — Q53 */
+export const MAX_PUBLISHED_VERSIONS_PER_PAGE = 5;

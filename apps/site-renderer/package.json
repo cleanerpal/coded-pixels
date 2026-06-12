@@ -3,10 +3,27 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "echo \"Site-renderer app not yet implemented — see B4-001\"",
-    "build": "echo \"Site-renderer app not yet implemented — see B4-001\"",
-    "lint": "echo \"No lint target yet\"",
-    "typecheck": "echo \"No typecheck target yet\"",
-    "test": "echo \"No tests yet\""
+    "dev": "next dev --port 3002",
+    "build": "next build",
+    "start": "next start --port 3002",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --config vitest.config.ts"
+  },
+  "dependencies": {
+    "next": "15.5.19",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@codedpixels/eslint-config": "*",
+    "@codedpixels/typescript-config": "*",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "15.5.19",
+    "typescript": "^5",
+    "vitest": "^3.2.4"
   }
 }

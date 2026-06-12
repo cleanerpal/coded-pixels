@@ -11,11 +11,11 @@
 | Field | Value |
 |-------|--------|
 | **Last updated** | 2025-06-12 |
-| **Current wave** | **14** |
-| **Current milestone** | **Platform Phase 2** — B3 publish pipeline next |
-| **Last wave closed** | **13** |
-| **Last commit SHA** | `de75eb8` |
-| **Last commit message** | `wave(13): B2 builder shell + component registry` |
+| **Current wave** | **15** |
+| **Current milestone** | **Platform Phase 2** — B4 site renderer next |
+| **Last wave closed** | **14** |
+| **Last commit SHA** | `46c0b48` |
+| **Last commit message** | `docs: update project-status after wave 13 (de75eb8)` |
 | **Remote synced** | Yes |
 | **Git remote** | `https://github.com/cleanerpal/coded-pixels.git` (`origin`, branch `main`) |
 
@@ -71,6 +71,7 @@
 | B1-002 | 12 | 2025-06-12 | 1624bde | Rules expansion + 52 rules tests |
 | B2-001 | 13 | 2025-06-12 | de75eb8 | Builder shell UI |
 | B2-002 | 13 | 2025-06-12 | de75eb8 | Component registry package |
+| B3-001 | 14 | 2025-06-12 | _pending push_ | publishSite + revalidation API |
 
 ---
 
@@ -84,7 +85,7 @@
 
 ## Next parallel spool
 
-**Wave 14** — B3-001 (publish pipeline + revalidation API). Optional: DOC-009, B7-001/B8-001 parallel tracks.
+**Wave 15** — B4-001 (site renderer + wildcard hosting). Optional parallel: B7-001, B8-001, DOC-009.
 
 Full backlog: `implementation-tickets.md`
 
@@ -100,6 +101,7 @@ Full backlog: `implementation-tickets.md`
 | Platform B0 monorepo | **CLOSED** — B0-001 complete |
 | Platform B1 tenant schema | **CLOSED** — B1-001 + B1-002 complete |
 | Platform B2 builder shell | **CLOSED** — B2-001 + B2-002 complete |
+| Platform B3 publish pipeline | **CLOSED** — B3-001 complete |
 
 ---
 
@@ -113,6 +115,8 @@ Full backlog: `implementation-tickets.md`
 | 2025-06-12 | resume | Wave 12 — verified B0-001 @ `cda50fb`; tests green; spooling B1-001 + B1-002 |
 | 2025-06-12 | resume | Wave 12 closed — B1-001 + B1-002 verified; lint/typecheck/test/build/test:rules green |
 | 2025-06-12 | resume | Wave 13 closed — B2-001 + B2-002 verified; builder builds on :3001 |
+| 2025-06-12 | resume | Wave 13 @ `46c0b48`; deliverables OK; tests green; spooling B3-001 (Wave 14) |
+| 2025-06-12 | resume | Wave 14 — B3-001 verified; lint/typecheck/test/build/test:rules green; wave close pending push |
 
 ---
 

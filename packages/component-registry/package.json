@@ -4,7 +4,11 @@
   "private": true,
   "exports": {
     ".": "./src/index.ts",
-    "./editor-panels": "./src/editor-panels/index.ts"
+    "./editor-panels": "./src/editor-panels/index.ts",
+    "./validation": {
+      "types": "./dist/validateSectionProps.d.ts",
+      "default": "./dist/validateSectionProps.js"
+    }
   },
   "scripts": {
     "build": "tsc",

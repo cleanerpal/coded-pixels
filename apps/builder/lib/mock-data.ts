@@ -46,3 +46,10 @@ export function getMockSiteName(siteId: string): string {
   }
   return `Site ${siteId}`;
 }
+
+export function getMockSiteSlug(siteId: string): string {
+  if (siteId === "demo-site") {
+    return "my-business";
+  }
+  return siteId;
+}
