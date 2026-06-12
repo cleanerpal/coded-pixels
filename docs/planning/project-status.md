@@ -14,7 +14,7 @@
 | **Current wave** | **13** |
 | **Current milestone** | **Platform Phase 2** — B2 builder shell next |
 | **Last wave closed** | **12** |
-| **Last commit SHA** | _(pending push)_ |
+| **Last commit SHA** | `1624bde` |
 | **Last commit message** | `wave(12): B1 tenant schema + rules expansion` |
 | **Remote synced** | Yes |
 | **Git remote** | `https://github.com/cleanerpal/coded-pixels.git` (`origin`, branch `main`) |
@@ -67,8 +67,8 @@
 | DOC-007 | 10 | 2025-06-12 | 8f04816 | Monorepo layout spec |
 | DOC-008 | 10 | 2025-06-12 | 8f04816 | Template seeding CI spec |
 | B0-001 | 11 | 2025-06-12 | 5151d06 | Turborepo scaffold |
-| B1-001 | 12 | 2025-06-12 | _(this wave)_ | Tenant schema + template seeds |
-| B1-002 | 12 | 2025-06-12 | _(this wave)_ | Rules expansion + 52 rules tests |
+| B1-001 | 12 | 2025-06-12 | 1624bde | Tenant schema + template seeds |
+| B1-002 | 12 | 2025-06-12 | 1624bde | Rules expansion + 52 rules tests |
 
 ---
 
