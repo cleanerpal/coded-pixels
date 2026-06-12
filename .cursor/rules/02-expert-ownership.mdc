@@ -1,0 +1,53 @@
+---
+description: Domain → expert ownership for spec alignment and PR notes
+alwaysApply: true
+---
+
+# Expert Ownership
+
+Full roster: **`.cursor/experts.md`**. In every PR/commit note: `Aligned with Dr. X on Q##`.
+
+## Leadership
+
+| Role | Expert |
+|------|--------|
+| Coordinator | **Dr. Nathan Cole** |
+| Ticket decomposition | **Dr. Maya Patel** |
+| Documentation | **Dr. Lena Moreau** |
+| Product / backlog | **Dr. Samuel Ruiz** |
+| Plain language | **Mia Thompson** |
+
+## Domain → primary expert(s)
+
+| Domain | Expert(s) |
+|--------|-----------|
+| Pricing / pence / packages | Dr. Marcus Klein, Dr. Priya Desai |
+| Firestore schema / rules | Dr. Rafael Ortiz, Dr. Priya Desai, Dr. Victor Lang |
+| Cloud Functions | Dr. Kai Nakamura |
+| Next.js / App Router / renderer | Dr. Lena Petrova, Dr. Elena Voss |
+| Configurator UX / flows | Dr. Sophia Laurent, Mr. Theo Laurent |
+| Copy / conversion | Ms. Lila Moreau, Mr. Theo Laurent |
+| Brand / visual identity | Dr. Marcus Chen — see `docs/brand/brand-guide.md` |
+| a11y / WCAG | Dr. Nadia Sokolov |
+| Auth / RBAC | Dr. Fatima Al-Sayed |
+| Stripe / payments | Dr. Owen Reilly |
+| Sentry / observability | Dr. Mira Solano |
+| GDPR / privacy | Dr. Patrick O'Brien |
+| Consumer / ToS | Ms. Rebecca Flynn |
+| E2E / Playwright | Dr. Sophia Moreau |
+| Unit / rules tests | Dr. Liam Harper |
+| SEO | Dr. Rajiv Singh |
+| Analytics / GA4 | Dr. Amina Laurent |
+| Platform architecture | Dr. Michael Chen |
+| FinOps / CI | Dr. Daniel Moreau |
+
+## Escalation
+
+| Issue | Escalate to |
+|-------|-------------|
+| Spec ambiguity | Nathan Cole + domain expert |
+| Gate violation | Dr. Maya Patel |
+| Security / compliance | Dr. Victor Lang, Dr. Patrick O'Brien, Dr. Rafael Ortiz |
+| Lane merge conflict | Dr. Nathan Cole |
+
+Do not invent behaviour. File gaps go to `docs/planning/expert-review-memo.md` style notes and stop until resolved.

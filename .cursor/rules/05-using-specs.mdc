@@ -1,0 +1,42 @@
+---
+description: How and why to use spec files before and during implementation
+alwaysApply: true
+---
+
+# Using Spec Files
+
+Specs are the **contract** — not background reading. Use them actively.
+
+## Why specs exist (pre-code)
+
+| Spec | Why use it now |
+|------|----------------|
+| `docs/planning/implementation-tickets.md` | **What to build** — scope, lane, gates, acceptance criteria |
+| `docs/specs/codedpixels-project-plan.md` | **Why** — Q1–Q64 decisions; search Q## before coding |
+| `docs/specs/firestore-schema.md` | Field names, types, retention — copy exactly |
+| `docs/specs/firestore-rules-spec.md` | Deny-by-default; Callable-only PII writes |
+| `docs/brand/brand-guide.md` | Colours, copy, logo — no invented hex or headlines |
+| `docs/planning/expert-review-memo.md` | Amendments that override older plan text |
+| `docs/specs/builder-ui-spec.md` | Phase 2 only — ignore for M0–M4 unless prep ticket |
+
+Without specs → ambiguity → parallel agents drift. Specs replace ad-hoc questions.
+
+## How to use them (per ticket)
+
+1. Open ticket in `implementation-tickets.md` → note **Blocked by**, **Lane**, acceptance checklist
+2. Grep project-plan for feature keyword or Q## cited in ticket
+3. If data involved → read schema + rules sections **before** naming fields
+4. If UI/copy → read brand-guide + project-plan §8–10
+5. Quote **one Q## or spec §** in handoff: "Aligned with Dr. X on Q40"
+
+## When to update specs
+
+- Behaviour change → update spec **in same wave** (Nathan commits with code)
+- New decision → new Q## in project-plan (Coordinator approval)
+- Do not implement first and spec later
+
+## What specs are NOT
+
+- Not optional context — they are gates for expert alignment
+- Not replaced by memory or prior chat — **re-read in each new agent session**
+- Not all needed every ticket — use the table above to pick minimum set

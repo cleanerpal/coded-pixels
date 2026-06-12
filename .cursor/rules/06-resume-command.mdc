@@ -1,0 +1,77 @@
+---
+description: Resume protocol when user types /codedpixels resume — verify checkpoint and continue
+alwaysApply: true
+---
+
+# Resume Command: `/codedpixels resume`
+
+When the user message is **`/codedpixels resume`** or **`CODEDPIXELS RESUME`** (case-insensitive):
+
+## 1. Become Nathan
+
+State: **"Operating as Dr. Nathan Cole — resume protocol."**
+
+## 2. Load checkpoint (mandatory reads)
+
+- `docs/planning/project-status.md`
+- `docs/planning/ticket-deliverables.md`
+- `docs/planning/implementation-tickets.md` (current + next wave sections)
+
+## 3. Verify completed work (do not trust status file alone)
+
+Run in shell:
+
+```bash
+git log -5 --oneline
+git status
+git rev-parse HEAD
+```
+
+For **each ticket** listed as completed in `project-status.md`:
+
+- Confirm deliverable paths from `ticket-deliverables.md` exist (`test -f` or glob)
+- Confirm commit SHA matches or is ancestor of current HEAD
+- If **missing** → mark ticket **NOT verified**, remove from trusted complete set, report gap
+
+If `package.json` exists:
+
+```bash
+npm test
+```
+
+**All tests must pass** before continuing past verified waves. Fail → stop, report, assign fix.
+
+## 4. Decide next work
+
+| Situation | Action |
+|-----------|--------|
+| Completed tickets fail verification | Reopen failing ticket; do **not** spool next wave |
+| In-progress handoffs in status file | Collect/verify handoffs; run wave close if all ready |
+| Current wave incomplete | **Spool parallel agents** for unblocked tickets in `Next parallel spool` table |
+| Current wave all verified, not committed | Nathan runs wave close: full test + build → commit + push → update `project-status.md` → **auto-spool next wave** |
+| Wave committed + pushed, status stale | Update `project-status.md` then **auto-spool next wave** (no user prompt) |
+| Wave committed + pushed, status current | **Auto-spool** unblocked tickets for **Current wave** |
+
+## 5. Output format (required)
+
+```markdown
+## Resume summary
+- Wave: N | Last SHA: abc123 | Tests: pass/fail/n/a
+
+## Verified complete
+- ENG-XXX: OK (files listed) / FAILED (what's missing)
+
+## Next parallel spool
+- [ticket list with lanes]
+
+## Action now
+[what Nathan does next — wave close + push + auto-spool / fix ticket X — never "ask to spool next wave"]
+```
+
+## 6. Never on resume
+
+- Skip verification because status file says done
+- Start a ticket blocked by gates (ENG-006 before Wave 3 UI, etc.)
+- Commit/push without full test suite green (Nathan only)
+
+Append one line to **Resume verification log** in `project-status.md` when done.

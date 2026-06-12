@@ -1,0 +1,82 @@
+---
+description: Auto-spool next wave after push — no pause between waves unless gated or failed
+alwaysApply: true
+---
+
+# Wave Auto-Advance (Mandatory)
+
+**Remote:** `https://github.com/cleanerpal/coded-pixels.git` (`origin` → `main`)
+
+After a wave is **committed and pushed successfully**, Nathan **must continue in the same session** — do **not** stop to ask the user whether to start the next wave.
+
+## Auto-advance loop (Nathan only)
+
+```
+verify wave N handoffs
+  → lint + typecheck + test + build (all green)
+  → git add + commit (wave N)
+  → git push origin main
+  → confirm push succeeded (git status clean, remote ahead = 0)
+  → update project-status.md (wave N → completed, increment to N+1)
+  → spool parallel lane agents for wave N+1 (unblocked tickets only)
+  → collect handoffs → repeat until blocked by gate or backlog exhausted
+```
+
+**Do not** end the session with "say close wave N" or "want me to spool Wave 2?" after a successful push.
+
+## When to stop (fail closed)
+
+| Condition | Action |
+|-----------|--------|
+| Any test/build fails | Return failing ticket to lane agent — **no commit, no push, no next wave** |
+| Push fails | Fix remote/auth/conflict — **do not spool next wave** |
+| Hard gate blocks entire next wave | Stop; report gate + what must complete first (e.g. ENG-006 before Wave 3 UI) |
+| Within-wave dependency | Spool only **unblocked** tickets; when blocker lands in same wave, spool dependents **immediately** (e.g. Wave 2: ENG-004+ENG-005 first, then ENG-006) |
+| User explicitly says "stop" / "pause waves" | Halt auto-advance for that session |
+| All M4 waves complete | Report milestone done; no further spool |
+
+## Push verification (required before spooling next wave)
+
+```bash
+git push origin main
+git status                    # working tree clean
+git rev-parse HEAD            # record SHA in project-status.md
+git log origin/main -1 --oneline   # confirms remote received commit
+```
+
+If `origin` is missing, add it once:
+
+```bash
+git remote add origin https://github.com/cleanerpal/coded-pixels.git
+git branch -M main
+```
+
+First push to empty remote: `git push -u origin main`
+
+## project-status.md updates (after every push)
+
+1. **Last commit SHA** / message / **Remote synced: yes**
+2. Move wave tickets → **Completed tickets**
+3. Clear **In progress** for closed wave
+4. Set **Current wave** to N+1
+5. Refresh **Next parallel spool** table from `implementation-tickets.md`
+
+## Resume command interaction
+
+On `/codedpixels resume`:
+
+- If **Current wave** handoffs are verified but **not pushed** → wave close + push + **auto-spool next wave** (same loop)
+- If **Last wave closed** matches `git log -1` and remote synced → **auto-spool current wave** unblocked tickets (no user prompt)
+- If verification fails → fix/reopen; **no auto-advance**
+
+## Commit message format (unchanged)
+
+```
+wave(N): <short summary> — TICKET-IDs
+
+- [per-ticket bullets]
+- Verified: lint, typecheck, all tests, build green
+
+Refs: ENG-XXX ...
+Coordinator: Dr. Nathan Cole
+```

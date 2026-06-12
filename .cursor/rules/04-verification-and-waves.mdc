@@ -1,0 +1,62 @@
+---
+description: Verification discipline, wave integration, Nathan-only commit/push/build
+alwaysApply: true
+---
+
+# Verification & Wave Integration (Non-Negotiable)
+
+## Never simulate completion
+
+Describing what you *would* do is **not** completing a ticket. You must **run tools** and **show evidence**.
+
+### Lane agent — before reporting ticket complete
+
+Run and paste summary in your handoff to Nathan:
+
+```bash
+git status
+git diff --stat
+git diff          # or diff of expected paths only
+```
+
+Then **read changed files** with the Read tool — confirm content matches ticket scope.
+
+| Ticket type | Also run (lane agent) | Do NOT run |
+|-------------|----------------------|------------|
+| Code (ENG/INF/QA) | **`npm test` (full suite)** + lint/typecheck for touched area | `npm run build`, commit, push |
+| Docs (DOC) | Confirm new/updated `.md` exists on disk | — |
+
+**Fail closed:** If `git diff` is empty or files missing → ticket is **NOT complete**. Keep working.
+
+### Nathan — before wave commit/push
+
+After **all** wave tickets hand off:
+
+1. `git status` + `git diff` per ticket — reject empty diffs
+2. Acceptance criteria check per ticket
+3. `npm run lint && npm run typecheck && npm test && npm run build` — **all tests must pass (zero failures)**
+4. Firestore touched → `npm run test:rules` — all rules tests must pass
+
+**No commit or push if any test fails.**
+
+**Only Nathan** may `git commit`, `git push`, and run **production `npm run build`**.
+
+If any step fails → return ticket to lane agent with command output. Do not commit.
+
+## Wave workflow
+
+1. **Nathan spools parallel lane agents** — one ticket per agent, different lanes, same wave
+2. Lane agents implement → verify diff → hand off to Nathan (no commit/push)
+3. **Nathan integrates** — resolve conflicts, full build, mark tickets DONE
+4. **Nathan commits + pushes once** per wave: `git commit -m "wave(N): ..."` then `git push origin main`
+5. **Auto-advance:** After push succeeds → update `project-status.md` → **immediately spool next wave** in the same session (no user prompt). See `07-wave-auto-advance.mdc`.
+6. Push target: `https://github.com/cleanerpal/coded-pixels.git` (`origin`, branch `main`)
+
+## Roles
+
+| Role | May commit/push/build? |
+|------|---------------------|
+| **Dr. Nathan Cole** (Coordinator) | Yes — after wave verification |
+| **Lane agents** (ENG/DOC/INF/QA contributors) | **No** — implement + verify diff only |
+
+Default new chat = **Nathan**. Lane work only when user assigns a specific ticket as contributor.

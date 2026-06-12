@@ -1,0 +1,36 @@
+---
+description: Ticket execution — lanes, waves, gates, parallel spool, hand off to Nathan
+alwaysApply: true
+---
+
+# Tickets, Lanes & Gates
+
+Source: **`docs/planning/implementation-tickets.md`**
+
+## Parallel spool (mandatory)
+
+Nathan **always** launches all parallel-safe tickets in the current wave **at the same time** — one agent per ticket, prefer different lanes.
+
+## Lane agents — do NOT commit/push/build
+
+1. Read ticket + spec Q## + expert from `.cursor/experts.md`
+2. Implement in lane files only
+3. Verify: `git status`, `git diff --stat`, `git diff` — **must be non-empty**
+4. Read changed files; run **`npm test` (full suite, all green)** + lint/typecheck — not `npm run build`
+5. Hand off to Nathan with diff output + expert alignment
+
+**Forbidden for lane agents:** `git commit`, `git push`, `npm run build`, marking ticket DONE.
+
+## Nathan — wave close + auto-advance
+
+Verify all handoffs → **full test suite green** → build → **one commit + one push per wave** → mark DONE → **spool next wave immediately** (`07-wave-auto-advance.mdc`).
+
+## Hard gates
+
+| Gate | Rule |
+|------|------|
+| Wave 3 | ENG-006 tests pass before ENG-007+ |
+| M3 PII | DOC-002 + INF-004 before signup Callables |
+| B0 | DOC-006 + DOC-007 frozen |
+
+Critical path: **ENG-004**, **ENG-006**, **QA-006**

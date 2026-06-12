@@ -1,0 +1,41 @@
+---
+description: CodedPixels implementation standards — money, security, stack, a11y
+globs: "**/*.{ts,tsx,css}"
+alwaysApply: false
+---
+
+# CodedPixels Code Standards
+
+Stack: **Next.js 15 App Router**, **TypeScript strict**, **Tailwind 4.x**, **Lucide** icons, **Inter** font (`docs/brand/brand-guide.md` tokens).
+
+## Money (ENG-004)
+
+- All amounts in **integer pence** — no floats in totals
+- Annual recurring only: `Math.round(monthlyTotalPence * 12 * 83 / 100)` — multiply in this exact order
+- One-time £149 → separate `oneTimeFeesPence` (14900), not in `monthlyTotalPence`
+- Live configurator total is authoritative; package card prices are marketing labels
+
+## Config state (ENG-006)
+
+- URL params: `template`, `features`, `billing`, `customTemplate`, `package`
+- Invalid params → partial restore per Q40; round-trip tests required before Wave 3 UI
+
+## Security
+
+- No client writes to `signups`, `waitlist_site_import`, or tenant data
+- M3+: Callable Functions + App Check; rules from `docs/specs/firestore-rules-spec.md` §11
+- Sentry with PII scrubbing before any PII endpoint ships (INF-004)
+
+## UI / brand
+
+- Tokens: primary `#4F46E5`, accent `#06B6D4`, success `#10B981`, bg `#FAFAFA`, dark `#0F172A`
+- Live price: accent colour + `aria-live="polite"`
+- Toggles: `role="switch"`, `aria-checked`; contrast ≥ 4.5:1 (Dr. Nadia Sokolov)
+
+## Quality before PR (Nathan wave close)
+
+```bash
+npm run lint && npm run typecheck && npm test && npm run build
+```
+
+**All tests must pass** — full suite, zero failures. Firestore changes: `npm run test:rules` must also pass. **No commit/push otherwise.**
