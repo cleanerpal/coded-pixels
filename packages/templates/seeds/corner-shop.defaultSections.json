@@ -1,0 +1,63 @@
+{
+  "templateId": "corner-shop",
+  "metadata": {
+    "name": "Corner Shop",
+    "category": "retail",
+    "description": "Product showcase and store-ready layout",
+    "sortOrder": 6,
+    "isCustomTemplate": false
+  },
+  "defaultPage": {
+    "title": "Home",
+    "slug": "home",
+    "seo": {
+      "title": "Corner Shop — Local Goods & Gifts",
+      "description": "Browse our curated products and visit us in store."
+    }
+  },
+  "defaultSections": [
+    {
+      "id": "00000000-0006-4000-8000-000000000001",
+      "type": "hero",
+      "props": {
+        "headline": "Your neighbourhood shop",
+        "subheadline": "Hand-picked products from local makers",
+        "ctaText": "Shop now",
+        "ctaLink": "#products",
+        "alignment": "center"
+      }
+    },
+    {
+      "id": "00000000-0006-4000-8000-000000000002",
+      "type": "features-grid",
+      "props": {
+        "headline": "Featured collections",
+        "columns": 3,
+        "items": [
+          { "title": "Pantry", "description": "Artisan foods and treats" },
+          { "title": "Gifts", "description": "Cards and curated hampers" },
+          { "title": "Home", "description": "Candles, textiles, and décor" }
+        ]
+      }
+    },
+    {
+      "id": "00000000-0006-4000-8000-000000000003",
+      "type": "cta-banner",
+      "props": {
+        "headline": "Visit us on the high street",
+        "subheadline": "Open seven days a week",
+        "ctaText": "Get directions",
+        "ctaLink": "#visit"
+      }
+    },
+    {
+      "id": "00000000-0006-4000-8000-000000000004",
+      "type": "footer",
+      "props": {
+        "businessName": "Corner Shop",
+        "tagline": "Independent retail",
+        "showSocialLinks": true
+      }
+    }
+  ]
+}

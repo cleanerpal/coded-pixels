@@ -202,6 +202,8 @@ Platform-managed template seeds. **Read-only** from client; seeded by admin/CI.
 | `sortOrder` | number | ✅ | Gallery ordering |
 | `defaultPage` | object | ✅ | See below |
 | `isCustomTemplate` | boolean | ✅ | `false` for library; `true` for bespoke placeholder |
+| `seedVersion` | number | optional | CI-managed monotonic version from seed manifest — clients ignore |
+| `contentHash` | string | optional | SHA-256 of canonical seed payload — idempotent upsert only |
 | `updatedAt` | Timestamp | ✅ | |
 
 **`defaultPage` object:**

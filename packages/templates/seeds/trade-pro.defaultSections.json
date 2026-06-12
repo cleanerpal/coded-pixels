@@ -1,0 +1,62 @@
+{
+  "templateId": "trade-pro",
+  "metadata": {
+    "name": "TradePro",
+    "category": "cleaning-trades",
+    "description": "Electrician/plumber portfolio + emergency CTA",
+    "sortOrder": 2,
+    "isCustomTemplate": false
+  },
+  "defaultPage": {
+    "title": "Home",
+    "slug": "home",
+    "seo": {
+      "title": "TradePro — Reliable Trades Services",
+      "description": "Emergency call-outs and planned work for homes and businesses."
+    }
+  },
+  "defaultSections": [
+    {
+      "id": "00000000-0002-4000-8000-000000000001",
+      "type": "hero",
+      "props": {
+        "headline": "Expert trades, when you need them",
+        "subheadline": "Electricians and plumbers — fast response across your area",
+        "ctaText": "Call now",
+        "ctaLink": "tel:08001234567",
+        "alignment": "left"
+      }
+    },
+    {
+      "id": "00000000-0002-4000-8000-000000000002",
+      "type": "features-grid",
+      "props": {
+        "headline": "Our services",
+        "columns": 2,
+        "items": [
+          { "title": "Emergency repairs", "description": "24/7 call-out for urgent faults" },
+          { "title": "Installations", "description": "Boilers, rewires, and upgrades" }
+        ]
+      }
+    },
+    {
+      "id": "00000000-0002-4000-8000-000000000003",
+      "type": "cta-banner",
+      "props": {
+        "headline": "Need help today?",
+        "subheadline": "Speak to a qualified tradesperson",
+        "ctaText": "Get a callback",
+        "ctaLink": "#contact"
+      }
+    },
+    {
+      "id": "00000000-0002-4000-8000-000000000004",
+      "type": "footer",
+      "props": {
+        "businessName": "TradePro",
+        "tagline": "Trusted local trades",
+        "showSocialLinks": false
+      }
+    }
+  ]
+}

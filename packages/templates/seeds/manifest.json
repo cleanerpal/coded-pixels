@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "seedVersion": 1,
+  "templates": [
+    "sparkle-clean",
+    "trade-pro",
+    "serenity-spa",
+    "glow-studio",
+    "apex-legal",
+    "corner-shop",
+    "the-local",
+    "learn-hub",
+    "business-core",
+    "startup-launch",
+    "custom"
+  ]
+}

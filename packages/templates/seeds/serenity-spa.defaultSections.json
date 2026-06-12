@@ -1,0 +1,58 @@
+{
+  "templateId": "serenity-spa",
+  "metadata": {
+    "name": "Serenity Spa",
+    "category": "beauty-wellness",
+    "description": "Calm aesthetic for salons and spas",
+    "sortOrder": 3,
+    "isCustomTemplate": false
+  },
+  "defaultPage": {
+    "title": "Home",
+    "slug": "home",
+    "seo": {
+      "title": "Serenity Spa — Relax and Rejuvenate",
+      "description": "Treatments, packages, and tranquil spa experiences."
+    }
+  },
+  "defaultSections": [
+    {
+      "id": "00000000-0003-4000-8000-000000000001",
+      "type": "hero",
+      "props": {
+        "headline": "Find your calm",
+        "subheadline": "Massage, facials, and wellness rituals in a serene setting",
+        "ctaText": "Book a treatment",
+        "ctaLink": "#book",
+        "alignment": "center"
+      }
+    },
+    {
+      "id": "00000000-0003-4000-8000-000000000002",
+      "type": "text-block",
+      "props": {
+        "headline": "A sanctuary for self-care",
+        "body": "Our therapists combine traditional techniques with modern wellness to help you unwind."
+      }
+    },
+    {
+      "id": "00000000-0003-4000-8000-000000000003",
+      "type": "cta-banner",
+      "props": {
+        "headline": "Gift vouchers available",
+        "subheadline": "Treat someone special to a spa day",
+        "ctaText": "View packages",
+        "ctaLink": "#packages"
+      }
+    },
+    {
+      "id": "00000000-0003-4000-8000-000000000004",
+      "type": "footer",
+      "props": {
+        "businessName": "Serenity Spa",
+        "tagline": "Beauty and wellness",
+        "showSocialLinks": true
+      }
+    }
+  ]
+}

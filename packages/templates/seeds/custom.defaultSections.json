@@ -1,0 +1,19 @@
+{
+  "templateId": "custom",
+  "metadata": {
+    "name": "Custom Template",
+    "category": "",
+    "description": "A bespoke design tailored to your brand and goals",
+    "sortOrder": 99,
+    "isCustomTemplate": true
+  },
+  "defaultPage": {
+    "title": "Home",
+    "slug": "home",
+    "seo": {
+      "title": "Your bespoke website",
+      "description": "Your custom template will be designed and delivered by our team."
+    }
+  },
+  "defaultSections": []
+}

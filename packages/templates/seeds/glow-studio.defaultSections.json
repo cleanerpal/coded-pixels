@@ -1,0 +1,63 @@
+{
+  "templateId": "glow-studio",
+  "metadata": {
+    "name": "Glow Studio",
+    "category": "beauty-wellness",
+    "description": "Bold beauty brand with booking CTA",
+    "sortOrder": 4,
+    "isCustomTemplate": false
+  },
+  "defaultPage": {
+    "title": "Home",
+    "slug": "home",
+    "seo": {
+      "title": "Glow Studio — Beauty That Shines",
+      "description": "Hair, nails, and makeup with online booking."
+    }
+  },
+  "defaultSections": [
+    {
+      "id": "00000000-0004-4000-8000-000000000001",
+      "type": "hero",
+      "props": {
+        "headline": "Look brilliant, feel confident",
+        "subheadline": "Bold colour, precision cuts, and flawless finishes",
+        "ctaText": "Book online",
+        "ctaLink": "#book",
+        "alignment": "center"
+      }
+    },
+    {
+      "id": "00000000-0004-4000-8000-000000000002",
+      "type": "features-grid",
+      "props": {
+        "headline": "Studio services",
+        "columns": 3,
+        "items": [
+          { "title": "Hair", "description": "Cut, colour, and styling" },
+          { "title": "Nails", "description": "Manicures and gel sets" },
+          { "title": "Makeup", "description": "Events and bridal" }
+        ]
+      }
+    },
+    {
+      "id": "00000000-0004-4000-8000-000000000003",
+      "type": "cta-banner",
+      "props": {
+        "headline": "New client offer",
+        "subheadline": "15% off your first appointment",
+        "ctaText": "Claim offer",
+        "ctaLink": "#book"
+      }
+    },
+    {
+      "id": "00000000-0004-4000-8000-000000000004",
+      "type": "footer",
+      "props": {
+        "businessName": "Glow Studio",
+        "tagline": "Beauty studio",
+        "showSocialLinks": true
+      }
+    }
+  ]
+}

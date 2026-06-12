@@ -1,0 +1,62 @@
+{
+  "templateId": "the-local",
+  "metadata": {
+    "name": "The Local",
+    "category": "hospitality",
+    "description": "Restaurant/pub with menu and reservations",
+    "sortOrder": 7,
+    "isCustomTemplate": false
+  },
+  "defaultPage": {
+    "title": "Home",
+    "slug": "home",
+    "seo": {
+      "title": "The Local — Food, Drink & Good Company",
+      "description": "Seasonal menu, local ales, and table reservations."
+    }
+  },
+  "defaultSections": [
+    {
+      "id": "00000000-0007-4000-8000-000000000001",
+      "type": "hero",
+      "props": {
+        "headline": "Welcome to The Local",
+        "subheadline": "Seasonal plates, craft drinks, and a warm atmosphere",
+        "ctaText": "Reserve a table",
+        "ctaLink": "#reserve",
+        "alignment": "center"
+      }
+    },
+    {
+      "id": "00000000-0007-4000-8000-000000000002",
+      "type": "features-grid",
+      "props": {
+        "headline": "What we serve",
+        "columns": 2,
+        "items": [
+          { "title": "Kitchen", "description": "Locally sourced lunch and dinner" },
+          { "title": "Bar", "description": "Ales, wines, and signature cocktails" }
+        ]
+      }
+    },
+    {
+      "id": "00000000-0007-4000-8000-000000000003",
+      "type": "cta-banner",
+      "props": {
+        "headline": "Sunday roasts from 12pm",
+        "subheadline": "Book ahead — tables fill fast",
+        "ctaText": "View menu",
+        "ctaLink": "#menu"
+      }
+    },
+    {
+      "id": "00000000-0007-4000-8000-000000000004",
+      "type": "footer",
+      "props": {
+        "businessName": "The Local",
+        "tagline": "Restaurant & pub",
+        "showSocialLinks": true
+      }
+    }
+  ]
+}

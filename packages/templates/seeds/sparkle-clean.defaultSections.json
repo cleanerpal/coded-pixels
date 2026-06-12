@@ -1,0 +1,63 @@
+{
+  "templateId": "sparkle-clean",
+  "metadata": {
+    "name": "Sparkle Clean",
+    "category": "cleaning-trades",
+    "description": "Professional cleaning services site with quote form",
+    "sortOrder": 1,
+    "isCustomTemplate": false
+  },
+  "defaultPage": {
+    "title": "Home",
+    "slug": "home",
+    "seo": {
+      "title": "Sparkle Clean — Professional Cleaning Services",
+      "description": "Get a quote for domestic and commercial cleaning."
+    }
+  },
+  "defaultSections": [
+    {
+      "id": "00000000-0001-4000-8000-000000000001",
+      "type": "hero",
+      "props": {
+        "headline": "Spotless homes, every visit",
+        "subheadline": "Trusted local cleaning for homes and offices",
+        "ctaText": "Get a quote",
+        "ctaLink": "#contact",
+        "alignment": "center"
+      }
+    },
+    {
+      "id": "00000000-0001-4000-8000-000000000002",
+      "type": "features-grid",
+      "props": {
+        "headline": "Why choose us",
+        "columns": 3,
+        "items": [
+          { "title": "Fully insured", "description": "Peace of mind on every job" },
+          { "title": "Eco-friendly products", "description": "Safe for families and pets" },
+          { "title": "Flexible scheduling", "description": "Weekly, fortnightly, or one-off" }
+        ]
+      }
+    },
+    {
+      "id": "00000000-0001-4000-8000-000000000003",
+      "type": "cta-banner",
+      "props": {
+        "headline": "Ready for a cleaner home?",
+        "subheadline": "Book your first visit today",
+        "ctaText": "Request a quote",
+        "ctaLink": "#contact"
+      }
+    },
+    {
+      "id": "00000000-0001-4000-8000-000000000004",
+      "type": "footer",
+      "props": {
+        "businessName": "Sparkle Clean",
+        "tagline": "Professional cleaning services",
+        "showSocialLinks": false
+      }
+    }
+  ]
+}

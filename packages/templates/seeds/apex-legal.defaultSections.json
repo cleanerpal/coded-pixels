@@ -1,0 +1,58 @@
+{
+  "templateId": "apex-legal",
+  "metadata": {
+    "name": "Apex Legal",
+    "category": "professional-services",
+    "description": "Trust-focused layout for solicitors/consultants",
+    "sortOrder": 5,
+    "isCustomTemplate": false
+  },
+  "defaultPage": {
+    "title": "Home",
+    "slug": "home",
+    "seo": {
+      "title": "Apex Legal — Trusted Legal Advice",
+      "description": "Experienced solicitors for individuals and businesses."
+    }
+  },
+  "defaultSections": [
+    {
+      "id": "00000000-0005-4000-8000-000000000001",
+      "type": "hero",
+      "props": {
+        "headline": "Clear advice you can trust",
+        "subheadline": "Personal and commercial legal services with transparent fees",
+        "ctaText": "Book a consultation",
+        "ctaLink": "#contact",
+        "alignment": "left"
+      }
+    },
+    {
+      "id": "00000000-0005-4000-8000-000000000002",
+      "type": "text-block",
+      "props": {
+        "headline": "Areas of practice",
+        "body": "Family law, property, wills and probate, and business contracts — handled with care and discretion."
+      }
+    },
+    {
+      "id": "00000000-0005-4000-8000-000000000003",
+      "type": "cta-banner",
+      "props": {
+        "headline": "Speak to a solicitor",
+        "subheadline": "Initial consultation available",
+        "ctaText": "Contact us",
+        "ctaLink": "#contact"
+      }
+    },
+    {
+      "id": "00000000-0005-4000-8000-000000000004",
+      "type": "footer",
+      "props": {
+        "businessName": "Apex Legal",
+        "tagline": "Solicitors and consultants",
+        "showSocialLinks": false
+      }
+    }
+  ]
+}

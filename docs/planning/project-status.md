@@ -11,11 +11,11 @@
 | Field | Value |
 |-------|--------|
 | **Last updated** | 2025-06-12 |
-| **Current wave** | **12** |
-| **Current milestone** | **Platform Phase 2** — B1 tenant schema next |
-| **Last wave closed** | **11** |
-| **Last commit SHA** | `5151d06` |
-| **Last commit message** | `wave(11): B0-001 Turborepo scaffold — marketing app migration` |
+| **Current wave** | **13** |
+| **Current milestone** | **Platform Phase 2** — B2 builder shell next |
+| **Last wave closed** | **12** |
+| **Last commit SHA** | _(pending push)_ |
+| **Last commit message** | `wave(12): B1 tenant schema + rules expansion` |
 | **Remote synced** | Yes |
 | **Git remote** | `https://github.com/cleanerpal/coded-pixels.git` (`origin`, branch `main`) |
 
@@ -67,6 +67,8 @@
 | DOC-007 | 10 | 2025-06-12 | 8f04816 | Monorepo layout spec |
 | DOC-008 | 10 | 2025-06-12 | 8f04816 | Template seeding CI spec |
 | B0-001 | 11 | 2025-06-12 | 5151d06 | Turborepo scaffold |
+| B1-001 | 12 | 2025-06-12 | _(this wave)_ | Tenant schema + template seeds |
+| B1-002 | 12 | 2025-06-12 | _(this wave)_ | Rules expansion + 52 rules tests |
 
 ---
 
@@ -80,7 +82,7 @@
 
 ## Next parallel spool
 
-**Wave 12** — B1-001 + B1-002 in parallel (tenant schema + rules expansion). Optional: DOC-009.
+**Wave 13** — B2-001 + B2-002 in parallel (builder shell + component registry). Optional: DOC-009.
 
 Full backlog: `implementation-tickets.md`
 
@@ -94,6 +96,7 @@ Full backlog: `implementation-tickets.md`
 | M3 PII | **CLOSED** |
 | M4 QA gate | **CLOSED** |
 | Platform B0 monorepo | **CLOSED** — B0-001 complete |
+| Platform B1 tenant schema | **CLOSED** — B1-001 + B1-002 complete |
 
 ---
 
@@ -104,6 +107,8 @@ Full backlog: `implementation-tickets.md`
 | 2025-06-12 | continue | Wave 9 — M4 QA complete |
 | 2025-06-12 | continue | Wave 10 — P2 prep docs DOC-003–DOC-008 |
 | 2025-06-12 | continue | Wave 11 — B0-001 Turborepo `5151d06` |
+| 2025-06-12 | resume | Wave 12 — verified B0-001 @ `cda50fb`; tests green; spooling B1-001 + B1-002 |
+| 2025-06-12 | resume | Wave 12 closed — B1-001 + B1-002 verified; lint/typecheck/test/build/test:rules green |
 
 ---
 

@@ -1,0 +1,63 @@
+{
+  "templateId": "startup-launch",
+  "metadata": {
+    "name": "Startup Launch",
+    "category": "general-business",
+    "description": "Modern single-page startup landing",
+    "sortOrder": 10,
+    "isCustomTemplate": false
+  },
+  "defaultPage": {
+    "title": "Home",
+    "slug": "home",
+    "seo": {
+      "title": "Startup Launch — Ship Faster",
+      "description": "A bold landing page for early-stage products and waitlists."
+    }
+  },
+  "defaultSections": [
+    {
+      "id": "00000000-0010-4000-8000-000000000001",
+      "type": "hero",
+      "props": {
+        "headline": "Launch your idea this quarter",
+        "subheadline": "Everything you need to validate, build, and grow",
+        "ctaText": "Join the waitlist",
+        "ctaLink": "#waitlist",
+        "alignment": "center"
+      }
+    },
+    {
+      "id": "00000000-0010-4000-8000-000000000002",
+      "type": "features-grid",
+      "props": {
+        "headline": "Why teams choose us",
+        "columns": 3,
+        "items": [
+          { "title": "Fast setup", "description": "Live in days, not months" },
+          { "title": "Built to scale", "description": "Grow without replatforming" },
+          { "title": "Founder-friendly", "description": "Transparent pricing" }
+        ]
+      }
+    },
+    {
+      "id": "00000000-0010-4000-8000-000000000003",
+      "type": "cta-banner",
+      "props": {
+        "headline": "Early access opening soon",
+        "subheadline": "Be first to try the platform",
+        "ctaText": "Sign up free",
+        "ctaLink": "#waitlist"
+      }
+    },
+    {
+      "id": "00000000-0010-4000-8000-000000000004",
+      "type": "footer",
+      "props": {
+        "businessName": "Startup Launch",
+        "tagline": "Product landing page",
+        "showSocialLinks": true
+      }
+    }
+  ]
+}

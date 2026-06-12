@@ -103,9 +103,14 @@ If a ticket is marked complete but deliverables are missing → **reopen ticket*
 |--------|----------------------------------|
 | **B0-001** | `turbo.json`, `apps/marketing/`, `packages/ui`, `packages/shared-types` |
 
-## Wave 12+
+## Wave 12
 
----
+| Ticket | Required deliverables (minimum) |
+|--------|----------------------------------|
+| **B1-001** | `packages/templates/seeds/` (manifest + 11 `*.defaultSections.json`), `@codedpixels/shared-types` Platform Phase 2 types (`Section`, `TemplateDoc`, `Company`, `Site`, `Page`, `PageVersion`, `Member`), `npm run validate:templates`, `npm run seed:templates:emulator`, `docs/specs/firestore-schema.md` §5.2 `seedVersion`/`contentHash` |
+| **B1-002** | `firestore.rules` §4.2–4.5 tenant expansion (`companyHasFeature`, leads CRM gate, products public read), `tests/firestore/rules/firestore.rules.test.ts` B1 coverage, `npm run test:rules` green |
+
+## Wave 13+
 
 ## Verification commands (Nathan runs on resume)
 

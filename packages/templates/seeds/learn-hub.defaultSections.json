@@ -1,0 +1,63 @@
+{
+  "templateId": "learn-hub",
+  "metadata": {
+    "name": "LearnHub",
+    "category": "education",
+    "description": "Courses, schedules, enrollment forms",
+    "sortOrder": 8,
+    "isCustomTemplate": false
+  },
+  "defaultPage": {
+    "title": "Home",
+    "slug": "home",
+    "seo": {
+      "title": "LearnHub — Courses That Move You Forward",
+      "description": "Professional training and evening classes with easy enrollment."
+    }
+  },
+  "defaultSections": [
+    {
+      "id": "00000000-0008-4000-8000-000000000001",
+      "type": "hero",
+      "props": {
+        "headline": "Learn skills that matter",
+        "subheadline": "Flexible courses for career changers and lifelong learners",
+        "ctaText": "Browse courses",
+        "ctaLink": "#courses",
+        "alignment": "left"
+      }
+    },
+    {
+      "id": "00000000-0008-4000-8000-000000000002",
+      "type": "features-grid",
+      "props": {
+        "headline": "Popular programmes",
+        "columns": 3,
+        "items": [
+          { "title": "Digital skills", "description": "Web, data, and design basics" },
+          { "title": "Business", "description": "Marketing and finance essentials" },
+          { "title": "Languages", "description": "Evening classes all levels" }
+        ]
+      }
+    },
+    {
+      "id": "00000000-0008-4000-8000-000000000003",
+      "type": "cta-banner",
+      "props": {
+        "headline": "Enrol for the next term",
+        "subheadline": "Places limited — register your interest",
+        "ctaText": "Enrol now",
+        "ctaLink": "#enrol"
+      }
+    },
+    {
+      "id": "00000000-0008-4000-8000-000000000004",
+      "type": "footer",
+      "props": {
+        "businessName": "LearnHub",
+        "tagline": "Education centre",
+        "showSocialLinks": false
+      }
+    }
+  ]
+}

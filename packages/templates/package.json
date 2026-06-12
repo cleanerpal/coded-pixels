@@ -1,0 +1,24 @@
+{
+  "name": "@codedpixels/templates",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate:templates": "node scripts/validate.mjs",
+    "seed:templates:emulator": "node scripts/seed.mjs --emulator",
+    "seed:templates": "node scripts/seed.mjs",
+    "build": "echo \"@codedpixels/templates — JSON seeds only\"",
+    "typecheck": "echo \"No TypeScript in @codedpixels/templates\"",
+    "lint": "npm run validate:templates",
+    "test": "npm run validate:templates"
+  },
+  "dependencies": {
+    "@codedpixels/shared-types": "*",
+    "firebase-admin": "^13.6.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@codedpixels/eslint-config": "*",
+    "@codedpixels/typescript-config": "*"
+  }
+}

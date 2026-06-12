@@ -1,0 +1,58 @@
+{
+  "templateId": "business-core",
+  "metadata": {
+    "name": "Business Core",
+    "category": "general-business",
+    "description": "Flexible multi-section corporate site",
+    "sortOrder": 9,
+    "isCustomTemplate": false
+  },
+  "defaultPage": {
+    "title": "Home",
+    "slug": "home",
+    "seo": {
+      "title": "Business Core — Professional Company Website",
+      "description": "A flexible layout for established businesses and consultancies."
+    }
+  },
+  "defaultSections": [
+    {
+      "id": "00000000-0009-4000-8000-000000000001",
+      "type": "hero",
+      "props": {
+        "headline": "Built for growing businesses",
+        "subheadline": "Showcase services, team, and results with a polished corporate site",
+        "ctaText": "Contact us",
+        "ctaLink": "#contact",
+        "alignment": "center"
+      }
+    },
+    {
+      "id": "00000000-0009-4000-8000-000000000002",
+      "type": "text-block",
+      "props": {
+        "headline": "What we do",
+        "body": "Strategy, delivery, and ongoing support — tailored to your sector and scale."
+      }
+    },
+    {
+      "id": "00000000-0009-4000-8000-000000000003",
+      "type": "cta-banner",
+      "props": {
+        "headline": "Let's talk about your goals",
+        "subheadline": "Schedule a discovery call with our team",
+        "ctaText": "Get in touch",
+        "ctaLink": "#contact"
+      }
+    },
+    {
+      "id": "00000000-0009-4000-8000-000000000004",
+      "type": "footer",
+      "props": {
+        "businessName": "Business Core",
+        "tagline": "Corporate website",
+        "showSocialLinks": true
+      }
+    }
+  ]
+}
