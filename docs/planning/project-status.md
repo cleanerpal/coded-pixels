@@ -11,11 +11,11 @@
 | Field | Value |
 |-------|--------|
 | **Last updated** | 2025-06-12 |
-| **Current wave** | **7** |
-| **Current milestone** | M3 (Wave 7 next) |
-| **Last wave closed** | **6** |
-| **Last commit SHA** | `c5a72f8` |
-| **Last commit message** | `wave(6): Firestore rules + cookie consent banner` |
+| **Current wave** | **9** |
+| **Current milestone** | M4 (Wave 9 / QA gate next) |
+| **Last wave closed** | **8** |
+| **Last commit SHA** | `1da1ebf` |
+| **Last commit message** | `wave(8): get-started flow + Site Import waitlist UI` |
 | **Remote synced** | Yes |
 | **Git remote** | `https://github.com/cleanerpal/coded-pixels.git` (`origin`, branch `main`) |
 
@@ -50,6 +50,10 @@
 | INF-004 | 5 | 2025-06-12 | 7d052a1 | Sentry marketing site |
 | INF-002 | 6 | 2025-06-12 | c5a72f8 | Firestore rules §11 |
 | ENG-021 | 6 | 2025-06-12 | c5a72f8 | Cookie consent banner |
+| INF-003 | 7 | 2025-06-12 | 8cd2048 | Callable signups + waitlist |
+| ENG-022 | 7 | 2025-06-12 | 8cd2048 | Consent-gated GA4 |
+| ENG-020 | 8 | 2025-06-12 | 1da1ebf | Get-started flow |
+| ENG-023 | 8 | 2025-06-12 | 1da1ebf | Site Import waitlist UI |
 
 ---
 
@@ -57,14 +61,13 @@
 
 | Ticket | Lane | Status | Agent/session |
 |--------|------|--------|---------------|
-| INF-003 | E | In progress | Wave 7 spool |
-| ENG-022 | A | In progress | Wave 7 spool |
+| _none_ | | | |
 
 ---
 
 ## Next parallel spool
 
-**Wave 7** — INF-003, ENG-022, ENG-020 (after INF-003), ENG-023. PII gate narrowing: DOC-002 + INF-004 + INF-002 + ENG-021 done.
+**Wave 9 (M4 QA)** — QA-001, QA-002, QA-003, QA-004, QA-005, QA-006 (see `implementation-tickets.md`).
 
 Full backlog: `implementation-tickets.md`
 
@@ -75,7 +78,7 @@ Full backlog: `implementation-tickets.md`
 | Gate | Status |
 |------|--------|
 | ENG-006 → Wave 3 UI | **CLOSED** |
-| M3 PII (DOC-002 + Sentry) | **PARTIAL** — DOC-002, INF-004, INF-002, ENG-021 done; INF-003 + ENG-022 + ENG-020 remain |
+| M3 PII (DOC-002 + Sentry + Callables) | **CLOSED** |
 | Platform B0 monorepo | **OPEN** |
 
 ---
@@ -88,9 +91,9 @@ Full backlog: `implementation-tickets.md`
 | 2025-06-12 | Wave 1 push | `3af0896` |
 | 2025-06-12 | Wave 2 push | `6731cfd` — M0 complete |
 | 2025-06-12 | Wave 3 push | `7009166` — M1 configurator components complete |
-| 2025-06-12 | `/codedpixels resume` | Verified waves 1–3; closed Wave 4 `f434495`; closed Wave 5 `7d052a1` |
-| 2025-06-12 | Wave 5 push | `7d052a1` — M3 pages + Firebase/Sentry scaffold |
+| 2025-06-12 | `/codedpixels resume` | Verified waves 1–3; closed Waves 4–6 |
 | 2025-06-12 | Wave 6 push | `c5a72f8` — Firestore rules + cookie consent |
+| 2025-06-12 | continue | Closed Wave 7 `8cd2048`; closed Wave 8 — M3 engineering complete |
 
 ---
 
