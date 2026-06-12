@@ -90,6 +90,32 @@ These do **not** block Phase 0. Track in builder kickoff or follow-on specs.
 | P3 | `slugs/{slug}` index doc | Michael Chen | ☑ Defined in firestore-schema.md §5.1 |
 | P3 | Template seed single source of truth | Marcus Wei | `packages/templates` |
 | P3 | revalidation API contract for `publishSite` | Lena Petrova | builder spec §7 |
+| P2 | **Marketing template preview** (real designs on homepage) | Samuel Ruiz, Sophia Laurent | ☑ [`marketing-template-preview-spec.md`](marketing-template-preview-spec.md) — **Q65, Q66** — Wave 19 |
+
+---
+
+## Q65–Q66 Amendment Pass (Wave 19 — 12 June 2026)
+
+| # | Issue | Resolution | Owners |
+|---|-------|------------|--------|
+| **Q65** | Users cannot see pre-designed templates before selecting; gradient placeholders only | **Platform demo tenants** on site-renderer (`{templateId}` slug); `seed:template-demos`; marketing **Preview full site** links | Samuel Ruiz, Michael Chen, Rafael Ortiz |
+| **Q66** | §6 "no iframe" vs full design preview | **Mock inline preview unchanged**; full design via **external tab** to demo URL — not iframe (iframe deferred Phase 2.2) | Sophia Laurent, Theo Laurent |
+
+**Panel verdict:** APPROVED for Wave 19 implementation. Inline iframe descoped pending CSP ruling (Victor Lang).
+
+**Tickets:** DOC-010, INF-005, INF-006, ENG-024, ENG-025, ENG-026, ENG-027, QA-007 — see `implementation-tickets.md` Wave 19.
+
+---
+
+## Q67–Q68 Starter Template Library (12 June 2026)
+
+| # | Issue | Resolution | Owners |
+|---|-------|------------|--------|
+| **Q67** | User needs multiple generated starters for first site | **10 seeds already exist** — Wave 19 makes them visible + selectable; UX = **starter designs**; +4 templates Wave 20 | Samuel Ruiz, Sophia Laurent, Theo Laurent |
+| **Q68** | How to generate more starters | Manual JSON + CI validation now; scaffold B10-002 Wave 20; AI authoring Phase 2.2+ backlog | Rafael Ortiz, Alex Rivera |
+
+**Plan:** [`starter-template-library-plan.md`](starter-template-library-plan.md)  
+**Wave 20:** DOC-011, B10-001, B10-002, INF-007
 
 ---
 

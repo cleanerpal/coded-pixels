@@ -117,6 +117,28 @@ If a ticket is marked complete but deliverables are missing → **reopen ticket*
 | **B2-001** | `apps/builder/` shell routes (dashboard, onboarding, preview placeholder) |
 | **B2-002** | `packages/component-registry/` — `@codedpixels/component-registry` with registry map, Zod schemas (§3.1 MVP types), React renderers, editor-panels subpath, `SectionRenderer`, `validateSectionProps`, vitest tests |
 
+## Wave 19 — Phase 2.1 Marketing template previews
+
+| Ticket | Required deliverables (minimum) |
+|--------|----------------------------------|
+| **DOC-010** | `docs/planning/marketing-template-preview-spec.md`, Q65/Q66 in `codedpixels-project-plan.md`, `isPlatformDemo` in `firestore-schema.md` §6 |
+| **INF-005** | `packages/templates/scripts/seed-demos.mjs`, `npm run seed:template-demos:emulator`, `RESERVED_TEMPLATE_SLUGS` in shared-types, `seed.mjs` projectId fix, demo `noindex` in site-renderer |
+| **INF-006** | `scripts/generate-template-thumbnails.mjs`, `npm run generate:template-thumbnails`, WebP under `apps/marketing/public/templates/previews/` |
+| **ENG-024** | `apps/marketing/lib/template-preview-urls.ts`, preview links in `Step1Templates.tsx` + `LivePreviewPanel.tsx` |
+| **ENG-025** | `TemplateGallery.tsx` WebP thumbnails + preview links + starter H1/CTA copy |
+| **ENG-026** | Reserved slug validation in `apps/builder/lib/onboarding/slug.ts` + tests |
+| **ENG-027** | Step 1 category filter chips; Starter package copy in `lib/packages.ts` |
+| **QA-007** | `apps/marketing/e2e/template-preview.spec.ts` (filter + select + preview) |
+
+## Wave 20 — Starter library expansion
+
+| Ticket | Required deliverables (minimum) |
+|--------|----------------------------------|
+| **DOC-011** | `docs/planning/template-authoring-guide.md` or governance section in starter plan |
+| **B10-001** | 4 new `*.defaultSections.json`, manifest, `lib/templates.ts`, demo seed for new IDs |
+| **B10-002** | `packages/templates/scripts/new-template.mjs` |
+| **INF-007** | GitHub Actions workflow for thumbnail generation on seed changes |
+
 ## Wave 13+
 
 ## Verification commands (Nathan runs on resume)

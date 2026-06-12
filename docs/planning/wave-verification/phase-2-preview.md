@@ -96,8 +96,9 @@ Template seeds become **visible to end visitors** on a live subdomain after publ
 | Firestore seed files | **Done** (Wave 12) | Full section tree in `templates/` |
 | Customer’s draft site | **Done** (Wave 16) | Cloned into tenant after checkout |
 | Public live site | **Done** (Waves 14–15) | Publish + `slug.codedpixels.co.uk` |
+| **Marketing preview of real designs** | **Wave 19** (planned) | Demo tenants + preview links on homepage |
 
-Detail: [roadmap.md](roadmap.md) · [template-seeding-ci-spec.md](../template-seeding-ci-spec.md)
+Detail: [roadmap.md](roadmap.md) · [marketing-template-preview-spec.md](../marketing-template-preview-spec.md) · [template-seeding-ci-spec.md](../template-seeding-ci-spec.md)
 
 ---
 

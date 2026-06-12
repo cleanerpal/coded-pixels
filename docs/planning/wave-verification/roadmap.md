@@ -76,10 +76,13 @@ Full recap: **[phase-2-preview.md](phase-2-preview.md)**
 | **2. Preview styling** | **Wave 4** | Theme in configurator preview panel | Yes — mock browser, not a real site |
 | **3. Firestore template seeds** | **Wave 12** (B1-001) | JSON section trees → `templates/{id}` | Emulator/Firebase console; not on marketing site |
 | **4. Customer’s live site** | **Waves 14–16** | Clone → edit → publish → `{slug}.codedpixels.co.uk` | Yes — builder + renderer after checkout |
+| **5. Marketing preview of real designs** | **Wave 19** (Phase 2.1) | Demo tenants + WebP thumbnails + **Preview full site** links | Yes — after `seed:template-demos` |
 
-**Today:** choosing “Serenity Spa” in marketing still only sets `templateId` in URL/signup — provisioning (Wave 16) creates the tenant site.
+**Today (pre–Wave 19):** choosing “Serenity Spa” sets `templateId` only; gradients on marketing; real design visible after checkout or manual demo seed.
 
-Detail: [template-seeding-ci-spec.md](../template-seeding-ci-spec.md) · [phase-2-preview.md](phase-2-preview.md)
+**After Wave 19:** homepage + `/templates` link to `{templateId}.localhost:3002` (local) or `{templateId}.codedpixels.co.uk` (prod).
+
+Detail: [template-seeding-ci-spec.md](../template-seeding-ci-spec.md) · [marketing-template-preview-spec.md](../marketing-template-preview-spec.md) · [phase-2-preview.md](phase-2-preview.md)
 
 ---
 

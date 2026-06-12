@@ -11,8 +11,8 @@
 | Field | Value |
 |-------|--------|
 | **Last updated** | 2025-06-12 |
-| **Current wave** | **— (Phase 2 complete)** |
-| **Current milestone** | **Platform Phase 2 complete** — M0–M4 + B0–B9 shipped |
+| **Current wave** | **19** |
+| **Current milestone** | **Phase 2.1** — Marketing template previews (real designs selectable + previewable on homepage) |
 | **Last wave closed** | **18** |
 | **Last commit SHA** | `3ed112e` |
 | **Last commit message** | `wave(18): FinOps SLOs, verification guides, B9 form abuse — DOC-009, B9-001` |
@@ -92,9 +92,24 @@
 
 ## Next parallel spool
 
-**Backlog exhausted** — Platform Phase 2 (B0–B9) + M0–M4 complete. Next: production ops per `finops-slos.md`, Stripe Extension install, deploy.
+**Wave 19 — Phase 2.1 marketing template previews** · Spec: `docs/planning/marketing-template-preview-spec.md`
 
-Verification guides: `docs/planning/wave-verification/README.md`
+| Phase | Ticket | Lane | Blocked by |
+|-------|--------|------|------------|
+| **1** | **DOC-010** | DOC | — |
+| **2** | **INF-005** | INF | DOC-010 |
+| **2** | **ENG-026** | Builder | DOC-010 |
+| **3** | **INF-006** | INF | INF-005 |
+| **3** | **ENG-024** | Marketing configurator | DOC-010, INF-005 |
+| **3** | **ENG-025** | Marketing pages | DOC-010 |
+| **3** | **ENG-027** | Marketing configurator | DOC-010, ENG-024 |
+| **4** | **QA-007** | QA | ENG-024, ENG-025, ENG-027 |
+
+**After Wave 19:** Wave 20 starter expansion — DOC-011 → B10-001/B10-002 → INF-007. See [`starter-template-library-plan.md`](starter-template-library-plan.md).
+
+Also queued (not Wave 19): production ops per `finops-slos.md`, Stripe Extension install, deploy.
+
+Verification guides: `docs/planning/wave-verification/README.md` · `wave-19.md` (after DOC-010)
 
 ---
 
@@ -115,6 +130,7 @@ Verification guides: `docs/planning/wave-verification/README.md`
 | Platform B8 CRM/products | **CLOSED** — B8-001 complete |
 | Platform B9 form abuse + observability | **CLOSED** — B9-001 complete |
 | **Platform Phase 2** | **COMPLETE** |
+| **Phase 2.1 template previews** | **OPEN** — Wave 19 (DOC-010 → INF-005 → ENG-024/025 → QA-007) |
 
 ---
 

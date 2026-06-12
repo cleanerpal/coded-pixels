@@ -3,7 +3,7 @@
 **Document Owner:** Dr. Lena Moreau  
 **Coordinated by:** Dr. Nathan Cole  
 **Status:** Pre-implementation planning  
-**Last updated:** 12 June 2026 (Q63–Q64 Firebase Extensions; expert review complete)
+**Last updated:** 12 June 2026 (Q63–Q66; Wave 19 template preview spec)
 
 ---
 
@@ -65,7 +65,7 @@ Landing (Hero) → Configurator (Steps 1–3) → Live Preview → Get Started �
 
 | Step | Name | Behaviour |
 |------|------|-----------|
-| 1 | Choose Template | Grid of 10 templates + Custom Template option; switch anytime |
+| 1 | Choose starter design | Grid of **10 starter templates** + Custom Template option; switch anytime (Q67) |
 | 2 | Add Features | Grouped toggles with individual `+ £X.XX/mo` labels |
 | 3 | Review & Preview | Live preview panel + pricing summary + Get Started |
 
@@ -208,11 +208,14 @@ Optional Cloud Function emails `hello@codedpixels.co.uk`. Success inline: “You
 
 **Dr. Kira Nakamura (JS Behaviour)** + **Dr. Sophia Laurent (UX)**
 
-MVP preview (no iframe to external builder):
+**Decision (Q66 — Sophia Laurent, Samuel Ruiz):** Inline preview stays **mock wireframe**. Full design via **Preview full site** link (new tab) to demo tenant (`{templateId}.codedpixels.co.uk`) — Q65, [`marketing-template-preview-spec.md`](../planning/marketing-template-preview-spec.md). No inline iframe in Phase 2.1.
+
+MVP inline preview (no iframe):
 - Mock browser chrome with selected template name + category colour theme
 - Dynamic badges for enabled features (e.g. “Shop enabled”, “Booking”, “CRM”)
 - Template switch animates theme (CSS variables per template)
 - Optional: simple wireframe sections (hero, features, contact) that morph by template
+- **Preview full site →** external link when a library template is selected (Q66)
 
 Desktop: preview left or centre; pricing sticky right.  
 Mobile: collapsible “Preview” tab above sticky pricing bar.
@@ -1184,3 +1187,7 @@ Builder upload → Storage (companies/.../assets/...)
 |---|----------|----------|--------|
 | **Q63** | Stripe Extension vs fully custom? | **Official Stripe Extension + custom Functions on top** — Extension for Checkout/webhooks/Customer docs; custom for `provisionTenant`, company mapping, feature sync, £149 one-time | Owen Reilly, Kai Nakamura |
 | **Q64** | Resize Images Extension vs custom thumbnails? | **Extension for resize/thumbnails** + **custom Function for ClamAV only** — alt text stays in builder | Nora Patel, Clara Voss |
+| **Q65** | How does marketing show real pre-built templates? | **Platform demo tenants** on site-renderer — slug = `templateId`, CI-seeded published homepages from `templates/` seeds; marketing links in new tab; no `component-registry` in marketing | Samuel Ruiz, Michael Chen, Rafael Ortiz |
+| **Q66** | Project plan §6 "no iframe" vs full preview? | **Keep mock inline preview**; **external** "Preview full site" link to demo subdomain (not iframe) — Phase 2.1 Wave 19 | Sophia Laurent, Theo Laurent |
+| **Q67** | Multiple starter templates for first site selection? | **10 library starters sufficient for launch** — presented as **starter designs**; Wave 19 preview + ENG-027 filters; expand +4 in Wave 20 (B10-001) | Samuel Ruiz, Sophia Laurent, Theo Laurent, Marcus Klein |
+| **Q68** | How are new starter templates generated? | **Manual JSON authoring** (now); scaffold script Wave 20 (B10-002); AI-assisted **Phase 2.2+**; CI `validate:templates` + `seedVersion` bump required | Rafael Ortiz, Alex Rivera, Samuel Ruiz |

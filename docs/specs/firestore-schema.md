@@ -271,6 +271,7 @@ Support and compliance audit trail (Q43).
 | `stripeCustomerId` | string | optional | From Stripe Extension |
 | `stripeSubscriptionId` | string | optional | From Stripe Extension |
 | `partnerId` | string | optional | Phase 3 agency white-label |
+| `isPlatformDemo` | boolean | optional | `true` for CI-seeded template demo tenants (Q65, Wave 19) — site-renderer sets `noindex` |
 | `createdAt` | Timestamp | ✅ | |
 | `updatedAt` | Timestamp | ✅ | |
 

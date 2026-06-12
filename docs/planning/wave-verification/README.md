@@ -92,5 +92,7 @@ You can `git checkout <SHA>` from [project-status.md](../project-status.md) if y
 | When do template **colours** in preview? | Wave 4 |
 | When do template **page layouts** exist in DB? | **Wave 12** (B1-001) — shipped |
 | When does a customer get a **real site**? | **Wave 16** provisioning + **Wave 14–15** publish/renderer |
+| When can users **preview real designs** on marketing? | **Wave 19** — demo tenants + preview links ([wave-19.md](wave-19.md)) |
+| How many **starter templates** can users pick from? | **10 now** (Wave 12 seeds) · **+4 Wave 20** ([starter-template-library-plan.md](../starter-template-library-plan.md)) |
 
 Full table: [roadmap.md](roadmap.md) § Templates.

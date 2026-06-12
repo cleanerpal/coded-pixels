@@ -811,4 +811,307 @@ Suggested labels: `lane:A-F`, `wave:1-6`, `phase:M0|M1|M2|M3|M4|P2`, `gate:PII|B
 ---
 
 **Approved by:** Dr. Maya Patel · Dr. Nathan Cole  
-**Next action:** Assign Wave 1 tickets and start ENG-001 + DOC-001 in parallel.
+**Next action:** Spool **Wave 19** (Phase 2.1 — marketing template previews). See § Wave 19 below.
+
+---
+
+# WAVE 19 — Phase 2.1 Marketing template previews (parallel: up to 4 agents)
+
+**Milestone:** Users browse, preview, and pre-select **real pre-designed templates** on the homepage and `/templates`.  
+**Spec:** [`marketing-template-preview-spec.md`](marketing-template-preview-spec.md) (DOC-010) · **Q65, Q66**  
+**Gate:** Platform Phase 2 complete (B1-001, B2-002, B4-001 shipped).
+
+**Why now:** Wave 12 seeds contain full designs; marketing still shows gradients only. Demo tenants on site-renderer bridge the gap without importing `component-registry` into marketing.
+
+### Wave 19 execution order
+
+```mermaid
+flowchart LR
+  DOC010[DOC-010 Spec]
+  INF005[INF-005 Demo seed]
+  ENG026[ENG-026 Slug guard]
+  INF006[INF-006 WebP CI]
+  ENG024[ENG-024 Homepage UX]
+  ENG025[ENG-025 Gallery UX]
+  ENG027[ENG-027 Starter UX]
+  QA007[QA-007 E2E]
+  DOC010 --> INF005
+  DOC010 --> ENG026
+  DOC010 --> ENG024
+  DOC010 --> ENG025
+  DOC010 --> ENG027
+  INF005 --> INF006
+  INF005 --> ENG024
+  ENG024 --> ENG027
+  ENG024 --> QA007
+  ENG025 --> QA007
+  ENG027 --> QA007
+```
+
+| Phase | Parallel spool |
+|-------|----------------|
+| **1** | DOC-010 |
+| **2** | INF-005, ENG-026 |
+| **3** | INF-006, ENG-024, ENG-025, ENG-027 |
+| **4** | QA-007 |
+
+---
+
+### DOC-010 · Marketing template preview spec + Q65/Q66
+| | |
+|--|--|
+| **Lane** | F — Docs/Legal |
+| **Wave** | 19 |
+| **Blocked by** | Platform Phase 2 complete |
+| **Blocks** | INF-005, INF-006, ENG-024, ENG-025, ENG-026 |
+| **Parallel with** | — (run first) |
+| **Expert** | Dr. Lena Moreau · Dr. Samuel Ruiz · Dr. Sophia Laurent |
+
+**Scope:**
+- Author [`marketing-template-preview-spec.md`](marketing-template-preview-spec.md) (done in planning pass — verify + align project plan)
+- Add **Q65** (demo tenants on site-renderer) and **Q66** (§6 external preview link) to `codedpixels-project-plan.md` decision log
+- Amend project plan §6 — keep mock inline preview; add external “Preview full site” pattern
+- Add `isPlatformDemo?: boolean` to `firestore-schema.md` §6 `companies` fields
+- Update `wave-verification/roadmap.md` template lifecycle row
+
+**Acceptance:**
+- [ ] Spec on disk with expert sign-off table
+- [ ] Q65/Q66 in project plan §20
+- [ ] Schema field documented
+
+---
+
+### INF-005 · Platform demo tenant seed + seed projectId fix
+| | |
+|--|--|
+| **Lane** | E — Firebase/Infra |
+| **Wave** | 19 |
+| **Blocked by** | DOC-010 |
+| **Blocks** | INF-006, ENG-024 |
+| **Parallel with** | ENG-026 (phase 2) |
+| **Expert** | Dr. Alex Rivera · Dr. Rafael Ortiz · Dr. Kai Nakamura |
+
+**Scope:**
+- `packages/templates/scripts/seed-demos.mjs` — Admin SDK idempotent upsert per library `templateId`
+- Published homepage: `sites.status: published`, `pages.publishedVersionId`, `versions.status: published`
+- `companies.isPlatformDemo: true`, `ownerUid` from `PLATFORM_DEMO_OWNER_UID` (emulator default documented)
+- `slugs/{templateId}` index docs
+- Fix `seed.mjs` default `projectId` → `codedpixels` (match `.env.local`)
+- `npm run seed:template-demos` + `seed:template-demos:emulator` in root `package.json`
+- Export `RESERVED_TEMPLATE_SLUGS` in `@codedpixels/shared-types`
+- Site-renderer: `noindex` when tenant `isPlatformDemo` (layout or metadata helper)
+
+**Acceptance:**
+- [ ] `FIREBASE_PROJECT_ID=codedpixels npm run seed:template-demos:emulator` creates 10 demo tenants
+- [ ] `http://sparkle-clean.localhost:3002/` renders published sections (emulator + `dev:renderer`)
+- [ ] `npm run seed:templates:emulator` writes to `codedpixels` project without extra env
+- [ ] No `provisionTenant` or Stripe calls in seed path
+
+---
+
+### INF-006 · Template preview WebP thumbnail generator
+| | |
+|--|--|
+| **Lane** | E — Firebase/Infra |
+| **Wave** | 19 |
+| **Blocked by** | INF-005 |
+| **Parallel with** | ENG-024, ENG-025 (phase 3) |
+| **Expert** | Dr. Daniel Moreau · Dr. Marcus Chen |
+
+**Scope:**
+- `scripts/generate-template-thumbnails.mjs` (Playwright) — screenshot demo tenant homepages
+- Output: `apps/marketing/public/templates/previews/{templateId}.webp`
+- `npm run generate:template-thumbnails` in root `package.json`
+- Document emulator + renderer prerequisites in spec §7
+
+**Acceptance:**
+- [ ] Script produces WebP for all 10 library templates (or fails closed with clear error)
+- [ ] Marketing gallery falls back to gradient when WebP missing
+
+---
+
+### ENG-024 · Homepage template preview UX
+| | |
+|--|--|
+| **Lane** | C — Configurator UI |
+| **Wave** | 19 |
+| **Blocked by** | DOC-010, INF-005 |
+| **Parallel with** | ENG-025, INF-006 |
+| **Expert** | Dr. Sophia Laurent · Mr. Theo Laurent · Dr. Lena Petrova |
+
+**Scope:**
+- `apps/marketing/lib/template-preview-urls.ts` — local `*.localhost:3002` + prod subdomain URLs
+- `Step1Templates.tsx` — WebP thumbnail on cards (fallback gradient); **Preview full site** link per template
+- `LivePreviewPanel.tsx` — keep mock wireframe; add **Preview full site →** when template selected (new tab, a11y label)
+- **Starter copy (Q67):** Step 1 heading **Choose your starter website**; subtext notes all templates included on every plan
+- Env: `NEXT_PUBLIC_TEMPLATE_PREVIEW_BASE_URL` optional
+- Copy review: Ms. Lila Moreau
+
+**Acceptance:**
+- [ ] Selecting Sparkle Clean shows preview link to `sparkle-clean.localhost:3002` in local dev
+- [ ] Mock wireframe + feature badges still work (ENG-013 behaviour preserved)
+- [ ] No `@codedpixels/component-registry` import in marketing app
+- [ ] Starter framing copy visible on Step 1 per [`starter-template-library-plan.md`](starter-template-library-plan.md) §5
+- [ ] `npm test` green
+
+---
+
+### ENG-025 · `/templates` gallery — thumbnails + preview links
+| | |
+|--|--|
+| **Lane** | D — Pages |
+| **Wave** | 19 |
+| **Blocked by** | DOC-010 |
+| **Parallel with** | ENG-024, INF-006 |
+| **Expert** | Dr. Sophia Laurent · Dr. Marcus Chen |
+
+**Scope:**
+- `TemplateGallery.tsx` — WebP thumbnails from `public/templates/previews/`; gradient fallback
+- **Preview full site** link alongside **Start with this design** (Q67 copy)
+- H1: **Starter designs for your business**
+- Custom template card: no preview link (bespoke only)
+
+**Acceptance:**
+- [ ] `/templates` shows preview link for each library template
+- [ ] Thumbnails use WebP when present; gradient otherwise
+- [ ] Category filter behaviour unchanged
+- [ ] CTA copy matches starter-template-library-plan §5
+
+---
+
+### ENG-026 · Reserved template slug guard (onboarding)
+| | |
+|--|--|
+| **Lane** | B2 — Builder onboarding |
+| **Wave** | 19 |
+| **Blocked by** | DOC-010 |
+| **Parallel with** | INF-005 (phase 2) |
+| **Expert** | Dr. Sophia Laurent · Dr. Rafael Ortiz |
+
+**Scope:**
+- `apps/builder/lib/onboarding/slug.ts` — reject slugs in `RESERVED_TEMPLATE_SLUGS`
+- User-facing error: *“This address is reserved for template previews — choose another slug”*
+- Unit tests for all 10 library IDs
+
+**Acceptance:**
+- [ ] `sparkle-clean` rejected in slug validator
+- [ ] Valid customer slugs still accepted
+- [ ] Tests green
+
+---
+
+### ENG-027 · Starter template selection UX (filters + package copy)
+| | |
+|--|--|
+| **Lane** | C — Configurator UI |
+| **Wave** | 19 |
+| **Blocked by** | DOC-010, ENG-024 |
+| **Parallel with** | ENG-025, INF-006 |
+| **Expert** | Dr. Sophia Laurent · Mr. Theo Laurent · Ms. Lila Moreau · Dr. Nadia Sokolov |
+
+**Scope:**
+- Category filter chips on configurator Step 1 (`role="radiogroup"`, arrow-key nav)
+- Reuse `groupTemplatesByCategory()` — filter client-side; **Custom Template** card always visible
+- `lib/packages.ts` Starter description — **any starter design included** (template choice does not change £9.99 base)
+- Get-started gate card copy — references starter selection when `templateId` unset
+
+**Acceptance:**
+- [ ] Filter **Beauty & Wellness** shows subset; **All** shows 10 library + Custom
+- [ ] Starter package card mentions any template included
+- [ ] a11y: filter chips keyboard-operable
+- [ ] `npm test` green
+
+**Aligned with Dr. Samuel Ruiz on Q67** — see [`starter-template-library-plan.md`](starter-template-library-plan.md).
+
+---
+
+### QA-007 · E2E — template preview + selection spine
+| | |
+|--|--|
+| **Lane** | QA |
+| **Wave** | 19 |
+| **Blocked by** | ENG-024, ENG-025, ENG-027 |
+| **Parallel with** | — |
+| **Expert** | Dr. Sophia Moreau |
+
+**Scope:**
+- Playwright: homepage Step 1 — category filter → select starter → preview link `href` contains `templateId`
+- `/templates` — preview link present; **Start with this design** deep-links to configurator
+- Get-started still receives `templateId` from URL config (regression); CTA disabled until starter selected
+- Optional: smoke `sparkle-clean.localhost:3002` when emulator job present in CI
+
+**Acceptance:**
+- [ ] New spec file under `apps/marketing/e2e/`
+- [ ] `npm run test:e2e` green (or tagged `@template-preview` if emulator optional)
+
+---
+
+## Phase 2.1 ticket quick reference
+
+| ID | Title | Wave | Blocks |
+|----|-------|------|--------|
+| **DOC-010** | Marketing template preview spec + Q65/Q66 | 19 | INF-005, ENG-* |
+| **INF-005** | Demo tenant seed + projectId fix | 19 | INF-006, ENG-024 |
+| **INF-006** | WebP thumbnail generator | 19 | — |
+| **ENG-024** | Homepage preview UX | 19 | QA-007 |
+| **ENG-025** | Gallery thumbnails + links | 19 | QA-007 |
+| **ENG-026** | Reserved slug guard | 19 | — |
+| **ENG-027** | Starter selection UX (filters + copy) | 19 | QA-007 |
+| **QA-007** | E2E starter select + preview | 19 | — |
+
+---
+
+# WAVE 20 — Starter library expansion (after Wave 19)
+
+**Milestone:** Optional category gaps + governed process for adding starters.  
+**Spec:** [`starter-template-library-plan.md`](starter-template-library-plan.md) · **Q67, Q68**  
+**Gate:** Wave 19 shipped.
+
+| Phase | Parallel spool |
+|-------|----------------|
+| **1** | DOC-011 |
+| **2** | B10-001, B10-002 |
+| **3** | INF-007 |
+
+### DOC-011 · Template addition governance spec
+| | |
+|--|--|
+| **Wave** | 20 |
+| **Blocked by** | Wave 19 complete |
+| **Blocks** | B10-001 |
+| **Expert** | Dr. Lena Moreau · Dr. Samuel Ruiz · Dr. Rafael Ortiz |
+
+**Scope:** Authoring checklist, minimum section bar (Q68), manifest/`lib/templates.ts` parity, CI gates, thumbnail prerequisite.  
+**Acceptance:** [ ] Spec on disk; [ ] expert sign-off; [ ] blocks B10-001 code.
+
+### B10-001 · Expand starter library (+4 templates)
+| | |
+|--|--|
+| **Wave** | 20 |
+| **Blocked by** | DOC-011 |
+| **Parallel with** | B10-002 |
+| **Expert** | Dr. Rafael Ortiz · Dr. Marcus Chen · Dr. Alex Rivera |
+
+**Scope:** Four seeds per starter-template-library-plan §6 (`wellness-clinic`, `clear-accounting`, `focus-photography`, `fit-hub`); update manifest, `TEMPLATES`, `RESERVED_TEMPLATE_SLUGS`, demo seed, thumbnails.  
+**Acceptance:** [ ] `npm run validate:templates` green; [ ] 14 library templates + custom; [ ] demo tenants for new IDs.
+
+### B10-002 · New-template scaffold script + authoring guide
+| | |
+|--|--|
+| **Wave** | 20 |
+| **Blocked by** | DOC-011 |
+| **Parallel with** | B10-001 |
+| **Expert** | Dr. Alex Rivera · Dr. Lena Moreau |
+
+**Scope:** `packages/templates/scripts/new-template.mjs`; `docs/planning/template-authoring-guide.md`.  
+**Acceptance:** [ ] Script generates valid seed skeleton; [ ] guide documents Q68 quality bar.
+
+### INF-007 · Template thumbnail CI automation
+| | |
+|--|--|
+| **Wave** | 20 |
+| **Blocked by** | INF-006, B10-001 (or Wave 19 INF-006 alone for baseline) |
+| **Expert** | Dr. Daniel Moreau |
+
+**Scope:** GitHub Actions job runs `generate:template-thumbnails` on seed file changes.  
+**Acceptance:** [ ] PR touching `packages/templates/seeds/` triggers thumbnail artefact or docs update step.
