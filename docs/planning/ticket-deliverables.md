@@ -86,7 +86,18 @@ If a ticket is marked complete but deliverables are missing → **reopen ticket*
 | **QA-005** | `tests/firestore/`, `npm run test:rules` |
 | **QA-006** | `e2e/spine.spec.ts`, `playwright.config.ts`, `test:e2e` |
 
-## Wave 10+
+## Wave 10 (Platform Phase 2 prep — P2-W1 + P2-W2)
+
+| Ticket | Required deliverables (minimum) |
+|--------|----------------------------------|
+| **DOC-003** | `docs/planning/add-on-deliverables.md` |
+| **DOC-004** | `docs/planning/stripe-catalogue.md` |
+| **DOC-005** | `docs/specs/builder-ui-spec.md` §5.1–5.2 expanded |
+| **DOC-006** | `docs/specs/site-renderer-architecture.md` |
+| **DOC-007** | `docs/planning/monorepo-layout-spec.md` |
+| **DOC-008** | `docs/planning/template-seeding-ci-spec.md` |
+
+## Wave 11+
 
 **Manual browser verification:** [wave-verification/](wave-verification/README.md) — one guide per wave (Mia Thompson).
 

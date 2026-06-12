@@ -11,11 +11,11 @@
 | Field | Value |
 |-------|--------|
 | **Last updated** | 2025-06-12 |
-| **Current wave** | **10** |
-| **Current milestone** | **M4 complete** — Platform Phase 2 prep next |
-| **Last wave closed** | **9** |
-| **Last commit SHA** | `0c2b3d3` |
-| **Last commit message** | `wave(9): M4 QA — Playwright, rules tests, SEO, Lighthouse budget` |
+| **Current wave** | **11** |
+| **Current milestone** | **M4 complete** — Platform Phase 2 prep docs done; B0 build next |
+| **Last wave closed** | **10** |
+| **Last commit SHA** | `(pending wave 10 push)` |
+| **Last commit message** | `wave(10): Platform Phase 2 prep docs DOC-003–DOC-008` |
 | **Remote synced** | Yes |
 | **Git remote** | `https://github.com/cleanerpal/coded-pixels.git` (`origin`, branch `main`) |
 
@@ -60,6 +60,12 @@
 | QA-004 | 9 | 2025-06-12 | 0c2b3d3 | SEO sitemap + JSON-LD |
 | QA-005 | 9 | 2025-06-12 | 0c2b3d3 | Firestore rules tests |
 | QA-006 | 9 | 2025-06-12 | 0c2b3d3 | Integration spine E2E |
+| DOC-003 | 10 | 2025-06-12 | (wave 10) | Add-on deliverables |
+| DOC-004 | 10 | 2025-06-12 | (wave 10) | Stripe catalogue |
+| DOC-005 | 10 | 2025-06-12 | (wave 10) | Builder interaction addendum |
+| DOC-006 | 10 | 2025-06-12 | (wave 10) | Site renderer architecture |
+| DOC-007 | 10 | 2025-06-12 | (wave 10) | Monorepo layout spec |
+| DOC-008 | 10 | 2025-06-12 | (wave 10) | Template seeding CI spec |
 
 ---
 
@@ -73,7 +79,7 @@
 
 ## Next parallel spool
 
-**Platform Phase 2 prep** — DOC-003, DOC-004 (docs only; do not block M4 sign-off). See `implementation-tickets.md` Platform Phase 2 section.
+**Platform Phase 2 build** — B0-001 (Turborepo scaffold) after DOC-006 + DOC-007 frozen. Optional: DOC-009 (FinOps SLOs, P2-W3).
 
 Full backlog: `implementation-tickets.md`
 
@@ -84,9 +90,9 @@ Full backlog: `implementation-tickets.md`
 | Gate | Status |
 |------|--------|
 | ENG-006 → Wave 3 UI | **CLOSED** |
-| M3 PII (DOC-002 + Sentry + Callables) | **CLOSED** |
+| M3 PII | **CLOSED** |
 | M4 QA gate | **CLOSED** |
-| Platform B0 monorepo | **OPEN** |
+| Platform B0 monorepo (DOC-006 + DOC-007) | **CLOSED** — docs frozen; B0-001 unblocked |
 
 ---
 
@@ -94,10 +100,8 @@ Full backlog: `implementation-tickets.md`
 
 | Date | Chat action | Result |
 |------|-------------|--------|
-| 2025-06-12 | `/codedpixels resume` | Wave 1 kickoff |
-| 2025-06-12 | Wave 1–6 push | M0–M3 partial |
-| 2025-06-12 | continue | Waves 7–8 — M3 engineering complete |
-| 2025-06-12 | continue | Wave 9 — M4 QA gate complete |
+| 2025-06-12 | continue | Wave 9 — M4 QA complete |
+| 2025-06-12 | continue | Wave 10 — P2 prep docs DOC-003–DOC-008 |
 
 ---
 

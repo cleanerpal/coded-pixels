@@ -151,21 +151,152 @@ interface Section {
 
 ### 5.1 Interactions (Phase 2 MVP)
 
+**Aligned with Dr. Sophia Laurent** (configurator UX patterns) · **Dr. Nadia Sokolov** (keyboard/focus — panel notes A1–A8)
+
+**Core edit loop (desktop ≥ 768px):**
+
 - Click section on canvas → select → edit props in right panel
-- Add section from palette → append to page
-- Reorder sections via up/down buttons (drag reorder Phase 2.1)
-- Delete section with confirm
-- Undo/redo: **Phase 2.1** (local stack initially optional)
+- Add section from palette → append to page (end of `sections` array)
+- Reorder sections via **Up / Down** buttons in canvas toolbar or properties panel header (drag reorder **Phase 2.1**)
+- Delete section → confirm dialog (*“Remove this section?”*); focus returns to canvas or next section
+- Undo/redo: **Phase 2.1** (local stack optional in Phase 2)
+
+#### Keyboard navigation & focus order (Dr. Nadia Sokolov)
+
+| Requirement | Spec |
+| ----------- | ---- |
+| **Skip link** | First focusable element: *“Skip to canvas”* → moves focus to canvas landmark |
+| **Tab order** | Top bar (left → right) → Pages list → Canvas → Properties panel → Section palette |
+| **Canvas** | `role="region"` + `aria-label="Page canvas"`; each section wrapper `role="group"` + `aria-label` from block `label` (e.g. *“Hero section”*) |
+| **Selection** | Selected section: `aria-selected="true"` on section wrapper; **visible focus ring** (brand primary outline, 2px, offset 2px) — distinct from selection border |
+| **Arrow keys** | When focus is in Pages list: ↑/↓ change active page. When focus is on a selected section in canvas: ↑/↓ move selection (and sync props panel). Palette: ←/→ or ↑/↓ move between block types |
+| **Enter / Space** | On palette item: add section (if not locked). On canvas section: select / open props panel focus to first field |
+| **Escape** | Deselect section; close mobile drawer if open; does **not** trap focus in chrome |
+| **Delete** | With section selected: open delete confirm (not instant delete) |
+| **Focus management** | After add: focus new section on canvas. After delete: focus next section or canvas landmark. After page switch: focus first section or empty-state CTA |
+| **Touch targets** | Chrome controls minimum **44×44px**; respect `prefers-reduced-motion` for drawer/sheet animations |
+| **Live regions** | Page title in top bar + publish status: `aria-live="polite"` when draft saves or validation errors update |
+
+Route guards and viewer role (§9): viewer may Tab through chrome but all edit controls `disabled` + `aria-disabled="true"`; Preview link remains active.
+
+#### Section selection states
+
+| State | Canvas | Properties panel |
+| ----- | ------ | ---------------- |
+| **Default** | Section at rest; hover shows light outline (`#E2E8F0`) | Empty state: *“Select a section to edit”* |
+| **Selected** | 2px brand-primary border + `aria-selected="true"` | Block label + fields for `EditorPanel` |
+| **Focused** (keyboard) | Focus ring on section wrapper (in addition to selection border when applicable) | First invalid field receives focus on validation failure |
+| **Hover** | Cursor pointer; subtle elevation or outline | — |
+| **Error** | Section border **error** colour + icon badge; `aria-invalid="true"` on wrapper | Inline field errors; section header shows *“Fix errors to publish”* |
+| **Locked** (feature-gated palette item) | — | Upgrade CTA only; no props |
+
+Only **one** section selected at a time in Phase 2 MVP.
+
+#### Empty page states
+
+| Scenario | Canvas | Pages list / palette |
+| -------- | ------ | -------------------- |
+| **Blank page** (`sections.length === 0`) | Centred illustration + *“Add your first section”* + primary button opens palette / focuses first palette item | Page row shows slug; no error styling |
+| **Template seed** (post-onboarding) | Pre-populated sections; first section not auto-selected | — |
+| **All sections deleted** | Same as blank page | — |
+| **Loading** | Skeleton blocks matching typical hero + text layout | Skeleton rows; `aria-busy="true"` on canvas |
+| **Load failure** | Error banner + *“Retry”* (re-fetch draft version) | Non-blocking toast |
+
+Empty state CTA must be keyboard-reachable without mouse.
+
+#### Error & validation UX (properties panel)
+
+Validation source: Zod `schema` per block type (§3) + server re-validation in `publishSite` (§7.1).
+
+| Trigger | Behaviour |
+| ------- | --------- |
+| **Field blur** | Validate single field; show inline error below control (`role="alert"` on error text) |
+| **Save / debounced draft write** | Validate all fields on selected section; do not block other sections |
+| **Publish click** | Validate **all sections** on **all pages**; block publish if any error |
+
+**Inline field pattern:** error text in plain language (Mia Thompson); associate via `aria-describedby`. Invalid controls: `aria-invalid="true"`. Required image fields: alt text enforced before asset is attachable (§14).
+
+**Publish blocked:** modal or top-bar banner listing pages/sections with errors; *“Go to section”* links move selection + focus first invalid field.
+
+**Server mismatch** (draft changed elsewhere): toast *“Couldn’t save — refresh and try again”*; offer refresh action.
+
+**Gated components:** if draft contains locked types without `featureIds`, publish fails with upgrade CTA (server-side — Victor Lang panel note).
+
+#### Mobile bottom drawer behaviour (Q52)
+
+Viewport **&lt; 768px** — builder routes are **read-only** (Q52): no props editing, no add/delete/reorder.
+
+| Surface | Behaviour |
+| ------- | --------- |
+| **Canvas** | Full-width read-only preview of draft sections; *“Edit on desktop”* sticky banner (minimum 44px tap height) |
+| **Section palette drawer** | **Collapsed by default**; user may expand to **browse** block types (labels + icons). Add actions **disabled** with tooltip *“Editing available on desktop”* |
+| **Properties panel** | **Not shown** on mobile builder routes |
+| **Top bar** | Preview + live-site link active; Publish **disabled** on mobile |
+| **Gesture** | Swipe up on drawer handle opens palette sheet; swipe down or Esc closes; focus moves to drawer on open, returns to banner on close |
+| **Dashboard mobile** | *“Preview site”* opens full preview route or live URL — supported (Q52) |
+
+Desktop (≥ 768px): palette is a **persistent bottom bar** (not overlay); collapsible via chevron to maximise canvas height.
 
 ### 5.2 Preview vs published (Q35)
 
-| Mode          | URL                                | Auth                    |
-| ------------- | ---------------------------------- | ----------------------- |
-| Editor canvas | In-app                             | Required                |
-| Full preview  | `/sites/{siteId}/preview`          | Required (owner/editor) |
-| Live          | `https://{slug}.codedpixels.co.uk` | Public                  |
+**Aligned with Dr. Marcus Rivera** (hosting) · **Dr. Sophia Laurent** (preview UX)
 
-Preview renders `draftVersionId`; live renders `publishedVersionId`.
+| Mode | URL | Auth | Data source |
+| ---- | --- | ---- | ----------- |
+| **Editor canvas** | In-app (`/dashboard/sites/{siteId}/pages/{pageId}`) | Required (member) | `draftVersionId` — live React render |
+| **Full preview** | `app.codedpixels.co.uk/sites/{siteId}/preview` (+ optional `?page={pageId}`) | Required (member) | `draftVersionId` |
+| **Live** | `https://{slug}.codedpixels.co.uk` (+ page path) | Public | `publishedVersionId` |
+
+Preview and editor read **draft**; live site reads **published** only (Firestore rules — `firestore-schema.md` §7.2).
+
+#### iframe vs in-app preview (decision)
+
+| Surface | Mechanism | Rationale |
+| ------- | --------- | --------- |
+| **Editor canvas** | **In-app** — shared component registry / renderer package, **not** an iframe | Click-to-select, selection chrome, and props panel require DOM access (same principle as marketing configurator §6: no iframe to external builder) |
+| **Full preview route** | **In-app route** in builder App Hosting backend using the **same shared renderer** with draft sections injected | Auth-gated draft data cannot be shown on public `{slug}` subdomain; avoids cross-origin iframe + cookie complexity |
+| **Live site** | **Separate** `site-renderer` backend on `*.codedpixels.co.uk` (§12) | ISR, public cache, tenant resolution from hostname |
+
+Full preview may offer **“Open in new tab”** (same preview URL) for browser-chrome testing. **Do not** iframe the live subdomain inside the builder — that shows published content, not draft.
+
+#### Preview URL auth flow
+
+1. User clicks **Preview** in top bar (or dashboard *“Preview site”*).
+2. If session expired → redirect to Firebase Auth login with `returnUrl=/sites/{siteId}/preview`.
+3. Route guard verifies custom claims / `companies/{companyId}/members/{uid}`:
+   - **owner, admin, editor** → full preview (read-only render of draft).
+   - **viewer** → preview allowed; builder edit routes redirect to preview-only shell (§9).
+   - **No membership** → 403 + *“You don’t have access to this site”*.
+4. Client loads `sites/{siteId}/pages/*` metadata, resolves each page’s `draftVersionId`, fetches version docs (Firestore member read).
+5. Preview chrome: minimal top bar (*“Draft preview”* badge, *“Back to editor”*, optional page switcher). **No** publish from preview route in Phase 2 MVP (return to editor to publish).
+
+Draft version docs are **denied** to anonymous and non-member clients (rules spec).
+
+#### Draft vs published data loading
+
+| Consumer | Resolution path | Cache |
+| -------- | --------------- | ----- |
+| **Editor / preview** | `page.draftVersionId` → `versions/{draftVersionId}` → `sections[]` | Client subscription or fetch-on-navigate; always reflect latest draft write |
+| **Live renderer** | `page.publishedVersionId` → `versions/{publishedVersionId}` → `sections[]` | ISR + on-demand revalidation after publish |
+| **First publish** (no `publishedVersionId`) | Live site shows template placeholder or empty until first successful publish | — |
+| **Mid-edit** | Live unchanged until Publish completes | Draft mutations do not touch published version doc |
+
+Page switch in editor: load target page’s `draftVersionId`; canvas replaces sections; selection cleared.
+
+#### What changes on **Publish** (ties to §7.1)
+
+User clicks **Publish** in editor top bar (desktop only in Phase 2 — mobile disabled per §5.1).
+
+| Step | System | User-visible |
+| ---- | ------ | -------------- |
+| 1 | Client optional pre-check; then Callable `publishSite({ siteId })` | Button → loading state *“Publishing…”*; disabled double-submit |
+| 2 | Function validates all draft sections (Zod + gated types vs `featureIds`) | On failure: error summary (same pattern as §5.1 validation UX) |
+| 3 | Copy draft version → **new** version doc `status: published`; set `page.publishedVersionId`; archive prior published if &gt; 5 retained (Q53) | — |
+| 4 | Draft version doc **remains** the working draft for continued edits (Q34) | Editor canvas unchanged; top bar shows *“Published”* timestamp |
+| 5 | `revalidatePath` / on-demand ISR for live site paths (§12) | Success toast: *“Site published”* + **View live site** link (`{slug}.codedpixels.co.uk`) |
+| 6 | SendGrid `site-published` email (Q41) | — |
+
+Until step 5 completes, live site continues to serve the **previous** `publishedVersionId`. No manual Hosting deploy per edit (Q35 instant publish).
 
 ---
 

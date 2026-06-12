@@ -17,6 +17,7 @@
 | [Firestore schema](specs/firestore-schema.md) | Database field definitions |
 | [Firestore rules spec](specs/firestore-rules-spec.md) | Security rules (§11 deployable) |
 | [Builder UI spec](specs/builder-ui-spec.md) | Phase 2 builder outline |
+| [Site renderer architecture](specs/site-renderer-architecture.md) | Wildcard hosting, ISR, tenant routing (DOC-006) |
 
 ## Planning & execution
 
@@ -25,8 +26,12 @@
 | [Implementation tickets](planning/implementation-tickets.md) | Lanes, waves, gates, ticket backlog |
 | [Project status](planning/project-status.md) | Resume checkpoint — `/codedpixels resume` |
 | [Ticket deliverables](planning/ticket-deliverables.md) | Files to verify per ticket on resume |
+| [Add-on deliverables](planning/add-on-deliverables.md) | Configurator add-ons → Phase 2 builder/dashboard (DOC-003) |
 | [Wave verification guides](planning/wave-verification/README.md) | Mia Thompson — what to see in the browser after each wave |
 | [Expert review memo](planning/expert-review-memo.md) | Panel sign-off + Q54–Q62 amendments |
+| [Stripe catalogue](planning/stripe-catalogue.md) | Products/prices mapping for Platform Phase 2 (DOC-004) |
+| [Template seeding CI spec](planning/template-seeding-ci-spec.md) | Firestore `templates/` seed files + CI upsert (DOC-008) |
+| [Monorepo layout spec](planning/monorepo-layout-spec.md) | Turborepo layout for Platform Phase 2 B0 (DOC-007) |
 
 ## Process
 
@@ -48,8 +53,3 @@
 
 Planned under `planning/` or `specs/` per ticket backlog:
 
-- `planning/cookie-consent-legal-spec.md` (DOC-001)
-- `planning/add-on-deliverables.md` (DOC-003)
-- `planning/stripe-catalogue.md` (DOC-004)
-- `specs/site-renderer-architecture.md` (DOC-006)
-- `planning/monorepo-layout-spec.md` (DOC-007)
