@@ -14,7 +14,7 @@
 | **Current wave** | **14** |
 | **Current milestone** | **Platform Phase 2** — B3 publish pipeline next |
 | **Last wave closed** | **13** |
-| **Last commit SHA** | _(pending push)_ |
+| **Last commit SHA** | `de75eb8` |
 | **Last commit message** | `wave(13): B2 builder shell + component registry` |
 | **Remote synced** | Yes |
 | **Git remote** | `https://github.com/cleanerpal/coded-pixels.git` (`origin`, branch `main`) |
@@ -69,8 +69,8 @@
 | B0-001 | 11 | 2025-06-12 | 5151d06 | Turborepo scaffold |
 | B1-001 | 12 | 2025-06-12 | 1624bde | Tenant schema + template seeds |
 | B1-002 | 12 | 2025-06-12 | 1624bde | Rules expansion + 52 rules tests |
-| B2-001 | 13 | 2025-06-12 | _(this wave)_ | Builder shell UI |
-| B2-002 | 13 | 2025-06-12 | _(this wave)_ | Component registry package |
+| B2-001 | 13 | 2025-06-12 | de75eb8 | Builder shell UI |
+| B2-002 | 13 | 2025-06-12 | de75eb8 | Component registry package |
 
 ---
 
