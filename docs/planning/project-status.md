@@ -14,7 +14,7 @@
 | **Current wave** | **21** |
 | **Current milestone** | **Production launch** (Wave 21 PL-001–PL-005) |
 | **Last wave closed** | **20** |
-| **Last commit SHA** | `3280d37` |
+| **Last commit SHA** | `c414d5a` |
 | **Last commit message** | `docs: project-status — Wave 20 closed @ 6aa5d91, current wave 21` |
 | **Remote synced** | Yes |
 | **Forge & Scale gate** | **CLOSED** — Wave 19 approved; comprehensive audit received |
@@ -162,6 +162,7 @@ Verification guides: `docs/planning/wave-verification/README.md`
 | 2025-06-12 | push | Planning + chore @ `9b08a41`; Forge & Scale green light — spooling INF-005 + ENG-026 |
 | 2025-06-12 | close | Wave 19 closed @ a27b473 — demo seed, preview UX, slug guard, E2E |
 | 2025-06-12 | close | Wave 20 closed — +4 starters, new-template scaffold, seeds CI |
+| 2025-06-12 | verify | Resume @ `c414d5a` — lint/typecheck/test/e2e/rules/build green; wave 21 ready |
 
 ---
 
