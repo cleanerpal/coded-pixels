@@ -14,8 +14,8 @@
 | **Current wave** | **3** |
 | **Current milestone** | M1 (Wave 3 in progress) |
 | **Last wave closed** | **2** |
-| **Last commit SHA** | _pending wave 2 push_ |
-| **Last commit message** | _pending_ |
+| **Last commit SHA** | `6731cfd` |
+| **Last commit message** | `wave(2): pricing engine, header/footer, config state — M0 complete` |
 | **Remote synced** | Yes |
 | **Git remote** | `https://github.com/cleanerpal/coded-pixels.git` (`origin`, branch `main`) |
 
@@ -31,9 +31,9 @@ _Nathan adds a row only after: diff proof, deliverables exist, full test suite g
 | ENG-002 | 1 | 2025-06-12 | 3af0896 | Design tokens + Inter |
 | ENG-003 | 1 | 2025-06-12 | 3af0896 | Types + static constants |
 | DOC-001 | 1 | 2025-06-12 | 3af0896 | Cookie/legal spec |
-| ENG-004 | 2 | 2025-06-12 | _pending_ | Pricing engine + 14 tests |
-| ENG-005 | 2 | 2025-06-12 | _pending_ | Header/Footer + legal stubs |
-| ENG-006 | 2 | 2025-06-12 | _pending_ | Config state encode/decode + 44 tests |
+| ENG-004 | 2 | 2025-06-12 | 6731cfd | Pricing engine + 14 tests |
+| ENG-005 | 2 | 2025-06-12 | 6731cfd | Header/Footer + legal stubs |
+| ENG-006 | 2 | 2025-06-12 | 6731cfd | Config state encode/decode + 44 tests |
 
 ---
 
@@ -83,7 +83,7 @@ _Nathan appends after each `/codedpixels resume` run in a chat._
 |------|-------------|--------|
 | 2025-06-12 | `/codedpixels resume` | Wave 1 not started. Spooled ENG-001 + DOC-001. |
 | 2025-06-12 | Wave 1 push | `3af0896` pushed to origin/main. Auto-spooled Wave 2. |
-| 2025-06-12 | Wave 2 push | 58 tests green. Auto-spooling Wave 3. |
+| 2025-06-12 | Wave 2 push | `6731cfd` — 58 tests green. ENG-006 gate closed. Auto-spooling Wave 3. |
 
 ---
 
