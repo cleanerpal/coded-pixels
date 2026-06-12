@@ -14,8 +14,8 @@
 | **Current wave** | **5** |
 | **Current milestone** | M3 (Wave 5 next) |
 | **Last wave closed** | **4** |
-| **Last commit SHA** | `51d97f1` |
-| **Last commit message** | `docs: update project-status after wave 3 push (7009166)` |
+| **Last commit SHA** | `f434495` |
+| **Last commit message** | `wave(4): preview panel, billing toggle, configurator shell, landing sections` |
 | **Remote synced** | Yes |
 | **Git remote** | `https://github.com/cleanerpal/coded-pixels.git` (`origin`, branch `main`) |
 
@@ -38,10 +38,10 @@
 | ENG-010 | 3 | 2025-06-12 | 7009166 | Pricing sidebar |
 | ENG-011 | 3 | 2025-06-12 | 7009166 | Package cards |
 | ENG-012 | 3 | 2025-06-12 | 7009166 | Mobile pricing bar |
-| ENG-013 | 4 | 2025-06-12 | (pending push) | Live preview panel |
-| ENG-014 | 4 | 2025-06-12 | (pending push) | Annual billing toggle |
-| ENG-015 | 4 | 2025-06-12 | (pending push) | Configurator integration |
-| ENG-016 | 4 | 2025-06-12 | (pending push) | Hero + landing sections |
+| ENG-013 | 4 | 2025-06-12 | f434495 | Live preview panel |
+| ENG-014 | 4 | 2025-06-12 | f434495 | Annual billing toggle |
+| ENG-015 | 4 | 2025-06-12 | f434495 | Configurator integration |
+| ENG-016 | 4 | 2025-06-12 | f434495 | Hero + landing sections |
 
 ---
 
@@ -79,7 +79,8 @@ Full backlog: `implementation-tickets.md`
 | 2025-06-12 | Wave 1 push | `3af0896` |
 | 2025-06-12 | Wave 2 push | `6731cfd` — M0 complete |
 | 2025-06-12 | Wave 3 push | `7009166` — M1 configurator components complete |
-| 2025-06-12 | `/codedpixels resume` | Verified waves 1–3 deliverables + 65 tests pass; spooling Wave 4 |
+| 2025-06-12 | `/codedpixels resume` | Verified waves 1–3 deliverables + 65 tests pass; spooled Wave 4 |
+| 2025-06-12 | Wave 4 push | `f434495` — M2 preview, billing toggle, landing shell complete |
 
 ---
 
