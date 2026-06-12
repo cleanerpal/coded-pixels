@@ -10,4 +10,4 @@ import { setGlobalOptions } from 'firebase-functions/v2';
 
 setGlobalOptions({ region: 'europe-west2' });
 
-// INF-003: export { submitSignup, submitSiteImportWaitlist } from './callables';
+export { submitSignup, submitSiteImportWaitlist } from './callables';

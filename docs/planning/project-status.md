@@ -57,7 +57,8 @@
 
 | Ticket | Lane | Status | Agent/session |
 |--------|------|--------|---------------|
-| _none_ | | | |
+| INF-003 | E | In progress | Wave 7 spool |
+| ENG-022 | A | In progress | Wave 7 spool |
 
 ---
 

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { AnalyticsProvider } from "@/components/analytics/AnalyticsProvider";
 import { CookieConsentBanner } from "@/components/cookie-consent/CookieConsentBanner";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
@@ -33,6 +34,7 @@ export default function RootLayout({
         <div className="flex-1">{children}</div>
         <Footer />
         <CookieConsentBanner />
+        <AnalyticsProvider />
       </body>
     </html>
   );

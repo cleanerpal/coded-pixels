@@ -13,6 +13,7 @@
     "emulators:export": "firebase emulators:export ./firebase-export"
   },
   "dependencies": {
+    "@next/third-parties": "^15.5.19",
     "@sentry/nextjs": "^10.57.0",
     "next": "15.5.19",
     "react": "^19.0.0",

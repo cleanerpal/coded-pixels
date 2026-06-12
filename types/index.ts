@@ -18,6 +18,18 @@ export type PackageId = 'starter' | 'growth' | 'pro' | 'custom';
 
 export type CustomTemplateBilling = 'recurring' | 'one-time';
 
+/** Snapshot from configurator — firestore-schema.md §3 (signups, waitlist, provisioning) */
+export interface ConfigSnapshot {
+  templateId: string;
+  featureIds: FeatureId[];
+  billingCycle: BillingCycle;
+  monthlyTotalPence: number;
+  annualTotalPence?: number;
+  customTemplateBilling?: CustomTemplateBilling;
+  oneTimeFeesPence?: number;
+  packageId?: PackageId;
+}
+
 /** Runtime configurator state — encoded in URL params (ENG-006) */
 export interface ConfigState {
   templateId: string | null;
