@@ -10,13 +10,13 @@
 
 | Field | Value |
 |-------|--------|
-| **Last updated** | 2025-06-12 (resume — Wave 1 in progress) |
-| **Current wave** | **1** |
-| **Current milestone** | M0 (in progress) |
-| **Last wave closed** | — |
-| **Last commit SHA** | — (no commits yet) |
-| **Last commit message** | — |
-| **Remote synced** | No — configure `origin` → [cleanerpal/coded-pixels](https://github.com/cleanerpal/coded-pixels.git) |
+| **Last updated** | 2025-06-12 |
+| **Current wave** | **2** |
+| **Current milestone** | M0 (Wave 2 in progress) |
+| **Last wave closed** | **1** |
+| **Last commit SHA** | `3af0896` |
+| **Last commit message** | `wave(1): Next.js scaffold, design tokens, types, cookie/legal spec` |
+| **Remote synced** | Yes |
 | **Git remote** | `https://github.com/cleanerpal/coded-pixels.git` (`origin`, branch `main`) |
 
 ---
@@ -27,7 +27,10 @@ _Nathan adds a row only after: diff proof, deliverables exist, full test suite g
 
 | Ticket | Wave | Closed | Commit SHA | Notes |
 |--------|------|--------|------------|-------|
-| _none yet_ | | | | |
+| ENG-001 | 1 | 2025-06-12 | 3af0896 | Next.js 15 scaffold |
+| ENG-002 | 1 | 2025-06-12 | 3af0896 | Design tokens + Inter |
+| ENG-003 | 1 | 2025-06-12 | 3af0896 | Types + static constants |
+| DOC-001 | 1 | 2025-06-12 | 3af0896 | Cookie/legal spec |
 
 ---
 
@@ -37,24 +40,21 @@ _Lane agents report here via Nathan — not DONE until wave commit._
 
 | Ticket | Lane | Status | Agent/session |
 |--------|------|--------|---------------|
-| ENG-001 | A | Verified — wave close pending | 9a089103 |
-| ENG-002 | A | Verified — wave close pending | 70082584 |
-| ENG-003 | B | Verified — wave close pending | 25314c0f |
-| DOC-001 | F | Verified — wave close pending | 4e09620f |
+| _none yet_ | | | |
 
 ---
 
 ## Next parallel spool (when wave above is clear)
 
-**Wave 2** — after Wave 1 commit (ENG-004, ENG-005, ENG-006 in parallel):
+**Wave 2** — spawn in two steps (ENG-006 blocked by ENG-004):
 
-| Ticket | Lane | Blocked? |
-|--------|------|----------|
-| ENG-004 | B | ENG-003 ✓ |
-| ENG-005 | A | ENG-001 ✓, ENG-002 ✓ |
-| ENG-006 | B | ENG-003 ✓, ENG-004 |
+| Step | Ticket | Lane | Blocked? |
+|------|--------|------|----------|
+| 1 (parallel) | ENG-004 | B | No |
+| 1 (parallel) | ENG-005 | A | No |
+| 2 (after ENG-004) | ENG-006 | B | ENG-004 |
 
-_Wave 1 complete on disk — Nathan wave close (stage all, commit, push) before spooling Wave 2._
+After Wave 2 commit → advance to Wave 3 (ENG-007+, gate: ENG-006 tests green).
 
 Full backlog: `implementation-tickets.md`
 
@@ -77,6 +77,7 @@ _Nathan appends after each `/codedpixels resume` run in a chat._
 | Date | Chat action | Result |
 |------|-------------|--------|
 | 2025-06-12 | `/codedpixels resume` | Wave 1 not started. No git repo, no package.json. 0 completed tickets verified. Spooling ENG-001 + DOC-001. |
+| 2025-06-12 | Wave 1 push | `3af0896` pushed to origin/main. Auto-spooling Wave 2. |
 
 ---
 
