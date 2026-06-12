@@ -1,9 +1,138 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // INF-002: replace with full M3 rules from docs/specs/firestore-rules-spec.md §11
-    match /{document=**} {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function uid() {
+      return request.auth.uid;
+    }
+
+    function memberPath(companyId) {
+      return /databases/$(database)/documents/companies/$(companyId)/members/$(uid());
+    }
+
+    function isMember(companyId) {
+      return isSignedIn() && exists(memberPath(companyId));
+    }
+
+    function memberRole(companyId) {
+      return get(memberPath(companyId)).data.role;
+    }
+
+    function hasMinRole(companyId, minRole) {
+      return isMember(companyId) && (
+        minRole == 'viewer' ||
+        (minRole == 'editor' && memberRole(companyId) in ['editor', 'admin', 'owner']) ||
+        (minRole == 'admin' && memberRole(companyId) in ['admin', 'owner']) ||
+        (minRole == 'owner' && memberRole(companyId) == 'owner')
+      );
+    }
+
+    function isPublishedVersion(companyId, siteId, pageId, versionId) {
+      let pagePath = /databases/$(database)/documents/companies/$(companyId)/sites/$(siteId)/pages/$(pageId);
+      let versionPath = /databases/$(database)/documents/companies/$(companyId)/sites/$(siteId)/pages/$(pageId)/versions/$(versionId);
+      return get(pagePath).data.publishedVersionId == versionId
+        && get(versionPath).data.status == 'published';
+    }
+
+    // ─── M3: Marketing PII — Functions only ───
+    match /signups/{signupId} {
       allow read, write: if false;
+    }
+    match /waitlist_site_import/{entryId} {
+      allow read, write: if false;
+    }
+    match /rateLimits/{docId} {
+      allow read, write: if false;
+    }
+
+    // ─── Platform index — locked down ───
+    match /slugs/{slug} {
+      allow read, write: if false;
+    }
+    match /auditLogs/{logId} {
+      allow read, write: if false;
+    }
+
+    // ─── Templates — authenticated read ───
+    match /templates/{templateId} {
+      allow read: if isSignedIn();
+      allow write: if false;
+    }
+
+    match /users/{userId} {
+      allow read: if isSignedIn() && uid() == userId;
+      allow write: if false;
+    }
+
+    // ─── Stripe Extension — client denied ───
+    match /customers/{document=**} {
+      allow read, write: if false;
+    }
+    match /products/{productId} {
+      allow read, write: if false;
+    }
+    match /checkout_sessions/{sessionId} {
+      allow read, write: if false;
+    }
+    match /subscriptions/{subscriptionId} {
+      allow read, write: if false;
+    }
+
+    // ─── Tenant tree — Platform Phase 2 ───
+    match /companies/{companyId} {
+      allow read: if hasMinRole(companyId, 'viewer');
+      allow write: if false;
+
+      match /members/{memberId} {
+        allow read: if hasMinRole(companyId, 'viewer');
+        allow write: if false;
+      }
+      match /invites/{inviteId} {
+        allow read: if hasMinRole(companyId, 'admin');
+        allow write: if false;
+      }
+      match /usage/{periodId} {
+        allow read: if hasMinRole(companyId, 'viewer');
+        allow write: if false;
+      }
+      match /sites/{siteId} {
+        allow read: if hasMinRole(companyId, 'viewer');
+        allow write: if false;
+
+        match /pages/{pageId} {
+          allow read: if hasMinRole(companyId, 'viewer');
+          allow write: if false;
+
+          match /versions/{versionId} {
+            allow read: if isPublishedVersion(companyId, siteId, pageId, versionId)
+                        || hasMinRole(companyId, 'viewer');
+            allow write: if false;
+          }
+        }
+        match /assets/{assetId} {
+          allow read: if hasMinRole(companyId, 'viewer');
+          allow write: if false;
+        }
+        match /leads/{leadId} {
+          allow read: if hasMinRole(companyId, 'viewer');
+          allow update: if hasMinRole(companyId, 'editor')
+            && request.resource.data.diff(resource.data).affectedKeys()
+                .hasOnly(['status', 'readAt', 'archivedAt']);
+          allow create, delete: if false;
+        }
+        match /products/{productId} {
+          allow read: if hasMinRole(companyId, 'viewer');
+          allow write: if false;
+        }
+        match /domains/{domainId} {
+          allow read: if hasMinRole(companyId, 'admin');
+          allow write: if false;
+        }
+      }
     }
   }
 }
