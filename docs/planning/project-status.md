@@ -14,8 +14,8 @@
 | **Current wave** | **16** |
 | **Current milestone** | **Platform Phase 2** — B6 Stripe provisioning next |
 | **Last wave closed** | **15** |
-| **Last commit SHA** | `_pending push_` |
-| **Last commit message** | `wave(14): B3 publish pipeline + revalidation API — B3-001` |
+| **Last commit SHA** | `3244e8e` |
+| **Last commit message** | `wave(15): B4 site renderer + wildcard hosting — B4-001` |
 | **Remote synced** | Yes |
 | **Git remote** | `https://github.com/cleanerpal/coded-pixels.git` (`origin`, branch `main`) |
 
@@ -72,7 +72,7 @@
 | B2-001 | 13 | 2025-06-12 | de75eb8 | Builder shell UI |
 | B2-002 | 13 | 2025-06-12 | de75eb8 | Component registry package |
 | B3-001 | 14 | 2025-06-12 | 0028d2c | publishSite + revalidation API |
-| B4-001 | 15 | 2025-06-12 | _pending push_ | Site renderer + wildcard hosting |
+| B4-001 | 15 | 2025-06-12 | 3244e8e | Site renderer + wildcard hosting |
 
 ---
 
@@ -118,7 +118,7 @@ Full backlog: `implementation-tickets.md`
 | 2025-06-12 | resume | Wave 12 closed — B1-001 + B1-002 verified; lint/typecheck/test/build/test:rules green |
 | 2025-06-12 | resume | Wave 13 closed — B2-001 + B2-002 verified; builder builds on :3001 |
 | 2025-06-12 | resume | Wave 13 @ `46c0b48`; deliverables OK; tests green; spooling B3-001 (Wave 14) |
-| 2025-06-12 | resume | Wave 14 closed @ `0028d2c`; B3-001 verified; pushed; spooling B4-001 (Wave 15) |
+| 2025-06-12 | resume | Wave 15 closed @ `3244e8e`; B4-001 verified; pushed; Wave 16 ready (B6-001 + B6-002) |
 
 ---
 
