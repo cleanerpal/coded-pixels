@@ -1,12 +1,12 @@
-import type { Metadata } from 'next';
-
 import { TemplateGallery } from '@/components/templates/TemplateGallery';
+import { createPageMetadata } from '@/lib/seo/page-metadata';
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: 'Website Templates',
   description:
     'Browse professional website templates for trades, beauty, retail, hospitality, and more. Start with a design and configure your plan in minutes.',
-};
+  path: '/templates',
+});
 
 export default function TemplatesPage() {
   return (

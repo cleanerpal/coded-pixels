@@ -9,6 +9,10 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
+    "test:e2e": "playwright test",
+    "test:e2e:spine": "playwright test e2e/spine.spec.ts",
+    "test:rules": "firebase emulators:exec --only firestore \"vitest run --config vitest.rules.config.ts\"",
+    "test:lighthouse": "node scripts/lighthouse-budget.mjs",
     "emulators": "firebase emulators:start --only auth,firestore,functions,storage",
     "emulators:export": "firebase emulators:export ./firebase-export"
   },
@@ -21,6 +25,9 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@firebase/rules-unit-testing": "^4.0.1",
+    "@lhci/cli": "^0.14.0",
+    "@playwright/test": "^1.60.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

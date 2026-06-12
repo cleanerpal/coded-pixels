@@ -75,7 +75,18 @@ If a ticket is marked complete but deliverables are missing → **reopen ticket*
 | **ENG-020** | `app/get-started/`, GetStartedFlow, calls submitSignup |
 | **ENG-023** | `SiteImportWaitlistCard.tsx`, wired in Step2Features |
 
-## Wave 9+
+## Wave 9
+
+| Ticket | Required deliverables (minimum) |
+|--------|----------------------------------|
+| **QA-001** | `e2e/configurator.spec.ts` |
+| **QA-002** | `e2e/get-started.spec.ts` |
+| **QA-003** | `lighthouserc.json`, `docs/planning/perf-budget.md`, `test:lighthouse` |
+| **QA-004** | `app/sitemap.ts`, `app/robots.ts`, pricing JSON-LD |
+| **QA-005** | `tests/firestore/`, `npm run test:rules` |
+| **QA-006** | `e2e/spine.spec.ts`, `playwright.config.ts`, `test:e2e` |
+
+## Wave 10+
 
 **Manual browser verification:** [wave-verification/](wave-verification/README.md) — one guide per wave (Mia Thompson).
 

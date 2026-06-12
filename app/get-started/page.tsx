@@ -1,16 +1,17 @@
-import type { Metadata } from 'next';
 import { Suspense } from 'react';
 
 import {
   GetStartedFlow,
   GetStartedFlowFallback,
 } from '@/components/get-started/GetStartedFlow';
+import { createPageMetadata } from '@/lib/seo/page-metadata';
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: 'Get Started',
   description:
     'Save your CodedPixels plan with email-only sign-up. No payment taken — preview your configuration and we will be in touch.',
-};
+  path: '/get-started',
+});
 
 export default function GetStartedPage() {
   return (

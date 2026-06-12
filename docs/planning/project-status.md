@@ -11,11 +11,11 @@
 | Field | Value |
 |-------|--------|
 | **Last updated** | 2025-06-12 |
-| **Current wave** | **9** |
-| **Current milestone** | M4 (Wave 9 / QA gate next) |
-| **Last wave closed** | **8** |
-| **Last commit SHA** | `1da1ebf` |
-| **Last commit message** | `wave(8): get-started flow + Site Import waitlist UI` |
+| **Current wave** | **10** |
+| **Current milestone** | **M4 complete** — Platform Phase 2 prep next |
+| **Last wave closed** | **9** |
+| **Last commit SHA** | `(pending wave 9 push)` |
+| **Last commit message** | `wave(9): M4 QA — Playwright, rules tests, SEO, Lighthouse budget` |
 | **Remote synced** | Yes |
 | **Git remote** | `https://github.com/cleanerpal/coded-pixels.git` (`origin`, branch `main`) |
 
@@ -54,6 +54,12 @@
 | ENG-022 | 7 | 2025-06-12 | 8cd2048 | Consent-gated GA4 |
 | ENG-020 | 8 | 2025-06-12 | 1da1ebf | Get-started flow |
 | ENG-023 | 8 | 2025-06-12 | 1da1ebf | Site Import waitlist UI |
+| QA-001 | 9 | 2025-06-12 | (wave 9) | Configurator E2E |
+| QA-002 | 9 | 2025-06-12 | (wave 9) | Get-started E2E |
+| QA-003 | 9 | 2025-06-12 | (wave 9) | Lighthouse perf budget |
+| QA-004 | 9 | 2025-06-12 | (wave 9) | SEO sitemap + JSON-LD |
+| QA-005 | 9 | 2025-06-12 | (wave 9) | Firestore rules tests |
+| QA-006 | 9 | 2025-06-12 | (wave 9) | Integration spine E2E |
 
 ---
 
@@ -67,7 +73,7 @@
 
 ## Next parallel spool
 
-**Wave 9 (M4 QA)** — QA-001, QA-002, QA-003, QA-004, QA-005, QA-006 (see `implementation-tickets.md`).
+**Platform Phase 2 prep** — DOC-003, DOC-004 (docs only; do not block M4 sign-off). See `implementation-tickets.md` Platform Phase 2 section.
 
 Full backlog: `implementation-tickets.md`
 
@@ -79,6 +85,7 @@ Full backlog: `implementation-tickets.md`
 |------|--------|
 | ENG-006 → Wave 3 UI | **CLOSED** |
 | M3 PII (DOC-002 + Sentry + Callables) | **CLOSED** |
+| M4 QA gate | **CLOSED** |
 | Platform B0 monorepo | **OPEN** |
 
 ---
@@ -88,12 +95,9 @@ Full backlog: `implementation-tickets.md`
 | Date | Chat action | Result |
 |------|-------------|--------|
 | 2025-06-12 | `/codedpixels resume` | Wave 1 kickoff |
-| 2025-06-12 | Wave 1 push | `3af0896` |
-| 2025-06-12 | Wave 2 push | `6731cfd` — M0 complete |
-| 2025-06-12 | Wave 3 push | `7009166` — M1 configurator components complete |
-| 2025-06-12 | `/codedpixels resume` | Verified waves 1–3; closed Waves 4–6 |
-| 2025-06-12 | Wave 6 push | `c5a72f8` — Firestore rules + cookie consent |
-| 2025-06-12 | continue | Closed Wave 7 `8cd2048`; closed Wave 8 — M3 engineering complete |
+| 2025-06-12 | Wave 1–6 push | M0–M3 partial |
+| 2025-06-12 | continue | Waves 7–8 — M3 engineering complete |
+| 2025-06-12 | continue | Wave 9 — M4 QA gate complete |
 
 ---
 
