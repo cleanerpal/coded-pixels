@@ -11,11 +11,11 @@
 | Field | Value |
 |-------|--------|
 | **Last updated** | 2025-06-12 |
-| **Current wave** | **6** |
-| **Current milestone** | M3 (Wave 6 next) |
-| **Last wave closed** | **5** |
-| **Last commit SHA** | `7d052a1` |
-| **Last commit message** | `wave(5): legal pages, templates/pricing routes, Firebase + Sentry scaffold` |
+| **Current wave** | **7** |
+| **Current milestone** | M3 (Wave 7 next) |
+| **Last wave closed** | **6** |
+| **Last commit SHA** | `c5a72f8` |
+| **Last commit message** | `wave(6): Firestore rules + cookie consent banner` |
 | **Remote synced** | Yes |
 | **Git remote** | `https://github.com/cleanerpal/coded-pixels.git` (`origin`, branch `main`) |
 
