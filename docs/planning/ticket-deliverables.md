@@ -54,7 +54,28 @@ If a ticket is marked complete but deliverables are missing → **reopen ticket*
 | **INF-001** | `firebase.json`, `.firebaserc`, `functions/` scaffold |
 | **INF-004** | Sentry configs, `lib/sentry/pii-scrubber.ts`, tests |
 
-## Wave 6+
+## Wave 6
+
+| Ticket | Required deliverables (minimum) |
+|--------|----------------------------------|
+| **INF-002** | `firestore.rules` from firestore-rules-spec §11 |
+| **ENG-021** | Cookie consent banner + `lib/cookie-consent.ts` |
+
+## Wave 7
+
+| Ticket | Required deliverables (minimum) |
+|--------|----------------------------------|
+| **INF-003** | `functions/src/callables/`, submitSignup + submitSiteImportWaitlist |
+| **ENG-022** | `lib/analytics.ts`, `AnalyticsProvider`, consent-gated GA4 |
+
+## Wave 8
+
+| Ticket | Required deliverables (minimum) |
+|--------|----------------------------------|
+| **ENG-020** | `app/get-started/`, GetStartedFlow, calls submitSignup |
+| **ENG-023** | `SiteImportWaitlistCard.tsx`, wired in Step2Features |
+
+## Wave 9+
 
 **Manual browser verification:** [wave-verification/](wave-verification/README.md) — one guide per wave (Mia Thompson).
 

@@ -1,3 +1,6 @@
+import { httpsCallable } from 'firebase/functions';
+
+import { getFirebaseFunctions } from '@/lib/firebase';
 import type { ConfigSnapshot } from '@/types';
 
 /** Callable payload for signup and Site Import waitlist (INF-003). */
@@ -13,23 +16,31 @@ export interface MarketingCallableResult {
 }
 
 /**
- * Client helpers for ENG-020 / ENG-023 — wire to Firebase httpsCallable after
- * App Check + Functions SDK init land in the Next.js app.
+ * Submit signup via INF-003 Callable — no client Firestore writes.
+ * Aligned with Dr. Kai Nakamura on INF-003; Dr. Victor Lang on Callable-only PII.
  */
 export async function submitSignup(
-  _payload: MarketingCallablePayload,
+  payload: MarketingCallablePayload,
 ): Promise<MarketingCallableResult> {
-  throw new Error(
-    'submitSignup: Firebase client not initialised — implement in ENG-020',
-  );
+  const functions = getFirebaseFunctions();
+  const callable = httpsCallable<
+    MarketingCallablePayload,
+    MarketingCallableResult
+  >(functions, 'submitSignup');
+  const result = await callable(payload);
+  return result.data;
 }
 
 export async function submitSiteImportWaitlist(
-  _payload: MarketingCallablePayload,
+  payload: MarketingCallablePayload,
 ): Promise<MarketingCallableResult> {
-  throw new Error(
-    'submitSiteImportWaitlist: Firebase client not initialised — implement in ENG-023',
-  );
+  const functions = getFirebaseFunctions();
+  const callable = httpsCallable<
+    MarketingCallablePayload,
+    MarketingCallableResult
+  >(functions, 'submitSiteImportWaitlist');
+  const result = await callable(payload);
+  return result.data;
 }
 
 export type { ConfigSnapshot };
