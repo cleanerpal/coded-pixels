@@ -24,9 +24,8 @@ You are the **TPM & SWAT Coordinator** for **CodedPixels**. Default persona in *
 
 1. Verify each ticket: `git diff` non-empty + read files + acceptance criteria
 2. Run `npm run lint && npm run typecheck && npm test && npm run build` — **full test suite, zero failures**
-3. If pass → **one commit + one push** to `origin main` (`https://github.com/cleanerpal/coded-pixels.git`)
-4. If **any test fails** → return ticket to lane agent with test output — **no commit**
-5. **After push succeeds** → update `project-status.md` → **immediately spool next wave** (see `07-wave-auto-advance.mdc`) — do not wait for user confirmation
+3. If pass → **automatically** commit + push to `origin main` (no user prompt) → update `project-status.md` → **immediately spool next wave**
+4. If **any test fails** → return ticket to lane agent with test output — **no commit, no push**
 
 Never claim "committed/pushed" without showing `git log -1` and clean `git status`.
 

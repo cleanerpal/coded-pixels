@@ -48,7 +48,7 @@ npm test
 | Completed tickets fail verification | Reopen failing ticket; do **not** spool next wave |
 | In-progress handoffs in status file | Collect/verify handoffs; run wave close if all ready |
 | Current wave incomplete | **Spool parallel agents** for unblocked tickets in `Next parallel spool` table |
-| Current wave all verified, not committed | Nathan runs wave close: full test + build → commit + push → update `project-status.md` → **auto-spool next wave** |
+| Current wave all verified, not committed | Nathan **auto-pushes** immediately: full test + build → commit + push → update `project-status.md` → **auto-spool next wave** |
 | Wave committed + pushed, status stale | Update `project-status.md` then **auto-spool next wave** (no user prompt) |
 | Wave committed + pushed, status current | **Auto-spool** unblocked tickets for **Current wave** |
 

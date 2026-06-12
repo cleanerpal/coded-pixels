@@ -9,6 +9,18 @@ alwaysApply: true
 
 After a wave is **committed and pushed successfully**, Nathan **must continue in the same session** — do **not** stop to ask the user whether to start the next wave.
 
+## Auto-push on verification (mandatory)
+
+When **all tickets in the current wave** are verified (non-empty diffs, deliverables on disk, acceptance criteria met):
+
+1. Nathan **automatically** runs `lint + typecheck + test + build`
+2. If all green → **automatically** `git add`, `git commit`, `git push origin main`
+3. **Do not wait** for the user to say "push wave N" — verification complete = push now
+
+The user may say "push wave N" as shorthand; Nathan treats it the same as "verify and close wave N". Either way: verify → push → auto-spool next wave in one flow.
+
+**Only skip auto-push when:** tests/build fail, push fails, or user explicitly says "stop" / "pause" / "verify only".
+
 ## Auto-advance loop (Nathan only)
 
 ```
@@ -22,7 +34,7 @@ verify wave N handoffs
   → collect handoffs → repeat until blocked by gate or backlog exhausted
 ```
 
-**Do not** end the session with "say close wave N" or "want me to spool Wave 2?" after a successful push.
+**Do not** end the session with "say close wave N", "want me to spool Wave 2?", or "say push wave N" after verification passes — **push automatically**.
 
 ## When to stop (fail closed)
 

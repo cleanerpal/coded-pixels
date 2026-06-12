@@ -1,7 +1,6 @@
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
-import { DarkSection } from "@/components/ui/DarkSection";
 
 export default function Home() {
   return (
@@ -19,11 +18,6 @@ export default function Home() {
           </div>
         </Card>
       </section>
-      <DarkSection className="px-8 py-6">
-        <p className="text-sm text-dark-text-muted">
-          UK-based · Secure payments · GDPR compliant · Cancel anytime
-        </p>
-      </DarkSection>
     </main>
   );
 }
