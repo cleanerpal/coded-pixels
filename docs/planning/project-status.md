@@ -11,11 +11,11 @@
 | Field | Value |
 |-------|--------|
 | **Last updated** | 2025-06-12 |
-| **Current wave** | **16** |
-| **Current milestone** | **Platform Phase 2** — B6 Stripe provisioning next |
-| **Last wave closed** | **15** |
-| **Last commit SHA** | `3244e8e` |
-| **Last commit message** | `wave(15): B4 site renderer + wildcard hosting — B4-001` |
+| **Current wave** | **17** |
+| **Current milestone** | **Platform Phase 2** — B7 storage + B8 CRM/products next |
+| **Last wave closed** | **16** |
+| **Last commit SHA** | `82d2b4a` |
+| **Last commit message** | `wave(16): Stripe checkout + onboarding wizard — B6-001, B6-002` |
 | **Remote synced** | Yes |
 | **Git remote** | `https://github.com/cleanerpal/coded-pixels.git` (`origin`, branch `main`) |
 
@@ -73,6 +73,8 @@
 | B2-002 | 13 | 2025-06-12 | de75eb8 | Component registry package |
 | B3-001 | 14 | 2025-06-12 | 0028d2c | publishSite + revalidation API |
 | B4-001 | 15 | 2025-06-12 | 3244e8e | Site renderer + wildcard hosting |
+| B6-001 | 16 | 2025-06-12 | 82d2b4a | Stripe Extension + provisionTenant + provisioningJobs |
+| B6-002 | 16 | 2025-06-12 | 82d2b4a | Onboarding wizard + provisioningJobs polling |
 
 ---
 
@@ -86,7 +88,7 @@
 
 ## Next parallel spool
 
-**Wave 16** — B6-001 + B6-002 (Stripe Extension + onboarding wizard). Optional parallel: B7-001, B8-001, DOC-009.
+**Wave 17** — B7-001 + B8-001 (Storage + ClamAV + Leads/products). Optional parallel: DOC-009.
 
 Full backlog: `implementation-tickets.md`
 
@@ -104,6 +106,7 @@ Full backlog: `implementation-tickets.md`
 | Platform B2 builder shell | **CLOSED** — B2-001 + B2-002 complete |
 | Platform B3 publish pipeline | **CLOSED** — B3-001 complete |
 | Platform B4 site renderer | **CLOSED** — B4-001 complete |
+| Platform B6 Stripe + onboarding | **CLOSED** — B6-001 + B6-002 complete |
 
 ---
 
@@ -120,6 +123,7 @@ Full backlog: `implementation-tickets.md`
 | 2025-06-12 | resume | Wave 13 @ `46c0b48`; deliverables OK; tests green; spooling B3-001 (Wave 14) |
 | 2025-06-12 | resume | Wave 15 closed @ `3244e8e`; B4-001 verified; pushed; Wave 16 ready (B6-001 + B6-002) |
 | 2025-06-12 | resume | Wave 16 @ HEAD `b57edbe`; Wave 15 verified; tests green; spooling B6-001 + B6-002 |
+| 2025-06-12 | resume | Wave 16 closed @ `82d2b4a`; B6-001 + B6-002 verified; pushed; Wave 17 ready (B7-001 + B8-001) |
 
 ---
 
