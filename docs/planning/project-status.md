@@ -103,6 +103,7 @@ Full backlog: `implementation-tickets.md`
 |------|-------------|--------|
 | 2025-06-12 | continue | Wave 9 — M4 QA complete |
 | 2025-06-12 | continue | Wave 10 — P2 prep docs DOC-003–DOC-008 |
+| 2025-06-12 | continue | Wave 11 — B0-001 Turborepo `5151d06` |
 
 ---
 
