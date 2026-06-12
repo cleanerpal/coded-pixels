@@ -14,8 +14,8 @@
 | **Current wave** | **21** |
 | **Current milestone** | **Production launch** (Wave 21 PL-001–PL-005) |
 | **Last wave closed** | **20** |
-| **Last commit SHA** | `a27b473` |
-| **Last commit message** | `wave(19): marketing template previews — INF-005–007, ENG-024–027, QA-007` |
+| **Last commit SHA** | `6aa5d91` |
+| **Last commit message** | `wave(20): starter library expansion — B10-001, B10-002, INF-007` |
 | **Remote synced** | Yes |
 | **Forge & Scale gate** | **CLOSED** — Wave 19 approved; comprehensive audit received |
 | **Git remote** | `https://github.com/cleanerpal/coded-pixels.git` (`origin`, branch `main`) |
@@ -89,9 +89,9 @@
 | ENG-027 | 19 | 2025-06-12 | a27b473 | Category filters + starter copy |
 | QA-007 | 19 | 2025-06-12 | a27b473 | Template preview E2E |
 | DOC-011 | 20 | 2025-06-12 | b338b9d | Template addition governance (planning) |
-| B10-001 | 20 | 2025-06-12 | _(wave 20)_ | +4 starter seeds, seedVersion 2 |
-| B10-002 | 20 | 2025-06-12 | _(wave 20)_ | new-template.mjs + authoring guide |
-| INF-007 | 20 | 2025-06-12 | _(wave 20)_ | template-seeds CI workflow |
+| B10-001 | 20 | 2025-06-12 | 6aa5d91 | +4 starter seeds, seedVersion 2 |
+| B10-002 | 20 | 2025-06-12 | 6aa5d91 | new-template.mjs + authoring guide |
+| INF-007 | 20 | 2025-06-12 | 6aa5d91 | template-seeds CI workflow |
 
 ---
 
