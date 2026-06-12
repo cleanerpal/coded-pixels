@@ -3,15 +3,18 @@
 import Link from 'next/link';
 import { useCallback, useMemo, useState } from 'react';
 
+import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { buildConfigHref } from '@/lib/config-url-sync';
 import {
+  annualMonthlyEquivalentPence,
+  annualSavingsPence,
   getLineItems,
   getOneTimeLineItems,
   monthlyTotalPence,
 } from '@/lib/pricing';
-import type { ConfigState } from '@/types';
+import type { BillingCycle, ConfigState } from '@/types';
 
 function formatPence(pence: number): string {
   return `£${(pence / 100).toFixed(2)}`;
@@ -19,19 +22,32 @@ function formatPence(pence: number): string {
 
 export interface PricingSidebarProps {
   config: ConfigState;
-  onConfigChange?: (config: ConfigState) => void;
+  onConfigChange: (patch: Partial<ConfigState>) => void;
 }
 
-export function PricingSidebar({ config }: PricingSidebarProps) {
+export function PricingSidebar({ config, onConfigChange }: PricingSidebarProps) {
   const lineItems = useMemo(() => getLineItems(config), [config]);
   const oneTimeItems = useMemo(() => getOneTimeLineItems(config), [config]);
-  const totalPence = useMemo(() => monthlyTotalPence(config), [config]);
+  const monthlyPence = useMemo(() => monthlyTotalPence(config), [config]);
+  const annualMonthlyPence = useMemo(
+    () => annualMonthlyEquivalentPence(config),
+    [config],
+  );
+  const savingsPence = useMemo(() => annualSavingsPence(config), [config]);
   const [copyFeedback, setCopyFeedback] = useState<string | null>(null);
 
+  const isAnnual = config.billingCycle === 'annual';
   const hasTemplate = config.templateId !== null;
   const showOneTimeNote =
     config.customTemplateBilling === 'one-time' &&
     config.featureIds.includes('custom-template');
+
+  const handleBillingCycleChange = useCallback(
+    (billingCycle: BillingCycle) => {
+      onConfigChange({ billingCycle });
+    },
+    [onConfigChange],
+  );
 
   const handleCopyLink = useCallback(async () => {
     try {
@@ -91,17 +107,74 @@ export function PricingSidebar({ config }: PricingSidebarProps) {
           </div>
         )}
 
-        <div className="border-t border-border pt-3">
-          <div className="flex items-baseline justify-between gap-3">
-            <span className="font-medium text-text">Monthly total</span>
-            <span
-              className="text-xl font-bold tabular-nums text-accent"
-              aria-live="polite"
-              aria-atomic="true"
+        <div
+          className="space-y-3 border-t border-border pt-3"
+          role="radiogroup"
+          aria-label="Billing cycle"
+        >
+          <p className="text-sm font-medium text-text">Billing cycle</p>
+          <div className="flex flex-wrap gap-2">
+            <button
+              type="button"
+              role="radio"
+              aria-checked={!isAnnual}
+              onClick={() => handleBillingCycleChange('monthly')}
+              className={`rounded-card border px-3 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
+                !isAnnual
+                  ? 'border-primary bg-primary/5 text-primary'
+                  : 'border-border bg-surface text-text hover:border-primary/40'
+              }`}
             >
-              {formatPence(totalPence)}/mo
-            </span>
+              Monthly
+            </button>
+            <button
+              type="button"
+              role="radio"
+              aria-checked={isAnnual}
+              onClick={() => handleBillingCycleChange('annual')}
+              className={`rounded-card border px-3 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
+                isAnnual
+                  ? 'border-primary bg-primary/5 text-primary'
+                  : 'border-border bg-surface text-text hover:border-primary/40'
+              }`}
+            >
+              Annual (save 17%)
+            </button>
           </div>
+        </div>
+
+        <div className="border-t border-border pt-3">
+          {isAnnual ? (
+            <div className="space-y-2">
+              <div className="flex items-baseline justify-between gap-3">
+                <span className="font-medium text-text">Billed annually</span>
+                <span
+                  className="text-xl font-bold tabular-nums text-accent"
+                  aria-live="polite"
+                  aria-atomic="true"
+                >
+                  {formatPence(annualMonthlyPence)}/mo
+                </span>
+              </div>
+              <p className="text-sm text-text-muted">
+                {formatPence(annualMonthlyPence)}/mo billed annually
+              </p>
+              <Badge variant="success" className="w-fit">
+                Save {formatPence(savingsPence)} per year
+              </Badge>
+            </div>
+          ) : (
+            <div className="flex items-baseline justify-between gap-3">
+              <span className="font-medium text-text">Monthly total</span>
+              <span
+                className="text-xl font-bold tabular-nums text-accent"
+                aria-live="polite"
+                aria-atomic="true"
+              >
+                {formatPence(monthlyPence)}/mo
+              </span>
+            </div>
+          )}
         </div>
 
         <div className="space-y-2">

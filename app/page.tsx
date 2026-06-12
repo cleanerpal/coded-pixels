@@ -1,23 +1,49 @@
-import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
-import { Card } from "@/components/ui/Card";
+import { Suspense } from 'react';
+
+import {
+  ConfiguratorShell,
+  ConfiguratorShellFallback,
+} from '@/components/configurator/ConfiguratorShell';
+import { FAQ } from '@/components/sections/FAQ';
+import { Hero } from '@/components/sections/Hero';
+import { HowItWorks } from '@/components/sections/HowItWorks';
+import { PackageSection } from '@/components/sections/PackageSection';
+import { Testimonials } from '@/components/sections/Testimonials';
 
 export default function Home() {
   return (
     <main>
-      <section className="mx-auto max-w-3xl space-y-6 p-8">
-        <h1 className="text-3xl font-bold text-primary">CodedPixels</h1>
-        <p className="text-text-muted">
-          Design token samples — all colours use CSS variables from globals.css.
-        </p>
-        <Card>
-          <div className="flex flex-wrap items-center gap-3">
-            <Button>Primary CTA</Button>
-            <Button variant="secondary">Secondary</Button>
-            <Badge variant="success">Save £XX per year</Badge>
-          </div>
-        </Card>
+      <Hero />
+      <PackageSection />
+
+      <section
+        id="configurator"
+        aria-labelledby="configurator-heading"
+        className="scroll-mt-20 border-b border-border bg-background px-4 py-12 pb-28 sm:px-6 lg:py-16 lg:pb-16"
+      >
+        <div className="mx-auto max-w-7xl">
+          <header className="mb-8">
+            <h2
+              id="configurator-heading"
+              className="text-2xl font-bold text-text sm:text-3xl"
+            >
+              Configure your website
+            </h2>
+            <p className="mt-2 text-text-muted">
+              Choose a template, add features, and see your price update in
+              real time.
+            </p>
+          </header>
+
+          <Suspense fallback={<ConfiguratorShellFallback />}>
+            <ConfiguratorShell />
+          </Suspense>
+        </div>
       </section>
+
+      <HowItWorks />
+      <Testimonials />
+      <FAQ />
     </main>
   );
 }

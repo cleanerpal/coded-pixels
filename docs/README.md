@@ -25,6 +25,7 @@
 | [Implementation tickets](planning/implementation-tickets.md) | Lanes, waves, gates, ticket backlog |
 | [Project status](planning/project-status.md) | Resume checkpoint — `/codedpixels resume` |
 | [Ticket deliverables](planning/ticket-deliverables.md) | Files to verify per ticket on resume |
+| [Wave verification guides](planning/wave-verification/README.md) | Mia Thompson — what to see in the browser after each wave |
 | [Expert review memo](planning/expert-review-memo.md) | Panel sign-off + Q54–Q62 amendments |
 
 ## Process

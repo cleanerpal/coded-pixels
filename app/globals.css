@@ -88,7 +88,42 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background font-sans text-text antialiased;
+  }
+}
+
+/* Live preview template themes (ENG-013) — scoped CSS variables per template */
+@layer components {
+  .preview-theme-canvas {
+    background-color: var(--color-surface);
+  }
+
+  .preview-theme-hero {
+    background: linear-gradient(
+      to bottom right,
+      var(--preview-hero-from, var(--color-border)),
+      var(--preview-hero-to, var(--color-background))
+    );
+  }
+
+  .preview-theme-line {
+    background-color: color-mix(
+      in srgb,
+      var(--preview-accent, var(--color-primary)) 35%,
+      var(--color-border)
+    );
+  }
+
+  .preview-theme-line-muted {
+    background-color: color-mix(
+      in srgb,
+      var(--preview-accent, var(--color-primary)) 18%,
+      var(--color-border)
+    );
   }
 }

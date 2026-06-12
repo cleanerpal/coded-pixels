@@ -32,6 +32,18 @@ export function annualTotalPence(config: ConfigState): number {
   return Math.round((monthly * 12 * 83) / 100);
 }
 
+/** Annual monthly equivalent in pence — Math.round(monthlyTotalPence * 83 / 100) (Q6). */
+export function annualMonthlyEquivalentPence(config: ConfigState): number {
+  const monthly = monthlyTotalPence(config);
+  return Math.round((monthly * 83) / 100);
+}
+
+/** Annual savings in integer pence — recurring monthly × 12 minus annual total (Q6). */
+export function annualSavingsPence(config: ConfigState): number {
+  const monthly = monthlyTotalPence(config);
+  return monthly * 12 - annualTotalPence(config);
+}
+
 /** One-time fees in pence (checkout only — Q13). */
 export function oneTimeFeesPence(config: ConfigState): number {
   if (

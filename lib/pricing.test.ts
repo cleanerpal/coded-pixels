@@ -7,6 +7,8 @@ import {
 import type { ConfigState } from '@/types';
 
 import {
+  annualMonthlyEquivalentPence,
+  annualSavingsPence,
   annualTotalPence,
   applyPackage,
   getLineItems,
@@ -127,6 +129,57 @@ describe('annualTotalPence', () => {
 
     expect(annualTotalPence(oneTimeConfig)).toBe(
       Math.round((1498 * 12 * 83) / 100),
+    );
+    expect(oneTimeFeesPence(oneTimeConfig)).toBe(14900);
+  });
+});
+
+describe('annualMonthlyEquivalentPence', () => {
+  it('uses Math.round(monthly * 83 / 100) for display (Q6)', () => {
+    expect(annualMonthlyEquivalentPence(applyPackage('growth'))).toBe(
+      Math.round((2496 * 83) / 100),
+    );
+    expect(annualMonthlyEquivalentPence(applyPackage('growth'))).toBe(2072);
+  });
+
+  it('Q13 — one-time custom template fee excluded from equivalent', () => {
+    const oneTimeConfig = config({
+      featureIds: ['custom-template', 'crm'],
+      customTemplateBilling: 'one-time',
+    });
+
+    expect(annualMonthlyEquivalentPence(oneTimeConfig)).toBe(
+      Math.round((1498 * 83) / 100),
+    );
+    expect(oneTimeFeesPence(oneTimeConfig)).toBe(14900);
+  });
+});
+
+describe('annualSavingsPence', () => {
+  it('returns integer pence savings vs paying monthly for 12 months (Q6)', () => {
+    const growth = applyPackage('growth');
+    expect(annualSavingsPence(growth)).toBe(
+      monthlyTotalPence(growth) * 12 - annualTotalPence(growth),
+    );
+    expect(annualSavingsPence(growth)).toBe(5092);
+  });
+
+  it('matches 17% of recurring annual spend in integer pence', () => {
+    expect(annualSavingsPence(config())).toBe(
+      Math.round((999 * 12 * 17) / 100),
+    );
+    expect(annualSavingsPence(config())).toBe(2038);
+  });
+
+  it('Q13 — one-time £149 excluded from savings calc', () => {
+    const oneTimeConfig = config({
+      featureIds: ['custom-template', 'crm'],
+      customTemplateBilling: 'one-time',
+      billingCycle: 'annual',
+    });
+
+    expect(annualSavingsPence(oneTimeConfig)).toBe(
+      monthlyTotalPence(oneTimeConfig) * 12 - annualTotalPence(oneTimeConfig),
     );
     expect(oneTimeFeesPence(oneTimeConfig)).toBe(14900);
   });

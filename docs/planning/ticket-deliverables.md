@@ -34,9 +34,18 @@ If a ticket is marked complete but deliverables are missing → **reopen ticket*
 | **ENG-011** | Package cards component |
 | **ENG-012** | Mobile pricing bar component |
 
-## Wave 4+
+## Wave 4
 
-See ticket scope in `implementation-tickets.md`. Nathan adds deliverable rows here when closing each wave.
+| Ticket | Required deliverables (minimum) |
+|--------|----------------------------------|
+| **ENG-013** | `components/configurator/LivePreviewPanel.tsx`, `lib/template-themes.ts` |
+| **ENG-014** | Annual toggle in `PricingSidebar.tsx`, `annualSavingsPence` in `lib/pricing.ts` |
+| **ENG-015** | `ConfiguratorShell.tsx`, `StepProgress.tsx`, `#configurator` wired in `app/page.tsx` |
+| **ENG-016** | `components/sections/Hero.tsx`, HowItWorks, Testimonials, FAQ; landing on `/` |
+
+## Wave 5+
+
+**Manual browser verification:** [wave-verification/](wave-verification/README.md) — one guide per wave (Mia Thompson).
 
 ---
 
