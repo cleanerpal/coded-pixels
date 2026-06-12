@@ -85,6 +85,9 @@ service cloud.firestore {
     match /subscriptions/{subscriptionId} {
       allow read, write: if false;
     }
+    match /provisioningJobs/{jobId} {
+      allow read, write: if false;
+    }
 
     // ─── Tenant tree — Platform Phase 2 ───
     match /companies/{companyId} {

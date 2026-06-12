@@ -4,6 +4,11 @@ import {
   ReCaptchaV3Provider,
 } from 'firebase/app-check';
 import {
+  connectFirestoreEmulator,
+  getFirestore,
+  type Firestore,
+} from 'firebase/firestore';
+import {
   connectFunctionsEmulator,
   getFunctions,
   type Functions,
@@ -22,6 +27,7 @@ const firebaseConfig = {
 
 let firebaseApp: FirebaseApp | undefined;
 let firebaseFunctions: Functions | undefined;
+let firebaseFirestore: Firestore | undefined;
 let appCheckInitialized = false;
 
 function assertBrowser(): void {
@@ -71,4 +77,19 @@ export function getFirebaseFunctions(): Functions {
 
   initAppCheck(getFirebaseApp());
   return firebaseFunctions;
+}
+
+export function getFirebaseFirestore(): Firestore {
+  assertBrowser();
+
+  if (!firebaseFirestore) {
+    firebaseFirestore = getFirestore(getFirebaseApp());
+
+    if (process.env.NEXT_PUBLIC_USE_FIREBASE_EMULATORS === 'true') {
+      connectFirestoreEmulator(firebaseFirestore, '127.0.0.1', 8080);
+    }
+  }
+
+  initAppCheck(getFirebaseApp());
+  return firebaseFirestore;
 }

@@ -10,4 +10,11 @@ import { setGlobalOptions } from 'firebase-functions/v2';
 
 setGlobalOptions({ region: 'europe-west2' });
 
-export { submitSignup, submitSiteImportWaitlist, publishSite } from './callables';
+export {
+  submitSignup,
+  submitSiteImportWaitlist,
+  publishSite,
+  createCheckoutSession,
+} from './callables';
+
+export { onStripeCheckoutSessionUpdated } from './triggers/checkoutSessionCompleted';

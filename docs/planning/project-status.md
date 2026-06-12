@@ -119,6 +119,7 @@ Full backlog: `implementation-tickets.md`
 | 2025-06-12 | resume | Wave 13 closed — B2-001 + B2-002 verified; builder builds on :3001 |
 | 2025-06-12 | resume | Wave 13 @ `46c0b48`; deliverables OK; tests green; spooling B3-001 (Wave 14) |
 | 2025-06-12 | resume | Wave 15 closed @ `3244e8e`; B4-001 verified; pushed; Wave 16 ready (B6-001 + B6-002) |
+| 2025-06-12 | resume | Wave 16 @ HEAD `b57edbe`; Wave 15 verified; tests green; spooling B6-001 + B6-002 |
 
 ---
 

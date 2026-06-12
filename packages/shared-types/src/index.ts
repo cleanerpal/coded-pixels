@@ -32,4 +32,6 @@ export type {
   Site,
   Page,
   PageVersion,
+  ProvisioningJob,
+  ProvisioningJobStatus,
 } from './firestore';

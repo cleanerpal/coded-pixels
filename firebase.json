@@ -1,4 +1,7 @@
 {
+  "extensions": {
+    "firestore-stripe-payments": "stripe/firestore-stripe-payments"
+  },
   "firestore": {
     "rules": "firestore.rules",
     "indexes": "firestore.indexes.json"

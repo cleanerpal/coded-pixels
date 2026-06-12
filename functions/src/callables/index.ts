@@ -1,5 +1,9 @@
 import { onCall } from 'firebase-functions/v2/https';
 import {
+  handleCreateCheckoutSession,
+  marketingCallableOptions as checkoutCallableOptions,
+} from './createCheckoutSession';
+import {
   handleSubmitSignup,
   handleSubmitSiteImportWaitlist,
   marketingCallableOptions,
@@ -17,3 +21,9 @@ export const submitSiteImportWaitlist = onCall(
 
 /** Publish draft site to live — builder-ui-spec.md §7.1 */
 export const publishSite = onCall(marketingCallableOptions, handlePublishSite);
+
+/** Stripe Extension checkout — stripe-catalogue.md §11 (B6-001) */
+export const createCheckoutSession = onCall(
+  checkoutCallableOptions,
+  handleCreateCheckoutSession,
+);

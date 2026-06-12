@@ -13,7 +13,9 @@ import {
 
 import { Button } from '@codedpixels/ui';
 import { Card } from '@codedpixels/ui';
-import { submitSignup } from '@/lib/callables';
+import { getCheckoutMode, isSimulatedCheckout } from '@/lib/checkout-mode';
+import { createCheckoutSession, submitSignup } from '@/lib/callables';
+import { signInWithCheckoutToken } from '@/lib/firebase';
 import {
   buildConfigSnapshot,
   formatAddonSummary,
@@ -354,6 +356,7 @@ function GetStartedContent() {
   );
   const configHref = useMemo(() => buildConfigHref('/get-started', config), [config]);
   const snapshot = useMemo(() => buildConfigSnapshot(config), [config]);
+  const stripeCheckout = getCheckoutMode() === 'stripe';
 
   const [email, setEmail] = useState('');
   const [consentAccepted, setConsentAccepted] = useState(false);
@@ -380,11 +383,20 @@ function GetStartedContent() {
       setSubmitting(true);
 
       try {
-        await submitSignup({
+        const payload = {
           email: email.trim(),
           config: snapshot,
-          consentAccepted: true,
-        });
+          consentAccepted: true as const,
+        };
+
+        if (stripeCheckout) {
+          const checkout = await createCheckoutSession(payload);
+          await signInWithCheckoutToken(checkout.customToken);
+          window.location.assign(checkout.checkoutUrl);
+          return;
+        }
+
+        await submitSignup(payload);
         setSuccess(true);
       } catch (submitError) {
         const message =
@@ -396,7 +408,7 @@ function GetStartedContent() {
         setSubmitting(false);
       }
     },
-    [consentAccepted, email, snapshot],
+    [consentAccepted, email, snapshot, stripeCheckout],
   );
 
   if (!config.templateId) {
@@ -437,8 +449,9 @@ function GetStartedContent() {
         <div className="space-y-2">
           <h2 className="text-lg font-semibold text-text">Sign up with email</h2>
           <p className="text-sm text-text-muted">
-            No password needed — we&apos;ll save your configuration and follow up
-            by email.
+            {stripeCheckout
+              ? 'Secure Stripe checkout — 14-day free trial, card required.'
+              : 'No password needed — we\u2019ll save your configuration and follow up by email.'}
           </p>
         </div>
 
@@ -490,7 +503,13 @@ function GetStartedContent() {
             className="w-full"
             disabled={submitting}
           >
-            {submitting ? 'Saving your plan…' : 'Save my plan'}
+            {submitting
+              ? stripeCheckout
+                ? 'Redirecting to checkout…'
+                : 'Saving your plan…'
+              : stripeCheckout
+                ? 'Continue to checkout'
+                : 'Save my plan'}
           </Button>
         </form>
 
@@ -506,14 +525,18 @@ function GetStartedContent() {
 }
 
 export function GetStartedFlow() {
+  const showSimulationBanner = isSimulatedCheckout();
+
   return (
     <>
-      <div
-        role="status"
-        className="mb-8 rounded-card border border-primary/30 bg-primary/5 px-4 py-3 text-sm font-medium text-text"
-      >
-        No payment taken — this is a sign-up preview
-      </div>
+      {showSimulationBanner ? (
+        <div
+          role="status"
+          className="mb-8 rounded-card border border-primary/30 bg-primary/5 px-4 py-3 text-sm font-medium text-text"
+        >
+          No payment taken — this is a sign-up preview
+        </div>
+      ) : null}
       <GetStartedContent />
     </>
   );

@@ -5,6 +5,7 @@ export const SIGNUP_SOURCE = 'get-started';
 export const WAITLIST_SOURCE = 'configurator';
 
 export const SIGNUP_STATUS_PENDING = 'pending';
+export const SIGNUP_STATUS_CONVERTED = 'converted';
 
 /** Marketing Callables — firestore-rules-spec.md §6 */
 export const RATE_LIMIT_MAX = 5;

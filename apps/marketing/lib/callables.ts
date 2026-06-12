@@ -15,6 +15,14 @@ export interface MarketingCallableResult {
   success: true;
 }
 
+export interface CreateCheckoutSessionResult {
+  success: true;
+  signupId: string;
+  provisioningJobId: string;
+  checkoutUrl: string;
+  customToken: string;
+}
+
 /**
  * Submit signup via INF-003 Callable — no client Firestore writes.
  * Aligned with Dr. Kai Nakamura on INF-003; Dr. Victor Lang on Callable-only PII.
@@ -27,6 +35,22 @@ export async function submitSignup(
     MarketingCallablePayload,
     MarketingCallableResult
   >(functions, 'submitSignup');
+  const result = await callable(payload);
+  return result.data;
+}
+
+/**
+ * Stripe Extension checkout — Callable creates checkout_sessions doc (Q63).
+ * Aligned with Dr. Owen Reilly on Q63.
+ */
+export async function createCheckoutSession(
+  payload: MarketingCallablePayload,
+): Promise<CreateCheckoutSessionResult> {
+  const functions = getFirebaseFunctions();
+  const callable = httpsCallable<
+    MarketingCallablePayload,
+    CreateCheckoutSessionResult
+  >(functions, 'createCheckoutSession');
   const result = await callable(payload);
   return result.data;
 }
