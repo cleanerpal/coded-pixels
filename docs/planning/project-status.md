@@ -11,11 +11,11 @@
 | Field | Value |
 |-------|--------|
 | **Last updated** | 2025-06-12 |
-| **Current wave** | **15** |
-| **Current milestone** | **Platform Phase 2** — B4 site renderer next |
-| **Last wave closed** | **14** |
-| **Last commit SHA** | `46c0b48` |
-| **Last commit message** | `docs: update project-status after wave 13 (de75eb8)` |
+| **Current wave** | **16** |
+| **Current milestone** | **Platform Phase 2** — B6 Stripe provisioning next |
+| **Last wave closed** | **15** |
+| **Last commit SHA** | `_pending push_` |
+| **Last commit message** | `wave(14): B3 publish pipeline + revalidation API — B3-001` |
 | **Remote synced** | Yes |
 | **Git remote** | `https://github.com/cleanerpal/coded-pixels.git` (`origin`, branch `main`) |
 
@@ -71,7 +71,8 @@
 | B1-002 | 12 | 2025-06-12 | 1624bde | Rules expansion + 52 rules tests |
 | B2-001 | 13 | 2025-06-12 | de75eb8 | Builder shell UI |
 | B2-002 | 13 | 2025-06-12 | de75eb8 | Component registry package |
-| B3-001 | 14 | 2025-06-12 | _pending push_ | publishSite + revalidation API |
+| B3-001 | 14 | 2025-06-12 | 0028d2c | publishSite + revalidation API |
+| B4-001 | 15 | 2025-06-12 | _pending push_ | Site renderer + wildcard hosting |
 
 ---
 
@@ -85,7 +86,7 @@
 
 ## Next parallel spool
 
-**Wave 15** — B4-001 (site renderer + wildcard hosting). Optional parallel: B7-001, B8-001, DOC-009.
+**Wave 16** — B6-001 + B6-002 (Stripe Extension + onboarding wizard). Optional parallel: B7-001, B8-001, DOC-009.
 
 Full backlog: `implementation-tickets.md`
 
@@ -102,6 +103,7 @@ Full backlog: `implementation-tickets.md`
 | Platform B1 tenant schema | **CLOSED** — B1-001 + B1-002 complete |
 | Platform B2 builder shell | **CLOSED** — B2-001 + B2-002 complete |
 | Platform B3 publish pipeline | **CLOSED** — B3-001 complete |
+| Platform B4 site renderer | **CLOSED** — B4-001 complete |
 
 ---
 
@@ -116,7 +118,7 @@ Full backlog: `implementation-tickets.md`
 | 2025-06-12 | resume | Wave 12 closed — B1-001 + B1-002 verified; lint/typecheck/test/build/test:rules green |
 | 2025-06-12 | resume | Wave 13 closed — B2-001 + B2-002 verified; builder builds on :3001 |
 | 2025-06-12 | resume | Wave 13 @ `46c0b48`; deliverables OK; tests green; spooling B3-001 (Wave 14) |
-| 2025-06-12 | resume | Wave 14 — B3-001 verified; lint/typecheck/test/build/test:rules green; wave close pending push |
+| 2025-06-12 | resume | Wave 14 closed @ `0028d2c`; B3-001 verified; pushed; spooling B4-001 (Wave 15) |
 
 ---
 
