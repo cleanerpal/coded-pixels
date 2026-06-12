@@ -11,11 +11,11 @@
 | Field | Value |
 |-------|--------|
 | **Last updated** | 2025-06-12 |
-| **Current wave** | **18** |
-| **Current milestone** | **Platform Phase 2** — B9 observability + abuse protection (or DOC-009) |
-| **Last wave closed** | **17** |
-| **Last commit SHA** | `caa287f` |
-| **Last commit message** | `wave(17): Storage pipeline + CRM/products dashboard — B7-001, B8-001` |
+| **Current wave** | **— (Phase 2 complete)** |
+| **Current milestone** | **Platform Phase 2 complete** — M0–M4 + B0–B9 shipped |
+| **Last wave closed** | **18** |
+| **Last commit SHA** | `3ed112e` |
+| **Last commit message** | `wave(18): FinOps SLOs, verification guides, B9 form abuse — DOC-009, B9-001` |
 | **Remote synced** | Yes |
 | **Git remote** | `https://github.com/cleanerpal/coded-pixels.git` (`origin`, branch `main`) |
 
@@ -77,6 +77,8 @@
 | B6-002 | 16 | 2025-06-12 | 82d2b4a | Onboarding wizard + provisioningJobs polling |
 | B7-001 | 17 | 2025-06-12 | caa287f | Storage + ClamAV + Resize Images Extension |
 | B8-001 | 17 | 2025-06-12 | caa287f | Leads inbox + products + Stripe portal |
+| DOC-009 | 18 | 2025-06-12 | 3ed112e | FinOps SLOs + error budget addendum |
+| B9-001 | 18 | 2025-06-12 | 3ed112e | App Check + submitLead on live forms + builder Sentry |
 
 ---
 
@@ -90,9 +92,9 @@
 
 ## Next parallel spool
 
-**Wave 18** — DOC-009 (FinOps SLOs) or remaining Phase 2 polish. Platform Phase 2 core (B0–B8) **complete**.
+**Backlog exhausted** — Platform Phase 2 (B0–B9) + M0–M4 complete. Next: production ops per `finops-slos.md`, Stripe Extension install, deploy.
 
-Full backlog: `implementation-tickets.md`
+Verification guides: `docs/planning/wave-verification/README.md`
 
 ---
 
@@ -111,6 +113,8 @@ Full backlog: `implementation-tickets.md`
 | Platform B6 Stripe + onboarding | **CLOSED** — B6-001 + B6-002 complete |
 | Platform B7 storage pipeline | **CLOSED** — B7-001 complete |
 | Platform B8 CRM/products | **CLOSED** — B8-001 complete |
+| Platform B9 form abuse + observability | **CLOSED** — B9-001 complete |
+| **Platform Phase 2** | **COMPLETE** |
 
 ---
 
@@ -129,6 +133,7 @@ Full backlog: `implementation-tickets.md`
 | 2025-06-12 | resume | Wave 16 @ HEAD `b57edbe`; Wave 15 verified; tests green; spooling B6-001 + B6-002 |
 | 2025-06-12 | resume | Wave 16 closed @ `82d2b4a`; B6-001 + B6-002 verified; pushed; Wave 17 ready (B7-001 + B8-001) |
 | 2025-06-12 | resume | Wave 17 closed @ `caa287f`; B7-001 + B8-001 verified; pushed; Phase 2 core complete |
+| 2025-06-12 | continue | Wave 18 closed @ `3ed112e`; DOC-009 + B9-001 + verification guides; Phase 2 complete |
 
 ---
 
