@@ -14,8 +14,8 @@
 | **Current wave** | **21** |
 | **Current milestone** | **Production launch** (Wave 21 PL-001–PL-005) |
 | **Last wave closed** | **20** |
-| **Last commit SHA** | `6aa5d91` |
-| **Last commit message** | `wave(20): starter library expansion — B10-001, B10-002, INF-007` |
+| **Last commit SHA** | `3280d37` |
+| **Last commit message** | `docs: project-status — Wave 20 closed @ 6aa5d91, current wave 21` |
 | **Remote synced** | Yes |
 | **Forge & Scale gate** | **CLOSED** — Wave 19 approved; comprehensive audit received |
 | **Git remote** | `https://github.com/cleanerpal/coded-pixels.git` (`origin`, branch `main`) |
