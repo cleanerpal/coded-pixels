@@ -14,6 +14,14 @@ interface TenantPageProps {
   params: Promise<{ pageSlug?: string[] }>;
 }
 
+function demoTenantRobots(isPlatformDemo: boolean): Pick<Metadata, 'robots'> {
+  if (!isPlatformDemo) {
+    return {};
+  }
+
+  return { robots: { index: false, follow: false } };
+}
+
 export async function generateMetadata({
   params,
 }: TenantPageProps): Promise<Metadata> {
@@ -22,19 +30,22 @@ export async function generateMetadata({
     return { title: 'CodedPixels' };
   }
 
+  const robots = demoTenantRobots(routeContext.tenant.isPlatformDemo);
+
   const resolvedSlug = resolvePageSlugFromSegments((await params).pageSlug);
   if (resolvedSlug === null) {
-    return { title: routeContext.tenant.siteName };
+    return { title: routeContext.tenant.siteName, ...robots };
   }
 
   const pageResult = await getCachedPublishedPage(routeContext.tenant, resolvedSlug);
   if (pageResult.status !== 'ok') {
-    return { title: routeContext.tenant.siteName };
+    return { title: routeContext.tenant.siteName, ...robots };
   }
 
   return {
     title: pageResult.page.seo.title || pageResult.page.title,
     description: pageResult.page.seo.description,
+    ...robots,
   };
 }
 

@@ -11,13 +11,13 @@
 | Field | Value |
 |-------|--------|
 | **Last updated** | 2025-06-12 |
-| **Current wave** | **19** (Phase 2 — code spool ready) |
-| **Wave 19 Phase 1** | **Complete** — DOC-010 + Forge & Scale advisory closure |
-| **Current milestone** | **Phase 2.1** — Marketing template previews (real designs selectable + previewable on homepage) |
-| **Last wave closed** | **18** |
-| **Last commit SHA** | `b338b9d` |
-| **Last commit message** | `wave(19-planning): Forge & Scale advisory closure — DOC-010 Phase 1` |
-| **Remote synced** | Yes |
+| **Current wave** | **20** |
+| **Current milestone** | **Phase 2.1** — Starter library expansion (+4 templates) |
+| **Last wave closed** | **19** |
+| **Last commit SHA** | _(pending wave 19 push)_ |
+| **Last commit message** | _(pending)_ |
+| **Remote synced** | _(pending)_ |
+| **Forge & Scale gate** | **CLOSED** — Wave 19 approved; comprehensive audit received |
 | **Git remote** | `https://github.com/cleanerpal/coded-pixels.git` (`origin`, branch `main`) |
 
 ---
@@ -80,7 +80,14 @@
 | B8-001 | 17 | 2025-06-12 | caa287f | Leads inbox + products + Stripe portal |
 | DOC-009 | 18 | 2025-06-12 | 3ed112e | FinOps SLOs + error budget addendum |
 | B9-001 | 18 | 2025-06-12 | 3ed112e | App Check + submitLead on live forms + builder Sentry |
-| DOC-010 | 19 | 2025-06-12 | b338b9d | Marketing template preview spec + Q65–Q70 + Forge & Scale advisory |
+| DOC-010 | 19 | 2025-06-12 | b338b9d | Marketing template preview spec + Q65–Q70 |
+| INF-005 | 19 | 2025-06-12 | _(wave 19)_ | Demo tenant seed + noindex + projectId fix |
+| INF-006 | 19 | 2025-06-12 | _(wave 19)_ | Thumbnail generator + demo-seed logic tests |
+| ENG-024 | 19 | 2025-06-12 | _(wave 19)_ | Homepage preview links + thumbnails |
+| ENG-025 | 19 | 2025-06-12 | _(wave 19)_ | /templates gallery preview UX |
+| ENG-026 | 19 | 2025-06-12 | _(wave 19)_ | Reserved slug guard (onboarding) |
+| ENG-027 | 19 | 2025-06-12 | _(wave 19)_ | Category filters + starter copy |
+| QA-007 | 19 | 2025-06-12 | _(wave 19)_ | Template preview E2E |
 
 ---
 
@@ -94,23 +101,16 @@
 
 ## Next parallel spool
 
-**Wave 19 Phase 2 — spool now** · Spec: [`marketing-template-preview-spec.md`](marketing-template-preview-spec.md)
+**Wave 20 — Starter library expansion** · Spec: [`template-addition-governance-spec.md`](template-addition-governance-spec.md) (DOC-011 on disk)
 
 | Phase | Ticket | Lane | Blocked by |
 |-------|--------|------|------------|
-| **2** | **INF-005** | INF | DOC-010 ✓ |
-| **2** | **ENG-026** | Builder | DOC-010 ✓ |
-| **3** | **INF-006** | INF | INF-005 |
-| **3** | **ENG-024** | Marketing configurator | INF-005 |
-| **3** | **ENG-025** | Marketing pages | DOC-010 ✓ |
-| **3** | **ENG-027** | Marketing configurator | ENG-024 |
-| **4** | **QA-007** | QA | ENG-024, ENG-025, ENG-027 |
+| **1** | **DOC-011** | DOC | Wave 19 ✓ (spec committed) |
+| **2** | **B10-001** | Templates | DOC-011 ✓ |
+| **2** | **B10-002** | Templates | DOC-011 ✓ |
+| **3** | **INF-007** | INF | INF-006, B10-001 |
 
-Phase 1 complete: **DOC-010** (Forge & Scale follow-up approved 12 June 2026).
-
-**After Wave 19:** Wave 20 starter expansion — DOC-011 → B10-001/B10-002 → INF-007. See [`starter-template-library-plan.md`](starter-template-library-plan.md).
-
-Also queued: **Wave 21** production launch — [`production-launch-prerequisites.md`](production-launch-prerequisites.md). Phase 2.1 platform — [`phase-2.1-platform-roadmap.md`](phase-2.1-platform-roadmap.md) (Waves 22–27).
+**After Wave 20:** Wave 21 production launch — [`production-launch-prerequisites.md`](production-launch-prerequisites.md).
 
 Verification guides: `docs/planning/wave-verification/README.md` · `wave-19.md`
 
@@ -133,7 +133,7 @@ Verification guides: `docs/planning/wave-verification/README.md` · `wave-19.md`
 | Platform B8 CRM/products | **CLOSED** — B8-001 complete |
 | Platform B9 form abuse + observability | **CLOSED** — B9-001 complete |
 | **Platform Phase 2** | **COMPLETE** |
-| **Phase 2.1 template previews** | **OPEN** — Wave 19 (DOC-010 → INF-005 → ENG-024/025 → QA-007) |
+| **Phase 2.1 template previews** | **CLOSED** — Wave 19 complete |
 
 ---
 
@@ -154,6 +154,8 @@ Verification guides: `docs/planning/wave-verification/README.md` · `wave-19.md`
 | 2025-06-12 | resume | Wave 17 closed @ `caa287f`; B7-001 + B8-001 verified; pushed; Phase 2 core complete |
 | 2025-06-12 | continue | Wave 18 closed @ `3ed112e`; DOC-009 + B9-001 + verification guides; Phase 2 complete |
 | 2025-06-12 | advisory | Wave 19 Phase 1 — DOC-010 + Forge & Scale closure; Phase 2 spool ready |
+| 2025-06-12 | push | Planning + chore @ `9b08a41`; Forge & Scale green light — spooling INF-005 + ENG-026 |
+| 2025-06-12 | close | Wave 19 closed — demo seed, preview UX, slug guard, E2E; Forge & Scale audit |
 
 ---
 

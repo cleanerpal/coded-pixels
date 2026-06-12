@@ -14,7 +14,7 @@ export default function TemplatesPage() {
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <header className="max-w-2xl">
           <h1 className="text-3xl font-bold text-text sm:text-4xl">
-            Website templates for every business
+            Starter designs for your business
           </h1>
           <p className="mt-3 text-lg text-text-muted">
             Pick a starting design for your industry — then add features and see

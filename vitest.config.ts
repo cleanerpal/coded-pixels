@@ -7,6 +7,7 @@ export default defineConfig({
     include: [
       'apps/marketing/lib/**/*.test.ts',
       'functions/src/**/*.test.ts',
+      'packages/templates/scripts/**/*.test.mjs',
     ],
     exclude: ['tests/firestore/**', 'node_modules/**'],
   },

@@ -32,7 +32,8 @@ export const PACKAGES: PackageDefinition[] = [
   {
     id: 'starter',
     name: 'Starter',
-    description: 'Base plan — professional website and hosting',
+    description:
+      'Any starter design included — template choice does not change the £9.99/mo base',
     presetFeatureIds: [],
     cardDisplayMonthlyPence: BASE_PLAN_MONTHLY_PENCE,
   },

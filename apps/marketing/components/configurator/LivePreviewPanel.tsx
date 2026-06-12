@@ -4,6 +4,10 @@ import { useId, useState, type CSSProperties } from 'react';
 
 import { Badge } from '@codedpixels/ui';
 import {
+  buildPreviewUrl,
+  isLibraryTemplateId,
+} from '@/lib/template-preview-urls';
+import {
   getPreviewFeatureBadges,
   resolvePreviewTemplate,
   type PreviewThemeStyle,
@@ -92,10 +96,31 @@ function PreviewCanvas({
   );
 }
 
+function PreviewFullSiteLink({
+  templateId,
+  templateName,
+}: {
+  templateId: string;
+  templateName: string;
+}) {
+  return (
+    <a
+      href={buildPreviewUrl(templateId)}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Preview ${templateName} template in new tab`}
+      className="text-sm font-medium text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+    >
+      Preview full site →
+    </a>
+  );
+}
+
 function PreviewPanelBody({ config }: LivePreviewPanelProps) {
   const { name, theme } = resolvePreviewTemplate(config.templateId);
   const featureBadges = getPreviewFeatureBadges(config.featureIds);
   const templateSelected = config.templateId !== null;
+  const showFullSitePreview = isLibraryTemplateId(config.templateId);
 
   return (
     <>
@@ -105,6 +130,14 @@ function PreviewPanelBody({ config }: LivePreviewPanelProps) {
         featureBadges={featureBadges}
         templateSelected={templateSelected}
       />
+      {showFullSitePreview ? (
+        <div className="border-t border-border px-4 py-3">
+          <PreviewFullSiteLink
+            templateId={config.templateId!}
+            templateName={name}
+          />
+        </div>
+      ) : null}
     </>
   );
 }

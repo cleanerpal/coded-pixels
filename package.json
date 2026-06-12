@@ -24,7 +24,10 @@
     "emulators:export": "firebase emulators:export ./firebase-export",
     "validate:templates": "npm run validate:templates --workspace=@codedpixels/templates",
     "seed:templates": "npm run seed:templates --workspace=@codedpixels/templates",
-    "seed:templates:emulator": "npm run seed:templates:emulator --workspace=@codedpixels/templates"
+    "seed:templates:emulator": "npm run seed:templates:emulator --workspace=@codedpixels/templates",
+    "seed:template-demos": "npm run seed:template-demos --workspace=@codedpixels/templates",
+    "seed:template-demos:emulator": "npm run seed:template-demos:emulator --workspace=@codedpixels/templates",
+    "generate:template-thumbnails": "node scripts/generate-template-thumbnails.mjs"
   },
   "devDependencies": {
     "@firebase/rules-unit-testing": "^4.0.1",

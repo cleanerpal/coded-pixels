@@ -16,6 +16,8 @@ export interface TenantContext {
   companyStatus: Company['status'];
   featureIds: FeatureId[];
   homepagePageId: string;
+  /** CI-seeded template demo tenants — generateMetadata sets noindex (Q65, spec §5.1) */
+  isPlatformDemo: boolean;
 }
 
 async function loadSlugIndex(slug: string): Promise<SlugIndexDoc | null> {
@@ -60,6 +62,7 @@ async function loadTenantContext(slug: string): Promise<TenantContext | null> {
     companyStatus: company.status,
     featureIds: site.featureIds ?? [],
     homepagePageId: site.homepagePageId,
+    isPlatformDemo: company.isPlatformDemo === true,
   };
 }
 

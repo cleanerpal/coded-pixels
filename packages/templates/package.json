@@ -7,10 +7,12 @@
     "validate:templates": "node scripts/validate.mjs",
     "seed:templates:emulator": "node scripts/seed.mjs --emulator",
     "seed:templates": "node scripts/seed.mjs",
+    "seed:template-demos:emulator": "node scripts/seed-demos.mjs --emulator",
+    "seed:template-demos": "node scripts/seed-demos.mjs",
     "build": "echo \"@codedpixels/templates — JSON seeds only\"",
     "typecheck": "echo \"No TypeScript in @codedpixels/templates\"",
     "lint": "npm run validate:templates",
-    "test": "npm run validate:templates"
+    "test": "npm run validate:templates && cd ../.. && npx vitest run --config vitest.config.ts packages/templates/scripts/demo-seed-logic.test.mjs"
   },
   "dependencies": {
     "@codedpixels/shared-types": "*",

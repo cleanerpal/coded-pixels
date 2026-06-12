@@ -1,6 +1,12 @@
 import { describe, expect, it } from 'vitest';
+import { RESERVED_TEMPLATE_SLUGS } from '@codedpixels/shared-types';
 
-import { isValidSlug, slugifyBusinessName } from '@/lib/onboarding/slug';
+import {
+  getOnboardingSlugError,
+  isValidSlug,
+  RESERVED_TEMPLATE_SLUG_ERROR,
+  slugifyBusinessName,
+} from '@/lib/onboarding/slug';
 
 describe('slugifyBusinessName', () => {
   it('lowercases and hyphenates spaces', () => {
@@ -24,4 +30,17 @@ describe('isValidSlug', () => {
   it('rejects leading hyphens', () => {
     expect(isValidSlug('-acme')).toBe(false);
   });
+});
+
+describe('getOnboardingSlugError', () => {
+  it('accepts valid customer slugs', () => {
+    expect(getOnboardingSlugError('my-business')).toBeNull();
+  });
+
+  it.each(RESERVED_TEMPLATE_SLUGS)(
+    'rejects reserved template slug %s',
+    (reservedSlug) => {
+      expect(getOnboardingSlugError(reservedSlug)).toBe(RESERVED_TEMPLATE_SLUG_ERROR);
+    },
+  );
 });

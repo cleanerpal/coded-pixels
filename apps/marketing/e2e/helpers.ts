@@ -73,7 +73,7 @@ export async function gotoApp(page: Page, path: string): Promise<void> {
 export async function openConfiguratorWithGrowth(page: Page): Promise<void> {
   await gotoApp(page, '/?package=growth#configurator');
   await expect(
-    page.getByRole('heading', { name: 'Choose your template' }),
+    page.getByRole('heading', { name: 'Choose your starter website' }),
   ).toBeVisible();
 }
 

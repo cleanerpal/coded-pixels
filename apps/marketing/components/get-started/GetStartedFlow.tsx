@@ -371,7 +371,7 @@ function GetStartedContent() {
       setError(null);
 
       if (!snapshot) {
-        setError('Choose a template in the configurator before signing up.');
+        setError('Choose a starter design in the configurator before signing up.');
         return;
       }
 
@@ -414,9 +414,11 @@ function GetStartedContent() {
   if (!config.templateId) {
     return (
       <Card className="mx-auto max-w-lg space-y-4 text-center">
-        <h2 className="text-xl font-semibold text-text">Choose a template first</h2>
+        <h2 className="text-xl font-semibold text-text">
+          Choose a starter design first
+        </h2>
         <p className="text-sm text-text-muted">
-          Pick a template in the configurator so we can save your plan.
+          Pick a starter design in the configurator so we can save your plan.
         </p>
         <Link
           href="/#configurator"

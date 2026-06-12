@@ -15,7 +15,7 @@ import {
   formatFeatureSummary,
   formatPlanTotal,
 } from '@/lib/onboarding/format-plan';
-import { isValidSlug, slugifyBusinessName } from '@/lib/onboarding/slug';
+import { getOnboardingSlugError, slugifyBusinessName } from '@/lib/onboarding/slug';
 import {
   advanceWizardStep,
   canSkipStep,
@@ -66,8 +66,9 @@ export function OnboardingWizard({ company, siteId, site }: OnboardingWizardProp
           setError('Enter your business name to continue.');
           return;
         }
-        if (!isValidSlug(slug)) {
-          setError('Choose a valid subdomain — letters, numbers, and hyphens only.');
+        const slugError = getOnboardingSlugError(slug);
+        if (slugError) {
+          setError(slugError);
           return;
         }
       }

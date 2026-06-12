@@ -5,6 +5,10 @@ import { useMemo, useState } from 'react';
 
 import { Badge } from '@codedpixels/ui';
 import {
+  buildPreviewUrl,
+  getTemplatePreviewThumbnailPath,
+} from '@/lib/template-preview-urls';
+import {
   CUSTOM_TEMPLATE_CARD,
   TEMPLATES,
   type TemplateCategory,
@@ -52,6 +56,28 @@ function filterTemplates(activeFilter: FilterId): TemplateDefinition[] {
   return TEMPLATES.filter((template) => template.category === activeFilter);
 }
 
+type TemplateThumbnailProps = {
+  template: TemplateDefinition;
+};
+
+function TemplateThumbnail({ template }: TemplateThumbnailProps) {
+  return (
+    <div
+      className={`relative h-28 overflow-hidden bg-gradient-to-br ${CATEGORY_GRADIENT[template.category]}`}
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element -- gradient fallback via onError */}
+      <img
+        src={getTemplatePreviewThumbnailPath(template.id)}
+        alt={`${template.name} website preview`}
+        className="absolute inset-0 h-full w-full object-cover object-top"
+        onError={(event) => {
+          event.currentTarget.hidden = true;
+        }}
+      />
+    </div>
+  );
+}
+
 type GalleryTemplateCardProps = {
   template: TemplateDefinition;
 };
@@ -59,10 +85,7 @@ type GalleryTemplateCardProps = {
 function GalleryTemplateCard({ template }: GalleryTemplateCardProps) {
   return (
     <article className="flex flex-col overflow-hidden rounded-card border border-border bg-surface shadow-rest transition-shadow hover:shadow-hover">
-      <div
-        aria-hidden="true"
-        className={`h-28 bg-gradient-to-br ${CATEGORY_GRADIENT[template.category]}`}
-      />
+      <TemplateThumbnail template={template} />
       <div className="flex flex-1 flex-col gap-3 p-4">
         <div>
           <p className="text-xs font-semibold uppercase tracking-wide text-text-muted">
@@ -71,12 +94,23 @@ function GalleryTemplateCard({ template }: GalleryTemplateCardProps) {
           <h3 className="mt-1 text-lg font-semibold text-text">{template.name}</h3>
           <p className="mt-1 text-sm text-text-muted">{template.description}</p>
         </div>
-        <Link
-          href={configuratorHref(template.id)}
-          className="mt-auto inline-flex items-center justify-center rounded-card bg-accent px-4 py-2 text-sm font-semibold text-surface transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-        >
-          Use this template
-        </Link>
+        <div className="mt-auto flex flex-col gap-2">
+          <Link
+            href={configuratorHref(template.id)}
+            className="inline-flex items-center justify-center rounded-card bg-accent px-4 py-2 text-sm font-semibold text-surface transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+          >
+            Start with this design
+          </Link>
+          <a
+            href={buildPreviewUrl(template.id)}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Preview ${template.name} template in new tab`}
+            className="inline-flex items-center justify-center rounded-card border border-border px-4 py-2 text-sm font-medium text-primary transition-colors hover:border-primary/40 hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+          >
+            Preview full site
+          </a>
+        </div>
       </div>
     </article>
   );
@@ -105,7 +139,7 @@ function GalleryCustomCard() {
           href={configuratorHref(CUSTOM_TEMPLATE_CARD.id)}
           className="mt-auto inline-flex items-center justify-center rounded-card bg-accent px-4 py-2 text-sm font-semibold text-surface transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
         >
-          Use this template
+          Start with this design
         </Link>
       </div>
     </article>
