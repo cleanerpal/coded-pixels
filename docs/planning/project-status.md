@@ -15,8 +15,8 @@
 | **Wave 19 Phase 1** | **Complete** — DOC-010 + Forge & Scale advisory closure |
 | **Current milestone** | **Phase 2.1** — Marketing template previews (real designs selectable + previewable on homepage) |
 | **Last wave closed** | **18** |
-| **Last commit SHA** | _(pending planning close commit)_ |
-| **Last commit message** | `wave(18): FinOps SLOs, verification guides, B9 form abuse — DOC-009, B9-001` |
+| **Last commit SHA** | `b338b9d` |
+| **Last commit message** | `wave(19-planning): Forge & Scale advisory closure — DOC-010 Phase 1` |
 | **Remote synced** | Yes |
 | **Git remote** | `https://github.com/cleanerpal/coded-pixels.git` (`origin`, branch `main`) |
 
@@ -80,7 +80,7 @@
 | B8-001 | 17 | 2025-06-12 | caa287f | Leads inbox + products + Stripe portal |
 | DOC-009 | 18 | 2025-06-12 | 3ed112e | FinOps SLOs + error budget addendum |
 | B9-001 | 18 | 2025-06-12 | 3ed112e | App Check + submitLead on live forms + builder Sentry |
-| DOC-010 | 19 | 2025-06-12 | _(planning close)_ | Marketing template preview spec + Q65–Q70 + Forge & Scale advisory |
+| DOC-010 | 19 | 2025-06-12 | b338b9d | Marketing template preview spec + Q65–Q70 + Forge & Scale advisory |
 
 ---
 
