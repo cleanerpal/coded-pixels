@@ -11,11 +11,11 @@
 | Field | Value |
 |-------|--------|
 | **Last updated** | 2025-06-12 |
-| **Current wave** | **11** |
-| **Current milestone** | **M4 complete** — Platform Phase 2 prep docs done; B0 build next |
-| **Last wave closed** | **10** |
-| **Last commit SHA** | `8f04816` |
-| **Last commit message** | `wave(10): Platform Phase 2 prep docs DOC-003–DOC-008` |
+| **Current wave** | **12** |
+| **Current milestone** | **Platform Phase 2** — B1 tenant schema next |
+| **Last wave closed** | **11** |
+| **Last commit SHA** | `5151d06` |
+| **Last commit message** | `wave(11): B0-001 Turborepo scaffold — marketing app migration` |
 | **Remote synced** | Yes |
 | **Git remote** | `https://github.com/cleanerpal/coded-pixels.git` (`origin`, branch `main`) |
 
@@ -66,6 +66,7 @@
 | DOC-006 | 10 | 2025-06-12 | 8f04816 | Site renderer architecture |
 | DOC-007 | 10 | 2025-06-12 | 8f04816 | Monorepo layout spec |
 | DOC-008 | 10 | 2025-06-12 | 8f04816 | Template seeding CI spec |
+| B0-001 | 11 | 2025-06-12 | 5151d06 | Turborepo scaffold |
 
 ---
 
@@ -79,7 +80,7 @@
 
 ## Next parallel spool
 
-**Platform Phase 2 build** — B0-001 (Turborepo scaffold) after DOC-006 + DOC-007 frozen. Optional: DOC-009 (FinOps SLOs, P2-W3).
+**Wave 12** — B1-001 + B1-002 in parallel (tenant schema + rules expansion). Optional: DOC-009.
 
 Full backlog: `implementation-tickets.md`
 
@@ -92,7 +93,7 @@ Full backlog: `implementation-tickets.md`
 | ENG-006 → Wave 3 UI | **CLOSED** |
 | M3 PII | **CLOSED** |
 | M4 QA gate | **CLOSED** |
-| Platform B0 monorepo (DOC-006 + DOC-007) | **CLOSED** — docs frozen; B0-001 unblocked |
+| Platform B0 monorepo | **CLOSED** — B0-001 complete |
 
 ---
 

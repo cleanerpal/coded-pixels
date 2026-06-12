@@ -97,9 +97,13 @@ If a ticket is marked complete but deliverables are missing → **reopen ticket*
 | **DOC-007** | `docs/planning/monorepo-layout-spec.md` |
 | **DOC-008** | `docs/planning/template-seeding-ci-spec.md` |
 
-## Wave 11+
+## Wave 11
 
-**Manual browser verification:** [wave-verification/](wave-verification/README.md) — one guide per wave (Mia Thompson).
+| Ticket | Required deliverables (minimum) |
+|--------|----------------------------------|
+| **B0-001** | `turbo.json`, `apps/marketing/`, `packages/ui`, `packages/shared-types` |
+
+## Wave 12+
 
 ---
 
