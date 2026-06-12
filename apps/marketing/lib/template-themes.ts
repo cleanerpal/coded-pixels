@@ -55,6 +55,21 @@ const CATEGORY_THEME: Record<TemplateCategory, PreviewThemeStyle> = {
     '--preview-hero-to': 'color-mix(in srgb, var(--color-accent) 16%, white)',
     '--preview-accent': 'var(--color-primary)',
   },
+  'healthcare-wellbeing': {
+    '--preview-hero-from': 'color-mix(in srgb, var(--color-primary) 18%, white)',
+    '--preview-hero-to': 'color-mix(in srgb, var(--color-accent) 20%, white)',
+    '--preview-accent': 'var(--color-primary)',
+  },
+  'creative-services': {
+    '--preview-hero-from': 'color-mix(in srgb, var(--color-accent) 30%, white)',
+    '--preview-hero-to': 'color-mix(in srgb, var(--color-primary) 8%, white)',
+    '--preview-accent': 'var(--color-accent)',
+  },
+  'fitness-wellness': {
+    '--preview-hero-from': 'color-mix(in srgb, var(--color-accent) 26%, white)',
+    '--preview-hero-to': 'color-mix(in srgb, var(--color-primary) 14%, white)',
+    '--preview-accent': 'var(--color-accent)',
+  },
 };
 
 const CUSTOM_THEME: PreviewThemeStyle = {

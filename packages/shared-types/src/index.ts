@@ -18,6 +18,8 @@ export {
   type ReservedTemplateSlug,
 } from './constants/reserved-template-slugs';
 
+export type { TemplateCategory } from './constants/template-category';
+
 export type {
   TimestampLike,
   PageSeo,

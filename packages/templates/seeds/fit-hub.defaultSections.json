@@ -1,0 +1,63 @@
+{
+  "templateId": "fit-hub",
+  "metadata": {
+    "name": "Fit Hub",
+    "category": "fitness-wellness",
+    "description": "Gym and fitness studio with class booking CTA",
+    "sortOrder": 14,
+    "isCustomTemplate": false
+  },
+  "defaultPage": {
+    "title": "Home",
+    "slug": "home",
+    "seo": {
+      "title": "Fit Hub — Train With Purpose",
+      "description": "Classes, personal training, and memberships for every fitness level."
+    }
+  },
+  "defaultSections": [
+    {
+      "id": "00000000-0014-4000-8000-000000000001",
+      "type": "hero",
+      "props": {
+        "headline": "Stronger every session",
+        "subheadline": "Small-group classes, expert coaches, and flexible memberships",
+        "ctaText": "Start free trial",
+        "ctaLink": "#join",
+        "alignment": "center"
+      }
+    },
+    {
+      "id": "00000000-0014-4000-8000-000000000002",
+      "type": "features-grid",
+      "props": {
+        "headline": "What we offer",
+        "columns": 3,
+        "items": [
+          { "title": "Group classes", "description": "HIIT, yoga, spin, and strength" },
+          { "title": "Personal training", "description": "One-to-one plans that stick" },
+          { "title": "Open gym", "description": "Equipment and recovery zone" }
+        ]
+      }
+    },
+    {
+      "id": "00000000-0014-4000-8000-000000000003",
+      "type": "cta-banner",
+      "props": {
+        "headline": "7-day guest pass",
+        "subheadline": "Try any class — no commitment",
+        "ctaText": "Claim your pass",
+        "ctaLink": "#join"
+      }
+    },
+    {
+      "id": "00000000-0014-4000-8000-000000000004",
+      "type": "footer",
+      "props": {
+        "businessName": "Fit Hub",
+        "tagline": "Fitness studio",
+        "showSocialLinks": true
+      }
+    }
+  ]
+}

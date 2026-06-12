@@ -1,11 +1,6 @@
-export type TemplateCategory =
-  | 'cleaning-trades'
-  | 'beauty-wellness'
-  | 'professional-services'
-  | 'retail'
-  | 'hospitality'
-  | 'education'
-  | 'general-business';
+import type { TemplateCategory } from '@codedpixels/shared-types';
+
+export type { TemplateCategory };
 
 export interface TemplateDefinition {
   id: string;
@@ -16,7 +11,7 @@ export interface TemplateDefinition {
   sortOrder: number;
 }
 
-/** 10 library templates (project plan §4, firestore-schema.md §5.2) */
+/** 14 library templates (project plan §4, firestore-schema.md §5.2, Q70) */
 export const TEMPLATES: TemplateDefinition[] = [
   {
     id: 'sparkle-clean',
@@ -97,6 +92,38 @@ export const TEMPLATES: TemplateDefinition[] = [
     categoryLabel: 'General Business',
     description: 'Modern single-page startup landing',
     sortOrder: 10,
+  },
+  {
+    id: 'wellness-clinic',
+    name: 'Wellness Clinic',
+    category: 'healthcare-wellbeing',
+    categoryLabel: 'Healthcare & Wellbeing',
+    description: 'GP and wellness clinic layout with appointment CTA',
+    sortOrder: 11,
+  },
+  {
+    id: 'clear-accounting',
+    name: 'Clear Accounting',
+    category: 'professional-services',
+    categoryLabel: 'Professional Services',
+    description: 'Accountancy firm with services grid and enquiry CTA',
+    sortOrder: 12,
+  },
+  {
+    id: 'focus-photography',
+    name: 'Focus Photography',
+    category: 'creative-services',
+    categoryLabel: 'Creative Services',
+    description: 'Portfolio-led site for photographers and studios',
+    sortOrder: 13,
+  },
+  {
+    id: 'fit-hub',
+    name: 'Fit Hub',
+    category: 'fitness-wellness',
+    categoryLabel: 'Fitness & Wellness',
+    description: 'Gym and fitness studio with class booking CTA',
+    sortOrder: 14,
   },
 ];
 

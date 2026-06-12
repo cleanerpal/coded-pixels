@@ -37,6 +37,9 @@ const CATEGORY_GRADIENT: Record<TemplateCategory, string> = {
   hospitality: 'from-primary/15 via-accent/15 to-accent/5',
   education: 'from-accent/15 to-primary/10',
   'general-business': 'from-primary/10 via-accent/10 to-accent/20',
+  'healthcare-wellbeing': 'from-primary/18 via-accent/12 to-accent/18',
+  'creative-services': 'from-accent/25 via-primary/8 to-accent/15',
+  'fitness-wellness': 'from-accent/22 via-primary/12 to-primary/8',
 };
 
 type CategoryFilterId = 'all' | TemplateCategory;

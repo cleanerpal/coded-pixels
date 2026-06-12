@@ -14,6 +14,10 @@ export const RESERVED_TEMPLATE_SLUGS = [
   'learn-hub',
   'business-core',
   'startup-launch',
+  'wellness-clinic',
+  'clear-accounting',
+  'focus-photography',
+  'fit-hub',
 ] as const;
 
 export type ReservedTemplateSlug = (typeof RESERVED_TEMPLATE_SLUGS)[number];

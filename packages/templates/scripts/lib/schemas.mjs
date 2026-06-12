@@ -23,7 +23,7 @@ const sectionSchema = z.lazy(() =>
 export const manifestSchema = z.object({
   schemaVersion: z.literal(1),
   seedVersion: z.number().int().positive(),
-  templates: z.array(z.string().min(1)).length(11),
+  templates: z.array(z.string().min(1)).length(15),
 });
 
 export const templateSeedSchema = z.object({

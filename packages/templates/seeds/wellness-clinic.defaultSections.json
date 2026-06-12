@@ -1,0 +1,63 @@
+{
+  "templateId": "wellness-clinic",
+  "metadata": {
+    "name": "Wellness Clinic",
+    "category": "healthcare-wellbeing",
+    "description": "GP and wellness clinic layout with appointment CTA",
+    "sortOrder": 11,
+    "isCustomTemplate": false
+  },
+  "defaultPage": {
+    "title": "Home",
+    "slug": "home",
+    "seo": {
+      "title": "Wellness Clinic — Care You Can Trust",
+      "description": "Primary care, health checks, and wellbeing services for your family."
+    }
+  },
+  "defaultSections": [
+    {
+      "id": "00000000-0011-4000-8000-000000000001",
+      "type": "hero",
+      "props": {
+        "headline": "Healthcare that fits your life",
+        "subheadline": "Same-day appointments, experienced clinicians, and a calm waiting experience",
+        "ctaText": "Book an appointment",
+        "ctaLink": "#book",
+        "alignment": "left"
+      }
+    },
+    {
+      "id": "00000000-0011-4000-8000-000000000002",
+      "type": "features-grid",
+      "props": {
+        "headline": "Our services",
+        "columns": 3,
+        "items": [
+          { "title": "GP consultations", "description": "Routine and urgent appointments" },
+          { "title": "Health screenings", "description": "Checks, vaccinations, and reviews" },
+          { "title": "Wellbeing support", "description": "Nutrition, physiotherapy, and more" }
+        ]
+      }
+    },
+    {
+      "id": "00000000-0011-4000-8000-000000000003",
+      "type": "cta-banner",
+      "props": {
+        "headline": "New patients welcome",
+        "subheadline": "Register online in minutes",
+        "ctaText": "Register today",
+        "ctaLink": "#register"
+      }
+    },
+    {
+      "id": "00000000-0011-4000-8000-000000000004",
+      "type": "footer",
+      "props": {
+        "businessName": "Wellness Clinic",
+        "tagline": "Healthcare and wellbeing",
+        "showSocialLinks": false
+      }
+    }
+  ]
+}

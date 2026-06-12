@@ -30,16 +30,16 @@ function fail(message) {
 function main() {
   const manifest = loadManifest();
 
-  if (manifest.templates.length !== 11) {
-    fail(`manifest.templates must contain exactly 11 entries, got ${manifest.templates.length}`);
+  if (manifest.templates.length !== 15) {
+    fail(`manifest.templates must contain exactly 15 entries, got ${manifest.templates.length}`);
   }
 
   const marketingSource = readFileSync(MARKETING_TEMPLATES_PATH, 'utf8');
   const marketingTemplates = parseMarketingTemplates(marketingSource);
   const marketingById = Object.fromEntries(marketingTemplates.map((t) => [t.id, t]));
 
-  if (marketingTemplates.length !== 10) {
-    fail(`Expected 10 library templates in templates.ts, parsed ${marketingTemplates.length}`);
+  if (marketingTemplates.length !== 14) {
+    fail(`Expected 14 library templates in templates.ts, parsed ${marketingTemplates.length}`);
   }
 
   const seeds = loadAllSeeds();

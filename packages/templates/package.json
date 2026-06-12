@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "new-template": "node scripts/new-template.mjs",
     "validate:templates": "node scripts/validate.mjs",
     "seed:templates:emulator": "node scripts/seed.mjs --emulator",
     "seed:templates": "node scripts/seed.mjs",
@@ -12,7 +13,7 @@
     "build": "echo \"@codedpixels/templates — JSON seeds only\"",
     "typecheck": "echo \"No TypeScript in @codedpixels/templates\"",
     "lint": "npm run validate:templates",
-    "test": "npm run validate:templates && cd ../.. && npx vitest run --config vitest.config.ts packages/templates/scripts/demo-seed-logic.test.mjs"
+    "test": "npm run validate:templates && cd ../.. && npx vitest run --config vitest.config.ts packages/templates/scripts/demo-seed-logic.test.mjs packages/templates/scripts/new-template-logic.test.mjs"
   },
   "dependencies": {
     "@codedpixels/shared-types": "*",

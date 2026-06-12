@@ -1,0 +1,188 @@
+# INF-007 — Template seed CI gates (template-addition-governance-spec §5)
+# Aligned with Dr. Daniel Moreau on CI · Dr. Rafael Ortiz on validate:templates
+#
+# PRs touching packages/templates/seeds/** always run validate:templates.
+# Thumbnail generation requires Firestore emulator + site-renderer (:3002) + Playwright;
+# run via workflow_dispatch or commit WebP locally per template-authoring-guide.md §7.
+#
+# Coordinator-only bypass: apply label `skip-thumbnail` when thumbnail follow-up is tracked.
+
+name: Template seeds
+
+on:
+  pull_request:
+    paths:
+      - 'packages/templates/seeds/**'
+      - '.github/workflows/template-seeds.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'packages/templates/seeds/**'
+      - '.github/workflows/template-seeds.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: template-seeds-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate-templates:
+    name: validate:templates
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate template seeds
+        run: npm run validate:templates
+
+  thumbnail-commit-check:
+    name: Thumbnail commit check
+    needs: validate-templates
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch base branch
+        run: git fetch origin "${{ github.base_ref }}"
+
+      - name: Require WebP updates or skip-thumbnail label
+        env:
+          BASE_REF: ${{ github.base_ref }}
+          PR_LABELS: ${{ toJSON(github.event.pull_request.labels.*.name) }}
+        run: |
+          set -euo pipefail
+
+          if echo "$PR_LABELS" | grep -q 'skip-thumbnail'; then
+            echo "skip-thumbnail label present — thumbnail diff not required (coordinator only)."
+            exit 0
+          fi
+
+          SEED_CHANGES=$(git diff --name-only "origin/${BASE_REF}"...HEAD -- \
+            'packages/templates/seeds/*.defaultSections.json' || true)
+
+          if [ -z "$SEED_CHANGES" ]; then
+            echo "No defaultSections.json changes — thumbnail check skipped."
+            exit 0
+          fi
+
+          echo "Seed content changed:"
+          echo "$SEED_CHANGES"
+
+          WEBP_CHANGES=$(git diff --name-only "origin/${BASE_REF}"...HEAD -- \
+            'apps/marketing/public/templates/previews/*.webp' || true)
+
+          if [ -n "$WEBP_CHANGES" ]; then
+            echo "Thumbnail WebP updates present:"
+            echo "$WEBP_CHANGES"
+            exit 0
+          fi
+
+          echo "::error::Seed JSON changed without matching WebP previews."
+          echo "Either:"
+          echo "  1. Run npm run generate:template-thumbnails locally and commit WebP files, or"
+          echo "  2. Trigger workflow_dispatch → generate-template-thumbnails and commit artefacts, or"
+          echo "  3. Coordinator applies skip-thumbnail label + follow-up ticket (DOC-011 §5)."
+          exit 1
+
+  generate-template-thumbnails:
+    name: generate:template-thumbnails (emulator)
+    needs: validate-templates
+    # Heavy job — Firestore emulator, demo seed, site-renderer dev server, Playwright.
+    # Not auto-run on every PR (runtime + infra); authors commit WebP or dispatch manually.
+    # PR gate is thumbnail-commit-check above.
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Build shared-types (thumbnail script imports dist)
+        run: npm run build --workspace=@codedpixels/shared-types
+
+      - name: Start Firestore emulator, seed catalogue + demos, capture thumbnails
+        env:
+          FIREBASE_PROJECT_ID: codedpixels
+          FIRESTORE_EMULATOR_HOST: 127.0.0.1:8080
+          PLATFORM_DEMO_OWNER_UID: platform-demo-ci
+        run: |
+          set -euo pipefail
+
+          npx firebase emulators:start --only firestore --project codedpixels &
+          EMULATOR_PID=$!
+
+          cleanup() {
+            kill "$EMULATOR_PID" 2>/dev/null || true
+            kill "$RENDERER_PID" 2>/dev/null || true
+          }
+          trap cleanup EXIT
+
+          echo "Waiting for Firestore emulator on :8080..."
+          for i in $(seq 1 60); do
+            if curl -sf "http://127.0.0.1:8080/" >/dev/null 2>&1 || \
+               nc -z 127.0.0.1 8080 2>/dev/null; then
+              break
+            fi
+            if ! kill -0 "$EMULATOR_PID" 2>/dev/null; then
+              echo "::error::Firestore emulator exited before ready"
+              exit 1
+            fi
+            sleep 2
+          done
+
+          npm run seed:templates:emulator
+          npm run seed:template-demos:emulator
+
+          FIRESTORE_EMULATOR_HOST=127.0.0.1:8080 npm run dev:renderer &
+          RENDERER_PID=$!
+
+          echo "Waiting for site-renderer demo tenant on :3002..."
+          for i in $(seq 1 90); do
+            if curl -sf "http://sparkle-clean.localhost:3002/" >/dev/null 2>&1; then
+              break
+            fi
+            if ! kill -0 "$RENDERER_PID" 2>/dev/null; then
+              echo "::error::site-renderer exited before ready"
+              exit 1
+            fi
+            sleep 2
+          done
+
+          npm run generate:template-thumbnails
+
+      - name: Upload WebP previews
+        uses: actions/upload-artifact@v4
+        with:
+          name: template-thumbnails
+          path: apps/marketing/public/templates/previews/*.webp
+          if-no-files-found: error
+          retention-days: 14

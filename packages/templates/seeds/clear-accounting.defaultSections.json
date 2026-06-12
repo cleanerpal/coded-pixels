@@ -1,0 +1,63 @@
+{
+  "templateId": "clear-accounting",
+  "metadata": {
+    "name": "Clear Accounting",
+    "category": "professional-services",
+    "description": "Accountancy firm with services grid and enquiry CTA",
+    "sortOrder": 12,
+    "isCustomTemplate": false
+  },
+  "defaultPage": {
+    "title": "Home",
+    "slug": "home",
+    "seo": {
+      "title": "Clear Accounting — Straightforward Numbers",
+      "description": "Bookkeeping, tax, and payroll support for UK small businesses."
+    }
+  },
+  "defaultSections": [
+    {
+      "id": "00000000-0012-4000-8000-000000000001",
+      "type": "hero",
+      "props": {
+        "headline": "Accounts made clear",
+        "subheadline": "Proactive advice, fixed monthly fees, and no jargon",
+        "ctaText": "Request a quote",
+        "ctaLink": "#contact",
+        "alignment": "left"
+      }
+    },
+    {
+      "id": "00000000-0012-4000-8000-000000000002",
+      "type": "features-grid",
+      "props": {
+        "headline": "How we help",
+        "columns": 3,
+        "items": [
+          { "title": "Bookkeeping", "description": "Tidy records and monthly reports" },
+          { "title": "Tax & VAT", "description": "Returns filed on time, every time" },
+          { "title": "Payroll", "description": "PAYE and pensions handled for you" }
+        ]
+      }
+    },
+    {
+      "id": "00000000-0012-4000-8000-000000000003",
+      "type": "cta-banner",
+      "props": {
+        "headline": "Free initial consultation",
+        "subheadline": "Tell us about your business — we will recommend the right package",
+        "ctaText": "Get in touch",
+        "ctaLink": "#contact"
+      }
+    },
+    {
+      "id": "00000000-0012-4000-8000-000000000004",
+      "type": "footer",
+      "props": {
+        "businessName": "Clear Accounting",
+        "tagline": "Chartered accountants",
+        "showSocialLinks": false
+      }
+    }
+  ]
+}

@@ -11,9 +11,9 @@
 | Field | Value |
 |-------|--------|
 | **Last updated** | 2025-06-12 |
-| **Current wave** | **20** |
-| **Current milestone** | **Phase 2.1** — Starter library expansion (+4 templates) |
-| **Last wave closed** | **19** |
+| **Current wave** | **21** |
+| **Current milestone** | **Production launch** (Wave 21 PL-001–PL-005) |
+| **Last wave closed** | **20** |
 | **Last commit SHA** | `a27b473` |
 | **Last commit message** | `wave(19): marketing template previews — INF-005–007, ENG-024–027, QA-007` |
 | **Remote synced** | Yes |
@@ -88,6 +88,10 @@
 | ENG-026 | 19 | 2025-06-12 | a27b473 | Reserved slug guard (onboarding) |
 | ENG-027 | 19 | 2025-06-12 | a27b473 | Category filters + starter copy |
 | QA-007 | 19 | 2025-06-12 | a27b473 | Template preview E2E |
+| DOC-011 | 20 | 2025-06-12 | b338b9d | Template addition governance (planning) |
+| B10-001 | 20 | 2025-06-12 | _(wave 20)_ | +4 starter seeds, seedVersion 2 |
+| B10-002 | 20 | 2025-06-12 | _(wave 20)_ | new-template.mjs + authoring guide |
+| INF-007 | 20 | 2025-06-12 | _(wave 20)_ | template-seeds CI workflow |
 
 ---
 
@@ -101,18 +105,19 @@
 
 ## Next parallel spool
 
-**Wave 20 — Starter library expansion** · Spec: [`template-addition-governance-spec.md`](template-addition-governance-spec.md) (DOC-011 on disk)
+**Wave 21 — Production launch** · Spec: [`production-launch-prerequisites.md`](production-launch-prerequisites.md)
 
-| Phase | Ticket | Lane | Blocked by |
-|-------|--------|------|------------|
-| **1** | **DOC-011** | DOC | Wave 19 ✓ (spec committed) |
-| **2** | **B10-001** | Templates | DOC-011 ✓ |
-| **2** | **B10-002** | Templates | DOC-011 ✓ |
-| **3** | **INF-007** | INF | INF-006, B10-001 |
+| Ticket | Lane | Blocked by |
+|--------|------|------------|
+| **PL-001** | INF | Wave 20 ✓ |
+| **PL-002** | INF | Wave 20 ✓ |
+| **PL-003** | INF | PL-001 |
+| **PL-004** | INF | PL-001 |
+| **PL-005** | DOC | PL-001–004 |
 
-**After Wave 20:** Wave 21 production launch — [`production-launch-prerequisites.md`](production-launch-prerequisites.md).
+Phase 2.1 platform roadmap: [`phase-2.1-platform-roadmap.md`](phase-2.1-platform-roadmap.md) (Waves 22–27 after Wave 21).
 
-Verification guides: `docs/planning/wave-verification/README.md` · `wave-19.md`
+Verification guides: `docs/planning/wave-verification/README.md`
 
 ---
 
@@ -155,7 +160,8 @@ Verification guides: `docs/planning/wave-verification/README.md` · `wave-19.md`
 | 2025-06-12 | continue | Wave 18 closed @ `3ed112e`; DOC-009 + B9-001 + verification guides; Phase 2 complete |
 | 2025-06-12 | advisory | Wave 19 Phase 1 — DOC-010 + Forge & Scale closure; Phase 2 spool ready |
 | 2025-06-12 | push | Planning + chore @ `9b08a41`; Forge & Scale green light — spooling INF-005 + ENG-026 |
-| 2025-06-12 | close | Wave 19 closed — demo seed, preview UX, slug guard, E2E; Forge & Scale audit |
+| 2025-06-12 | close | Wave 19 closed @ a27b473 — demo seed, preview UX, slug guard, E2E |
+| 2025-06-12 | close | Wave 20 closed — +4 starters, new-template scaffold, seeds CI |
 
 ---
 

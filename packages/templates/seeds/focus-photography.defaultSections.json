@@ -1,0 +1,74 @@
+{
+  "templateId": "focus-photography",
+  "metadata": {
+    "name": "Focus Photography",
+    "category": "creative-services",
+    "description": "Portfolio-led site for photographers and studios",
+    "sortOrder": 13,
+    "isCustomTemplate": false
+  },
+  "defaultPage": {
+    "title": "Home",
+    "slug": "home",
+    "seo": {
+      "title": "Focus Photography — Stories in Light",
+      "description": "Wedding, portrait, and commercial photography with a natural editorial style."
+    }
+  },
+  "defaultSections": [
+    {
+      "id": "00000000-0013-4000-8000-000000000001",
+      "type": "hero",
+      "props": {
+        "headline": "Capture what matters",
+        "subheadline": "Wedding, portrait, and brand photography across the UK",
+        "ctaText": "View portfolio",
+        "ctaLink": "#gallery",
+        "alignment": "center"
+      }
+    },
+    {
+      "id": "00000000-0013-4000-8000-000000000002",
+      "type": "image-gallery",
+      "props": {
+        "headline": "Recent work",
+        "images": [
+          {
+            "src": "https://placehold.co/800x600/e2e8f0/64748b?text=Weddings",
+            "alt": "Couple portrait at sunset",
+            "caption": "Weddings"
+          },
+          {
+            "src": "https://placehold.co/800x600/e2e8f0/64748b?text=Portraits",
+            "alt": "Studio headshot",
+            "caption": "Portraits"
+          },
+          {
+            "src": "https://placehold.co/800x600/e2e8f0/64748b?text=Commercial",
+            "alt": "Product on marble surface",
+            "caption": "Commercial"
+          }
+        ]
+      }
+    },
+    {
+      "id": "00000000-0013-4000-8000-000000000003",
+      "type": "cta-banner",
+      "props": {
+        "headline": "Check your date",
+        "subheadline": "Limited weekend availability — enquire early",
+        "ctaText": "Book a shoot",
+        "ctaLink": "#contact"
+      }
+    },
+    {
+      "id": "00000000-0013-4000-8000-000000000004",
+      "type": "footer",
+      "props": {
+        "businessName": "Focus Photography",
+        "tagline": "Photography studio",
+        "showSocialLinks": true
+      }
+    }
+  ]
+}

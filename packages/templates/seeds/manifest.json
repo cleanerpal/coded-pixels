@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "seedVersion": 1,
+  "seedVersion": 2,
   "templates": [
     "sparkle-clean",
     "trade-pro",
@@ -12,6 +12,10 @@
     "learn-hub",
     "business-core",
     "startup-launch",
+    "wellness-clinic",
+    "clear-accounting",
+    "focus-photography",
+    "fit-hub",
     "custom"
   ]
 }

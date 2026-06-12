@@ -1,5 +1,5 @@
 {
-  "seedVersion": 1,
+  "seedVersion": 2,
   "hashes": {
     "sparkle-clean": "1c9b5ccc29176db30030c5b67863e4bbe73492ba553a9dc780ef50f09fd0f891",
     "trade-pro": "3ba7814119d9d7b91ba865482a309c0d668e8ce2fb9673a96b345a699f3d60c2",
@@ -11,6 +11,10 @@
     "learn-hub": "b2bc75a3b9713bb9d974f636bfec28fdbd6d0e588073af8acf1ff816661e15dd",
     "business-core": "7fa2a66d798643420b50f2c257cc921c91fef95cacf3191f9d919d6fe78f712f",
     "startup-launch": "83ddbdca6ae31b347507a12973027ee2c0bbdecfe3b971da40fa2edc558f278f",
+    "wellness-clinic": "5ac722217880c5f76d85c53cb0b6ea741b0c76d7ccc70a015aba191f79408dee",
+    "clear-accounting": "a00a7c6d7b2d228ee8727d9db13f2ba887d05878f19f08b6e1c486872119369d",
+    "focus-photography": "5a10a2ae44e36526ab7fcbd50cd274eb6002edb0428351938253edf64308a052",
+    "fit-hub": "805461e0bd9eb732fc8adaf1457cb6eb065bef0a71bf74862265c2632610ccca",
     "custom": "f3a42081a76e1071a432def549a72186ecf573ba144ab8f76f2bf0670c48a6a2"
   }
 }

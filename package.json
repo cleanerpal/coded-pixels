@@ -23,6 +23,7 @@
     "emulators": "firebase emulators:start --only auth,firestore,functions,storage",
     "emulators:export": "firebase emulators:export ./firebase-export",
     "validate:templates": "npm run validate:templates --workspace=@codedpixels/templates",
+    "new-template": "npm run new-template --workspace=@codedpixels/templates",
     "seed:templates": "npm run seed:templates --workspace=@codedpixels/templates",
     "seed:templates:emulator": "npm run seed:templates:emulator --workspace=@codedpixels/templates",
     "seed:template-demos": "npm run seed:template-demos --workspace=@codedpixels/templates",
