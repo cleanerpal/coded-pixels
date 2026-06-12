@@ -1,0 +1,15 @@
+# Firebase App Hosting — marketing backend (codedpixels.co.uk, www)
+# Primary region: europe-west2 — set when creating backend via CLI/Console.
+# Secrets: use `firebase apphosting:secrets:set` — see docs/ops/pl-001-infrastructure-verification.md
+
+runConfig:
+  minInstances: 0
+  maxInstances: 20
+  concurrency: 80
+
+env:
+  - variable: NEXT_PUBLIC_FIREBASE_PROJECT_ID
+    value: codedpixels
+    availability:
+      - BUILD
+      - RUNTIME

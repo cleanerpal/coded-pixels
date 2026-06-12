@@ -1,4 +1,21 @@
 {
+  "apphosting": [
+    {
+      "backendId": "marketing",
+      "rootDir": "apps/marketing",
+      "ignore": ["node_modules", ".git", "firebase-debug.log", "firebase-debug.*.log", "*.local"]
+    },
+    {
+      "backendId": "builder",
+      "rootDir": "apps/builder",
+      "ignore": ["node_modules", ".git", "firebase-debug.log", "firebase-debug.*.log", "*.local"]
+    },
+    {
+      "backendId": "site-renderer",
+      "rootDir": "apps/site-renderer",
+      "ignore": ["node_modules", ".git", "firebase-debug.log", "firebase-debug.*.log", "*.local"]
+    }
+  ],
   "extensions": {
     "firestore-stripe-payments": "stripe/firestore-stripe-payments",
     "storage-resize-images": "firebase/storage-resize-images"

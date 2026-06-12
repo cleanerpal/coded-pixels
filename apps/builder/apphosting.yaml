@@ -1,0 +1,14 @@
+# Firebase App Hosting — builder backend (app.codedpixels.co.uk)
+# Primary region: europe-west2 — set when creating backend via CLI/Console.
+
+runConfig:
+  minInstances: 0
+  maxInstances: 10
+  concurrency: 40
+
+env:
+  - variable: NEXT_PUBLIC_FIREBASE_PROJECT_ID
+    value: codedpixels
+    availability:
+      - BUILD
+      - RUNTIME

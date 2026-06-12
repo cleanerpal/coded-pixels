@@ -11,12 +11,12 @@
 | Field | Value |
 |-------|--------|
 | **Last updated** | 2025-06-12 |
-| **Current wave** | **21** |
-| **Current milestone** | **Production launch** (Wave 21 PL-001–PL-005) |
-| **Last wave closed** | **20** |
-| **Last commit SHA** | `c414d5a` |
-| **Last commit message** | `docs: project-status — Wave 20 closed @ 6aa5d91, current wave 21` |
-| **Remote synced** | Yes |
+| **Current wave** | **22** |
+| **Current milestone** | **Phase 2.1 — Custom domains** (Wave 22 P21-001–P21-003, QA-008) |
+| **Last wave closed** | **21** |
+| **Last commit SHA** | _pending push_ |
+| **Last commit message** | _pending push_ |
+| **Remote synced** | Pending |
 | **Forge & Scale gate** | **CLOSED** — Wave 19 approved; comprehensive audit received |
 | **Git remote** | `https://github.com/cleanerpal/coded-pixels.git` (`origin`, branch `main`) |
 
@@ -92,6 +92,11 @@
 | B10-001 | 20 | 2025-06-12 | 6aa5d91 | +4 starter seeds, seedVersion 2 |
 | B10-002 | 20 | 2025-06-12 | 6aa5d91 | new-template.mjs + authoring guide |
 | INF-007 | 20 | 2025-06-12 | 6aa5d91 | template-seeds CI workflow |
+| PL-001 | 21 | 2025-06-12 | _pending_ | Deploy scripts + App Hosting config + §2.1 runbook |
+| PL-002 | 21 | 2025-06-12 | _pending_ | Stripe production runbook + catalogue verifier |
+| PL-003 | 21 | 2025-06-12 | _pending_ | Production seed runbook |
+| PL-004 | 21 | 2025-06-12 | _pending_ | Observability runbook + probe script |
+| PL-005 | 21 | 2025-06-12 | _pending_ | Master production-runbook.md + sign-off template |
 
 ---
 
@@ -105,17 +110,16 @@
 
 ## Next parallel spool
 
-**Wave 21 — Production launch** · Spec: [`production-launch-prerequisites.md`](production-launch-prerequisites.md)
+**Wave 22 — Custom domains** · Spec: [`phase-2.1-platform-roadmap.md`](phase-2.1-platform-roadmap.md) §Wave 22 · **Gate:** Wave 21 repo deliverables committed (live cutover is human ops per `docs/ops/production-runbook.md`)
 
 | Ticket | Lane | Blocked by |
 |--------|------|------------|
-| **PL-001** | INF | Wave 20 ✓ |
-| **PL-002** | INF | Wave 20 ✓ |
-| **PL-003** | INF | PL-001 |
-| **PL-004** | INF | PL-001 |
-| **PL-005** | DOC | PL-001–004 |
+| **P21-001** | Functions | Wave 21 ✓ |
+| **P21-002** | Builder | P21-001 |
+| **P21-003** | Site-renderer | P21-001 |
+| **QA-008** | QA | P21-001, P21-002, P21-003 |
 
-Phase 2.1 platform roadmap: [`phase-2.1-platform-roadmap.md`](phase-2.1-platform-roadmap.md) (Waves 22–27 after Wave 21).
+_Note: Wave 22 tickets are defined in the Phase 2.1 roadmap; full acceptance blocks to be added to `implementation-tickets.md` before code spool._
 
 Verification guides: `docs/planning/wave-verification/README.md`
 
@@ -139,6 +143,8 @@ Verification guides: `docs/planning/wave-verification/README.md`
 | Platform B9 form abuse + observability | **CLOSED** — B9-001 complete |
 | **Platform Phase 2** | **COMPLETE** |
 | **Phase 2.1 template previews** | **CLOSED** — Wave 19 complete |
+| **Production launch (repo)** | **CLOSED** — Wave 21 PL-001–PL-005 scripts + runbooks on disk |
+| **Production cutover (live)** | **PENDING** — human ops per `docs/ops/production-runbook.md` |
 
 ---
 
@@ -163,6 +169,9 @@ Verification guides: `docs/planning/wave-verification/README.md`
 | 2025-06-12 | close | Wave 19 closed @ a27b473 — demo seed, preview UX, slug guard, E2E |
 | 2025-06-12 | close | Wave 20 closed — +4 starters, new-template scaffold, seeds CI |
 | 2025-06-12 | verify | Resume @ `c414d5a` — lint/typecheck/test/e2e/rules/build green; wave 21 ready |
+| 2025-06-12 | resume | Resume @ `dcfd7f0` — Wave 20 OK; tests green; spooled PL-001–PL-005 |
+| 2025-06-12 | resume | Wave 21 PL-001–PL-005 verified; lint/typecheck/test/build green; uncommitted |
+| 2025-06-12 | resume | Wave 21 closed — PL-001–PL-005 deliverables verified; lint/typecheck/test/build green; committing |
 
 ---
 
