@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* Section components live in workspace packages — scan for utility classes (Tailwind 4) */
+@source "../../../packages/component-registry/src";
+@source "../../../packages/ui/src";
+
 :root {
   --color-primary: #4f46e5;
   --color-accent: #06b6d4;

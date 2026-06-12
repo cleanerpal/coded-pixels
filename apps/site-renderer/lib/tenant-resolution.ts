@@ -67,6 +67,11 @@ async function loadTenantContext(slug: string): Promise<TenantContext | null> {
 }
 
 export function getCachedTenantContext(slug: string): Promise<TenantContext | null> {
+  // Skip cross-request cache in dev — emulator re-seeds must reflect immediately.
+  if (process.env.NODE_ENV === 'development') {
+    return loadTenantContext(slug);
+  }
+
   return unstable_cache(
     () => loadTenantContext(slug),
     ['tenant-context', slug],

@@ -12,6 +12,7 @@
     "dev:marketing": "turbo run dev --filter=@codedpixels/marketing",
     "dev:builder": "turbo run dev --filter=@codedpixels/builder",
     "dev:renderer": "turbo run dev --filter=@codedpixels/site-renderer",
+    "dev:preview": "node scripts/dev-preview-stack.mjs",
     "build": "turbo run build",
     "test": "turbo run test",
     "lint": "turbo run lint",
@@ -37,6 +38,7 @@
     "@types/node": "^20",
     "eslint": "^8.57.0",
     "firebase-tools": "^14.27.0",
+    "sharp": "^0.34.5",
     "turbo": "^2.5.4",
     "typescript": "^5",
     "vitest": "^3.2.4"

@@ -18,7 +18,8 @@
  */
 import { initializeApp, getApps } from 'firebase-admin/app';
 import { getFirestore, FieldValue } from 'firebase-admin/firestore';
-import { RESERVED_TEMPLATE_SLUGS } from '@codedpixels/shared-types';
+/** @codedpixels/shared-types — direct dist import (barrel lacks .js extensions for Node ESM) */
+import { RESERVED_TEMPLATE_SLUGS } from '../../shared-types/dist/constants/reserved-template-slugs.js';
 import {
   cloneSectionsWithNewIds,
   demoCompanyId,
