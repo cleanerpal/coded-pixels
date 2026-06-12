@@ -48,6 +48,8 @@
 | ENG-019 | 5 | 2025-06-12 | 7d052a1 | FAQ + How It Works content |
 | INF-001 | 5 | 2025-06-12 | 7d052a1 | Firebase project init |
 | INF-004 | 5 | 2025-06-12 | 7d052a1 | Sentry marketing site |
+| INF-002 | 6 | 2025-06-12 | c5a72f8 | Firestore rules §11 |
+| ENG-021 | 6 | 2025-06-12 | c5a72f8 | Cookie consent banner |
 
 ---
 
@@ -61,7 +63,7 @@
 
 ## Next parallel spool
 
-**Wave 6** — INF-002, ENG-021 (after wave 5 push). PII-gated: INF-003, ENG-020 blocked until INF-002 + ENG-021/ENG-022.
+**Wave 7** — INF-003, ENG-022, ENG-020 (after INF-003), ENG-023. PII gate narrowing: DOC-002 + INF-004 + INF-002 + ENG-021 done.
 
 Full backlog: `implementation-tickets.md`
 
@@ -72,7 +74,7 @@ Full backlog: `implementation-tickets.md`
 | Gate | Status |
 |------|--------|
 | ENG-006 → Wave 3 UI | **CLOSED** |
-| M3 PII (DOC-002 + Sentry) | **PARTIAL** — DOC-002 + INF-004 done; INF-002/003 + ENG-021/022 remain |
+| M3 PII (DOC-002 + Sentry) | **PARTIAL** — DOC-002, INF-004, INF-002, ENG-021 done; INF-003 + ENG-022 + ENG-020 remain |
 | Platform B0 monorepo | **OPEN** |
 
 ---
@@ -87,6 +89,7 @@ Full backlog: `implementation-tickets.md`
 | 2025-06-12 | Wave 3 push | `7009166` — M1 configurator components complete |
 | 2025-06-12 | `/codedpixels resume` | Verified waves 1–3; closed Wave 4 `f434495`; closed Wave 5 `7d052a1` |
 | 2025-06-12 | Wave 5 push | `7d052a1` — M3 pages + Firebase/Sentry scaffold |
+| 2025-06-12 | Wave 6 push | `c5a72f8` — Firestore rules + cookie consent |
 
 ---
 
