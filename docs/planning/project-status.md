@@ -11,11 +11,11 @@
 | Field | Value |
 |-------|--------|
 | **Last updated** | 2025-06-12 |
-| **Current wave** | **13** |
-| **Current milestone** | **Platform Phase 2** — B2 builder shell next |
-| **Last wave closed** | **12** |
-| **Last commit SHA** | `1624bde` |
-| **Last commit message** | `wave(12): B1 tenant schema + rules expansion` |
+| **Current wave** | **14** |
+| **Current milestone** | **Platform Phase 2** — B3 publish pipeline next |
+| **Last wave closed** | **13** |
+| **Last commit SHA** | _(pending push)_ |
+| **Last commit message** | `wave(13): B2 builder shell + component registry` |
 | **Remote synced** | Yes |
 | **Git remote** | `https://github.com/cleanerpal/coded-pixels.git` (`origin`, branch `main`) |
 
@@ -69,6 +69,8 @@
 | B0-001 | 11 | 2025-06-12 | 5151d06 | Turborepo scaffold |
 | B1-001 | 12 | 2025-06-12 | 1624bde | Tenant schema + template seeds |
 | B1-002 | 12 | 2025-06-12 | 1624bde | Rules expansion + 52 rules tests |
+| B2-001 | 13 | 2025-06-12 | _(this wave)_ | Builder shell UI |
+| B2-002 | 13 | 2025-06-12 | _(this wave)_ | Component registry package |
 
 ---
 
@@ -82,7 +84,7 @@
 
 ## Next parallel spool
 
-**Wave 13** — B2-001 + B2-002 in parallel (builder shell + component registry). Optional: DOC-009.
+**Wave 14** — B3-001 (publish pipeline + revalidation API). Optional: DOC-009, B7-001/B8-001 parallel tracks.
 
 Full backlog: `implementation-tickets.md`
 
@@ -97,6 +99,7 @@ Full backlog: `implementation-tickets.md`
 | M4 QA gate | **CLOSED** |
 | Platform B0 monorepo | **CLOSED** — B0-001 complete |
 | Platform B1 tenant schema | **CLOSED** — B1-001 + B1-002 complete |
+| Platform B2 builder shell | **CLOSED** — B2-001 + B2-002 complete |
 
 ---
 
@@ -109,6 +112,7 @@ Full backlog: `implementation-tickets.md`
 | 2025-06-12 | continue | Wave 11 — B0-001 Turborepo `5151d06` |
 | 2025-06-12 | resume | Wave 12 — verified B0-001 @ `cda50fb`; tests green; spooling B1-001 + B1-002 |
 | 2025-06-12 | resume | Wave 12 closed — B1-001 + B1-002 verified; lint/typecheck/test/build/test:rules green |
+| 2025-06-12 | resume | Wave 13 closed — B2-001 + B2-002 verified; builder builds on :3001 |
 
 ---
 

@@ -1,0 +1,8 @@
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+export function Footer({ props }) {
+    var _a, _b, _c;
+    const footer = props;
+    const year = new Date().getFullYear();
+    const copyright = (_a = footer.copyright) !== null && _a !== void 0 ? _a : `© ${year} ${footer.businessName}. All rights reserved.`;
+    return (_jsxs("footer", { className: "border-t border-border bg-background px-6 py-10", children: [_jsxs("div", { className: "mx-auto flex max-w-5xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between", children: [_jsxs("div", { children: [_jsx("p", { className: "text-lg font-semibold text-primary", children: footer.businessName }), footer.tagline ? _jsx("p", { className: "text-sm text-muted", children: footer.tagline }) : null] }), ((_b = footer.links) === null || _b === void 0 ? void 0 : _b.length) ? (_jsx("nav", { "aria-label": "Footer links", className: "flex flex-wrap gap-4", children: footer.links.map((link) => (_jsx("a", { href: link.href, className: "text-sm text-muted hover:text-primary", children: link.label }, link.label))) })) : null, footer.showSocialLinks && ((_c = footer.social) === null || _c === void 0 ? void 0 : _c.length) ? (_jsx("div", { className: "flex gap-3", children: footer.social.map((item) => (_jsx("a", { href: item.url, className: "text-sm text-muted hover:text-primary", children: item.platform }, item.platform))) })) : footer.showSocialLinks ? (_jsx("p", { className: "text-sm text-muted", children: "Social links" })) : null] }), _jsx("p", { className: "mx-auto mt-6 max-w-5xl text-xs text-muted", children: copyright })] }));
+}
