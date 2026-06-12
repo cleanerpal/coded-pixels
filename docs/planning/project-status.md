@@ -14,9 +14,9 @@
 | **Current wave** | **20** |
 | **Current milestone** | **Phase 2.1** — Starter library expansion (+4 templates) |
 | **Last wave closed** | **19** |
-| **Last commit SHA** | _(pending wave 19 push)_ |
-| **Last commit message** | _(pending)_ |
-| **Remote synced** | _(pending)_ |
+| **Last commit SHA** | `a27b473` |
+| **Last commit message** | `wave(19): marketing template previews — INF-005–007, ENG-024–027, QA-007` |
+| **Remote synced** | Yes |
 | **Forge & Scale gate** | **CLOSED** — Wave 19 approved; comprehensive audit received |
 | **Git remote** | `https://github.com/cleanerpal/coded-pixels.git` (`origin`, branch `main`) |
 
@@ -81,13 +81,13 @@
 | DOC-009 | 18 | 2025-06-12 | 3ed112e | FinOps SLOs + error budget addendum |
 | B9-001 | 18 | 2025-06-12 | 3ed112e | App Check + submitLead on live forms + builder Sentry |
 | DOC-010 | 19 | 2025-06-12 | b338b9d | Marketing template preview spec + Q65–Q70 |
-| INF-005 | 19 | 2025-06-12 | _(wave 19)_ | Demo tenant seed + noindex + projectId fix |
-| INF-006 | 19 | 2025-06-12 | _(wave 19)_ | Thumbnail generator + demo-seed logic tests |
-| ENG-024 | 19 | 2025-06-12 | _(wave 19)_ | Homepage preview links + thumbnails |
-| ENG-025 | 19 | 2025-06-12 | _(wave 19)_ | /templates gallery preview UX |
-| ENG-026 | 19 | 2025-06-12 | _(wave 19)_ | Reserved slug guard (onboarding) |
-| ENG-027 | 19 | 2025-06-12 | _(wave 19)_ | Category filters + starter copy |
-| QA-007 | 19 | 2025-06-12 | _(wave 19)_ | Template preview E2E |
+| INF-005 | 19 | 2025-06-12 | a27b473 | Demo tenant seed + noindex + projectId fix |
+| INF-006 | 19 | 2025-06-12 | a27b473 | Thumbnail generator + demo-seed logic tests |
+| ENG-024 | 19 | 2025-06-12 | a27b473 | Homepage preview links + thumbnails |
+| ENG-025 | 19 | 2025-06-12 | a27b473 | /templates gallery preview UX |
+| ENG-026 | 19 | 2025-06-12 | a27b473 | Reserved slug guard (onboarding) |
+| ENG-027 | 19 | 2025-06-12 | a27b473 | Category filters + starter copy |
+| QA-007 | 19 | 2025-06-12 | a27b473 | Template preview E2E |
 
 ---
 
