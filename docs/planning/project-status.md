@@ -14,9 +14,9 @@
 | **Current wave** | **22** |
 | **Current milestone** | **Phase 2.1 — Custom domains** (Wave 22 P21-001–P21-003, QA-008) |
 | **Last wave closed** | **21** |
-| **Last commit SHA** | _pending push_ |
-| **Last commit message** | _pending push_ |
-| **Remote synced** | Pending |
+| **Last commit SHA** | `58d93a9` |
+| **Last commit message** | `wave(21): production launch prerequisites — PL-001–PL-005` |
+| **Remote synced** | Yes |
 | **Forge & Scale gate** | **CLOSED** — Wave 19 approved; comprehensive audit received |
 | **Git remote** | `https://github.com/cleanerpal/coded-pixels.git` (`origin`, branch `main`) |
 
@@ -92,11 +92,11 @@
 | B10-001 | 20 | 2025-06-12 | 6aa5d91 | +4 starter seeds, seedVersion 2 |
 | B10-002 | 20 | 2025-06-12 | 6aa5d91 | new-template.mjs + authoring guide |
 | INF-007 | 20 | 2025-06-12 | 6aa5d91 | template-seeds CI workflow |
-| PL-001 | 21 | 2025-06-12 | _pending_ | Deploy scripts + App Hosting config + §2.1 runbook |
-| PL-002 | 21 | 2025-06-12 | _pending_ | Stripe production runbook + catalogue verifier |
-| PL-003 | 21 | 2025-06-12 | _pending_ | Production seed runbook |
-| PL-004 | 21 | 2025-06-12 | _pending_ | Observability runbook + probe script |
-| PL-005 | 21 | 2025-06-12 | _pending_ | Master production-runbook.md + sign-off template |
+| PL-001 | 21 | 2025-06-12 | 58d93a9 | Deploy scripts + App Hosting config + §2.1 runbook |
+| PL-002 | 21 | 2025-06-12 | 58d93a9 | Stripe production runbook + catalogue verifier |
+| PL-003 | 21 | 2025-06-12 | 58d93a9 | Production seed runbook |
+| PL-004 | 21 | 2025-06-12 | 58d93a9 | Observability runbook + probe script |
+| PL-005 | 21 | 2025-06-12 | 58d93a9 | Master production-runbook.md + sign-off template |
 
 ---
 
