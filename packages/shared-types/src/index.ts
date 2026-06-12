@@ -12,6 +12,12 @@ export type {
 
 export type { Section } from './section';
 
+export {
+  RESERVED_TEMPLATE_SLUGS,
+  isReservedTemplateSlug,
+  type ReservedTemplateSlug,
+} from './constants/reserved-template-slugs';
+
 export type {
   TimestampLike,
   PageSeo,

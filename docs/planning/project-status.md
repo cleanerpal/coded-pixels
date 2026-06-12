@@ -11,10 +11,11 @@
 | Field | Value |
 |-------|--------|
 | **Last updated** | 2025-06-12 |
-| **Current wave** | **19** |
+| **Current wave** | **19** (Phase 2 — code spool ready) |
+| **Wave 19 Phase 1** | **Complete** — DOC-010 + Forge & Scale advisory closure |
 | **Current milestone** | **Phase 2.1** — Marketing template previews (real designs selectable + previewable on homepage) |
 | **Last wave closed** | **18** |
-| **Last commit SHA** | `3ed112e` |
+| **Last commit SHA** | _(pending planning close commit)_ |
 | **Last commit message** | `wave(18): FinOps SLOs, verification guides, B9 form abuse — DOC-009, B9-001` |
 | **Remote synced** | Yes |
 | **Git remote** | `https://github.com/cleanerpal/coded-pixels.git` (`origin`, branch `main`) |
@@ -79,6 +80,7 @@
 | B8-001 | 17 | 2025-06-12 | caa287f | Leads inbox + products + Stripe portal |
 | DOC-009 | 18 | 2025-06-12 | 3ed112e | FinOps SLOs + error budget addendum |
 | B9-001 | 18 | 2025-06-12 | 3ed112e | App Check + submitLead on live forms + builder Sentry |
+| DOC-010 | 19 | 2025-06-12 | _(planning close)_ | Marketing template preview spec + Q65–Q70 + Forge & Scale advisory |
 
 ---
 
@@ -92,24 +94,25 @@
 
 ## Next parallel spool
 
-**Wave 19 — Phase 2.1 marketing template previews** · Spec: `docs/planning/marketing-template-preview-spec.md`
+**Wave 19 Phase 2 — spool now** · Spec: [`marketing-template-preview-spec.md`](marketing-template-preview-spec.md)
 
 | Phase | Ticket | Lane | Blocked by |
 |-------|--------|------|------------|
-| **1** | **DOC-010** | DOC | — |
-| **2** | **INF-005** | INF | DOC-010 |
-| **2** | **ENG-026** | Builder | DOC-010 |
+| **2** | **INF-005** | INF | DOC-010 ✓ |
+| **2** | **ENG-026** | Builder | DOC-010 ✓ |
 | **3** | **INF-006** | INF | INF-005 |
-| **3** | **ENG-024** | Marketing configurator | DOC-010, INF-005 |
-| **3** | **ENG-025** | Marketing pages | DOC-010 |
-| **3** | **ENG-027** | Marketing configurator | DOC-010, ENG-024 |
+| **3** | **ENG-024** | Marketing configurator | INF-005 |
+| **3** | **ENG-025** | Marketing pages | DOC-010 ✓ |
+| **3** | **ENG-027** | Marketing configurator | ENG-024 |
 | **4** | **QA-007** | QA | ENG-024, ENG-025, ENG-027 |
+
+Phase 1 complete: **DOC-010** (Forge & Scale follow-up approved 12 June 2026).
 
 **After Wave 19:** Wave 20 starter expansion — DOC-011 → B10-001/B10-002 → INF-007. See [`starter-template-library-plan.md`](starter-template-library-plan.md).
 
-Also queued (not Wave 19): production ops per `finops-slos.md`, Stripe Extension install, deploy.
+Also queued: **Wave 21** production launch — [`production-launch-prerequisites.md`](production-launch-prerequisites.md). Phase 2.1 platform — [`phase-2.1-platform-roadmap.md`](phase-2.1-platform-roadmap.md) (Waves 22–27).
 
-Verification guides: `docs/planning/wave-verification/README.md` · `wave-19.md` (after DOC-010)
+Verification guides: `docs/planning/wave-verification/README.md` · `wave-19.md`
 
 ---
 
@@ -150,6 +153,7 @@ Verification guides: `docs/planning/wave-verification/README.md` · `wave-19.md`
 | 2025-06-12 | resume | Wave 16 closed @ `82d2b4a`; B6-001 + B6-002 verified; pushed; Wave 17 ready (B7-001 + B8-001) |
 | 2025-06-12 | resume | Wave 17 closed @ `caa287f`; B7-001 + B8-001 verified; pushed; Phase 2 core complete |
 | 2025-06-12 | continue | Wave 18 closed @ `3ed112e`; DOC-009 + B9-001 + verification guides; Phase 2 complete |
+| 2025-06-12 | advisory | Wave 19 Phase 1 — DOC-010 + Forge & Scale closure; Phase 2 spool ready |
 
 ---
 

@@ -55,7 +55,7 @@ npm run generate:template-thumbnails
 | What | Expected |
 |------|----------|
 | Homepage | Real hero, features, CTA from component registry — not configurator mock |
-| View source / headers | `noindex` for platform demo |
+| View source / headers | `noindex` via `generateMetadata()` when `isPlatformDemo` (spec §5.1) |
 
 ### Builder onboarding
 

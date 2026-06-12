@@ -115,7 +115,23 @@ These do **not** block Phase 0. Track in builder kickoff or follow-on specs.
 | **Q68** | How to generate more starters | Manual JSON + CI validation now; scaffold B10-002 Wave 20; AI authoring Phase 2.2+ backlog | Rafael Ortiz, Alex Rivera |
 
 **Plan:** [`starter-template-library-plan.md`](starter-template-library-plan.md)  
-**Wave 20:** DOC-011, B10-001, B10-002, INF-007
+**Wave 20:** DOC-011, B10-001, B10-002, INF-007  
+**Governance spec:** [`template-addition-governance-spec.md`](template-addition-governance-spec.md)
+
+---
+
+## Q69–Q70 Governance + Forge & Scale Advisory (12 June 2026)
+
+| # | Issue | Resolution | Owners |
+|---|-------|------------|--------|
+| **Q69** | `new-template.mjs` manifest mutation authority | **Skeleton only** — human PR for manifest, marketing metadata, reserved slugs | Alex Rivera, Rafael Ortiz |
+| **Q70** | B10-001 template IDs finalized | `wellness-clinic`, `clear-accounting`, `focus-photography`, `fit-hub` | Samuel Ruiz, Marcus Chen |
+
+**External review response:** [`forge-scale-advisory-response.md`](forge-scale-advisory-response.md)  
+**Phase 2.1 platform roadmap:** [`phase-2.1-platform-roadmap.md`](phase-2.1-platform-roadmap.md)  
+**Production launch:** [`production-launch-prerequisites.md`](production-launch-prerequisites.md) (Wave 21)
+
+**Wave 19 planning gate:** DOC-010 amendment pass (spec §3.4–§9) complete before Phase 2 code spool.
 
 ---
 

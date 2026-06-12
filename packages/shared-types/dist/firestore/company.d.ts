@@ -20,6 +20,8 @@ export interface Company {
     stripeCustomerId?: string;
     stripeSubscriptionId?: string;
     partnerId?: string;
+    /** CI-seeded template demo tenants — site-renderer sets noindex (Q65, Wave 19) */
+    isPlatformDemo?: boolean;
     createdAt: TimestampLike;
     updatedAt: TimestampLike;
 }

@@ -12,7 +12,7 @@ If a ticket is marked complete but deliverables are missing → **reopen ticket*
 |--------|----------------------------------|
 | **ENG-001** | `package.json`, `next.config.ts`, `app/layout.tsx`, `npm run build` succeeds |
 | **ENG-002** | `app/globals.css` with `--color-primary`, `--color-accent`, Inter font |
-| **ENG-003** | `types/index.ts`, `lib/features.ts`, `lib/packages.ts`, `lib/templates.ts` |
+| **ENG-003** | `apps/marketing/types/index.ts` (re-export), `packages/shared-types/src/marketing/config.ts`, `apps/marketing/lib/features.ts`, `lib/packages.ts`, `lib/templates.ts` |
 | **DOC-001** | `docs/planning/cookie-consent-legal-spec.md` |
 
 ## Wave 2
@@ -65,7 +65,7 @@ If a ticket is marked complete but deliverables are missing → **reopen ticket*
 
 | Ticket | Required deliverables (minimum) |
 |--------|----------------------------------|
-| **INF-003** | `functions/src/callables/`, submitSignup + submitSiteImportWaitlist |
+| **INF-003** | `functions/src/callables/marketing.ts` (+ `submitSignup.ts` shim), submitSignup + submitSiteImportWaitlist Callables |
 | **ENG-022** | `lib/analytics.ts`, `AnalyticsProvider`, consent-gated GA4 |
 
 ## Wave 8
@@ -117,12 +117,25 @@ If a ticket is marked complete but deliverables are missing → **reopen ticket*
 | **B2-001** | `apps/builder/` shell routes (dashboard, onboarding, preview placeholder) |
 | **B2-002** | `packages/component-registry/` — `@codedpixels/component-registry` with registry map, Zod schemas (§3.1 MVP types), React renderers, editor-panels subpath, `SectionRenderer`, `validateSectionProps`, vitest tests |
 
+## Wave 14–18 (Platform Phase 2)
+
+| Ticket | Required deliverables (minimum) |
+|--------|----------------------------------|
+| **B3-001** | `functions/src/callables/publishSite.ts` (+ `lib/publishSite.ts` shim), `apps/site-renderer/app/api/revalidate/route.ts` |
+| **B4-001** | `apps/site-renderer/app/[[...pageSlug]]/page.tsx`, `apps/site-renderer/middleware.ts` |
+| **B6-001** | `functions/src/lib/provisionTenant.ts`, `functions/src/callables/createCheckoutSession.ts` |
+| **B6-002** | `apps/builder/app/onboarding/page.tsx`, `apps/builder/lib/onboarding/wizard-state.ts` |
+| **B7-001** | `functions/src/lib/clamAvScan.ts`, `functions/src/callables/createAssetUpload.ts` |
+| **B8-001** | `apps/builder/app/dashboard/leads/page.tsx`, `apps/builder/app/dashboard/products/page.tsx` |
+| **DOC-009** | `docs/planning/finops-slos.md` |
+| **B9-001** | `functions/src/lib/formSecurity.ts` (honeypot + recaptcha), `functions/src/callables/submitLead.ts` |
+
 ## Wave 19 — Phase 2.1 Marketing template previews
 
 | Ticket | Required deliverables (minimum) |
 |--------|----------------------------------|
-| **DOC-010** | `docs/planning/marketing-template-preview-spec.md`, Q65/Q66 in `codedpixels-project-plan.md`, `isPlatformDemo` in `firestore-schema.md` §6 |
-| **INF-005** | `packages/templates/scripts/seed-demos.mjs`, `npm run seed:template-demos:emulator`, `RESERVED_TEMPLATE_SLUGS` in shared-types, `seed.mjs` projectId fix, demo `noindex` in site-renderer |
+| **DOC-010** | `docs/planning/marketing-template-preview-spec.md` (§3.4–§9), Q65/Q66 in `codedpixels-project-plan.md`, `isPlatformDemo` in `firestore-schema.md` §6, `forge-scale-advisory-response.md` |
+| **INF-005** | `packages/templates/scripts/seed-demos.mjs`, `npm run seed:template-demos:emulator`, `packages/shared-types/src/constants/reserved-template-slugs.ts`, `Company.isPlatformDemo`, demo `noindex` in site-renderer |
 | **INF-006** | `scripts/generate-template-thumbnails.mjs`, `npm run generate:template-thumbnails`, WebP under `apps/marketing/public/templates/previews/` |
 | **ENG-024** | `apps/marketing/lib/template-preview-urls.ts`, preview links in `Step1Templates.tsx` + `LivePreviewPanel.tsx` |
 | **ENG-025** | `TemplateGallery.tsx` WebP thumbnails + preview links + starter H1/CTA copy |
@@ -134,7 +147,7 @@ If a ticket is marked complete but deliverables are missing → **reopen ticket*
 
 | Ticket | Required deliverables (minimum) |
 |--------|----------------------------------|
-| **DOC-011** | `docs/planning/template-authoring-guide.md` or governance section in starter plan |
+| **DOC-011** | `docs/planning/template-addition-governance-spec.md` |
 | **B10-001** | 4 new `*.defaultSections.json`, manifest, `lib/templates.ts`, demo seed for new IDs |
 | **B10-002** | `packages/templates/scripts/new-template.mjs` |
 | **INF-007** | GitHub Actions workflow for thumbnail generation on seed changes |

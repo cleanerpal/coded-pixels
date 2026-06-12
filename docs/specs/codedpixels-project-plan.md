@@ -3,7 +3,7 @@
 **Document Owner:** Dr. Lena Moreau  
 **Coordinated by:** Dr. Nathan Cole  
 **Status:** Pre-implementation planning  
-**Last updated:** 12 June 2026 (Q63–Q66; Wave 19 template preview spec)
+**Last updated:** 12 June 2026 (Q63–Q70; Wave 19 template preview spec + advisory amendment)
 
 ---
 
@@ -1191,3 +1191,5 @@ Builder upload → Storage (companies/.../assets/...)
 | **Q66** | Project plan §6 "no iframe" vs full preview? | **Keep mock inline preview**; **external** "Preview full site" link to demo subdomain (not iframe) — Phase 2.1 Wave 19 | Sophia Laurent, Theo Laurent |
 | **Q67** | Multiple starter templates for first site selection? | **10 library starters sufficient for launch** — presented as **starter designs**; Wave 19 preview + ENG-027 filters; expand +4 in Wave 20 (B10-001) | Samuel Ruiz, Sophia Laurent, Theo Laurent, Marcus Klein |
 | **Q68** | How are new starter templates generated? | **Manual JSON authoring** (now); scaffold script Wave 20 (B10-002); AI-assisted **Phase 2.2+**; CI `validate:templates` + `seedVersion` bump required | Rafael Ortiz, Alex Rivera, Samuel Ruiz |
+| **Q69** | `new-template.mjs` manifest authority? | **Skeleton only** — human PR updates manifest, `lib/templates.ts`, reserved slugs, demo seed, thumbnails | Alex Rivera, Rafael Ortiz |
+| **Q70** | Wave 20 new template IDs finalized? | **Yes** — `wellness-clinic`, `clear-accounting`, `focus-photography`, `fit-hub` + 3 new categories | Samuel Ruiz, Marcus Chen |

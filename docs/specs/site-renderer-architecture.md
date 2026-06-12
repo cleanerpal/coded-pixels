@@ -421,7 +421,24 @@ From [`firestore-rules-spec.md`](firestore-rules-spec.md):
 
 ---
 
-## 11. Observability & Errors
+## 11. Platform demo tenants (Wave 19, Q65)
+
+Marketing template previews use **normal tenant documents** with `companies.isPlatformDemo: true`. No separate renderer code path beyond metadata and SEO.
+
+| Concern | Contract |
+|---------|----------|
+| Resolution | Same as §3 — `slugs/{templateId}`; demo slugs **not** in `RESERVED_SUBDOMAINS` |
+| Data load | `tenant-resolution.ts` reads `isPlatformDemo` from `companies/{companyId}` into `TenantContext` |
+| SEO | `generateMetadata()` on `app/[[...pageSlug]]/page.tsx` sets `robots: { index: false, follow: false }` when `isPlatformDemo === true` |
+| Analytics | No tenant GA4 in Phase 2 — N/A |
+| Sentry | Tag events with `isPlatformDemo: true`; exclude from conversion dashboards |
+| Seeding | Admin SDK only — see [`marketing-template-preview-spec.md`](../planning/marketing-template-preview-spec.md) §3 |
+
+**Aligned with Dr. Rajiv Singh on noindex** · **Dr. Lena Petrova on metadata placement**
+
+---
+
+## 12. Observability & Errors
 
 | Signal | Owner | Notes |
 |--------|-------|-------|
@@ -432,7 +449,7 @@ From [`firestore-rules-spec.md`](firestore-rules-spec.md):
 
 ---
 
-## 12. Route Map (site-renderer app)
+## 13. Route Map (site-renderer app)
 
 | Route | Method | Auth | Purpose |
 |-------|--------|------|---------|
@@ -446,7 +463,7 @@ No `/preview`, `/dashboard`, or `/api/admin` on this backend — those live on *
 
 ---
 
-## 13. Implementation Milestones
+## 14. Implementation Milestones
 
 | Ticket | Deliverable | Depends on |
 |--------|-------------|------------|
@@ -454,10 +471,11 @@ No `/preview`, `/dashboard`, or `/api/admin` on this backend — those live on *
 | **B3-001** | `publishSite` + revalidation API caller | DOC-006 |
 | **B4-001** | `site-renderer` App Hosting backend + wildcard DNS | DOC-006, B3-001 |
 | **B9-001** | App Check + `submitLead` client wiring on live forms | firestore-rules-spec §6 |
+| **INF-005** | Demo tenant `noindex` + `TenantContext.isPlatformDemo` | marketing-template-preview-spec §5.1 |
 
 ---
 
-## 14. Expert Sign-Off
+## 15. Expert Sign-Off
 
 | Expert | Domain | Status |
 |--------|--------|--------|
@@ -470,7 +488,7 @@ No `/preview`, `/dashboard`, or `/api/admin` on this backend — those live on *
 
 ---
 
-## 15. Related Documents
+## 16. Related Documents
 
 | Document | Purpose |
 |----------|---------|

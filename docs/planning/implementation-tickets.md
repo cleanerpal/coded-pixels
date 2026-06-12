@@ -819,7 +819,8 @@ Suggested labels: `lane:A-F`, `wave:1-6`, `phase:M0|M1|M2|M3|M4|P2`, `gate:PII|B
 
 **Milestone:** Users browse, preview, and pre-select **real pre-designed templates** on the homepage and `/templates`.  
 **Spec:** [`marketing-template-preview-spec.md`](marketing-template-preview-spec.md) (DOC-010) · **Q65, Q66**  
-**Gate:** Platform Phase 2 complete (B1-001, B2-002, B4-001 shipped).
+**Gate:** Platform Phase 2 complete (B1-001, B2-002, B4-001 shipped).  
+**Planning gate (12 June 2026):** Wave 19 Phase 2 code spool requires DOC-010 amendment pass complete — see [`forge-scale-advisory-response.md`](forge-scale-advisory-response.md) · spec §3.4–§9.
 
 **Why now:** Wave 12 seeds contain full designs; marketing still shows gradients only. Demo tenants on site-renderer bridge the gap without importing `component-registry` into marketing.
 
@@ -869,15 +870,19 @@ flowchart LR
 
 **Scope:**
 - Author [`marketing-template-preview-spec.md`](marketing-template-preview-spec.md) (done in planning pass — verify + align project plan)
+- **Amendment pass:** §3.4–3.7 (lifecycle, idempotency, reserved-slug/test plan, shared-types contract), §4.5 (thumbnail failures), §5.1 (noindex placement), §9 (QA-007 dependencies)
 - Add **Q65** (demo tenants on site-renderer) and **Q66** (§6 external preview link) to `codedpixels-project-plan.md` decision log
 - Amend project plan §6 — keep mock inline preview; add external “Preview full site” pattern
 - Add `isPlatformDemo?: boolean` to `firestore-schema.md` §6 `companies` fields
 - Update `wave-verification/roadmap.md` template lifecycle row
+- Author [`forge-scale-advisory-response.md`](forge-scale-advisory-response.md) — external review closure
 
 **Acceptance:**
-- [ ] Spec on disk with expert sign-off table
-- [ ] Q65/Q66 in project plan §20
-- [ ] Schema field documented
+- [x] Spec on disk with expert sign-off table
+- [x] Q65/Q66 in project plan §20
+- [x] Schema field documented
+- [x] Operational contracts §3.4–§9 in spec
+- [x] Advisory response on disk
 
 ---
 
@@ -892,20 +897,32 @@ flowchart LR
 | **Expert** | Dr. Alex Rivera · Dr. Rafael Ortiz · Dr. Kai Nakamura |
 
 **Scope:**
-- `packages/templates/scripts/seed-demos.mjs` — Admin SDK idempotent upsert per library `templateId`
+- `packages/templates/scripts/seed-demos.mjs` — Admin SDK idempotent upsert per library `templateId` (see spec §3.4–3.5)
+- Deterministic `companyId`: `demo-{templateId}`; `PLATFORM_DEMO_OWNER_UID` env
 - Published homepage: `sites.status: published`, `pages.publishedVersionId`, `versions.status: published`
-- `companies.isPlatformDemo: true`, `ownerUid` from `PLATFORM_DEMO_OWNER_UID` (emulator default documented)
+- `companies.isPlatformDemo: true`
 - `slugs/{templateId}` index docs
 - Fix `seed.mjs` default `projectId` → `codedpixels` (match `.env.local`)
 - `npm run seed:template-demos` + `seed:template-demos:emulator` in root `package.json`
-- Export `RESERVED_TEMPLATE_SLUGS` in `@codedpixels/shared-types`
-- Site-renderer: `noindex` when tenant `isPlatformDemo` (layout or metadata helper)
+- Export `RESERVED_TEMPLATE_SLUGS` + `isReservedTemplateSlug()` in `@codedpixels/shared-types` (spec §3.7)
+- Add `Company.isPlatformDemo` to shared-types
+- Site-renderer: extend `TenantContext`; `noindex` in `generateMetadata()` when `isPlatformDemo` (spec §5.1, site-renderer-architecture §11)
 
 **Acceptance:**
-- [ ] `FIREBASE_PROJECT_ID=codedpixels npm run seed:template-demos:emulator` creates 10 demo tenants
+- [ ] `packages/shared-types/src/constants/reserved-template-slugs.ts` exports `RESERVED_TEMPLATE_SLUGS` (10 IDs) + `isReservedTemplateSlug()` — stub may land in planning close; INF-005 completes integration
+- [ ] `Company.isPlatformDemo?: boolean` in shared-types matches firestore-schema §6
+- [ ] `FIREBASE_PROJECT_ID=codedpixels npm run seed:template-demos:emulator` creates 10 demo tenants with `companyId` = `demo-{templateId}` (spec §3.4)
+- [ ] Each demo tenant: `isPlatformDemo: true`, `ownerUid` from `PLATFORM_DEMO_OWNER_UID` (emulator default documented in script)
+- [ ] Each demo tenant: `sites.status: published`, `pages.publishedVersionId` set, `versions.status: published`
+- [ ] `slugs/{templateId}` index docs point to demo company/site
+- [ ] Re-run seed with unchanged template `contentHash` is no-op; changed hash updates published sections + revalidation tag (spec §3.5)
 - [ ] `http://sparkle-clean.localhost:3002/` renders published sections (emulator + `dev:renderer`)
-- [ ] `npm run seed:templates:emulator` writes to `codedpixels` project without extra env
+- [ ] `curl -I` or view-source shows `noindex` on demo tenant (spec §5.1)
+- [ ] `TenantContext` includes `isPlatformDemo`; `generateMetadata()` in `[[...pageSlug]]/page.tsx` sets `robots: { index: false, follow: false }` when true
+- [ ] Demo slugs resolve via `slugs/{templateId}` — **not** added to `RESERVED_SUBDOMAINS` (spec §3.3)
 - [ ] No `provisionTenant` or Stripe calls in seed path
+- [ ] `npm run seed:templates:emulator` writes to `codedpixels` project without extra env (projectId fix)
+- [ ] `npm test` green
 
 ---
 
@@ -925,8 +942,12 @@ flowchart LR
 - Document emulator + renderer prerequisites in spec §7
 
 **Acceptance:**
-- [ ] Script produces WebP for all 10 library templates (or fails closed with clear error)
-- [ ] Marketing gallery falls back to gradient when WebP missing
+- [ ] `scripts/generate-template-thumbnails.mjs` runs **after** demo seed; screenshots `{templateId}.localhost:3002` (or prod base URL)
+- [ ] Output: `apps/marketing/public/templates/previews/{templateId}.webp` for all 10 library templates
+- [ ] Script **exits 1** with failed ID list if any screenshot fails (spec §4.5 — fails closed)
+- [ ] Atomic write per file (temp → rename); partial run leaves prior WebP unchanged
+- [ ] `npm run generate:template-thumbnails` in root `package.json`
+- [ ] Marketing gallery falls back to gradient when WebP missing (no UI failure)
 
 ---
 
@@ -948,10 +969,14 @@ flowchart LR
 - Copy review: Ms. Lila Moreau
 
 **Acceptance:**
-- [ ] Selecting Sparkle Clean shows preview link to `sparkle-clean.localhost:3002` in local dev
-- [ ] Mock wireframe + feature badges still work (ENG-013 behaviour preserved)
+- [ ] `template-preview-urls.ts`: local `http://{templateId}.localhost:3002/`; prod `https://{templateId}.codedpixels.co.uk/`; optional `NEXT_PUBLIC_TEMPLATE_PREVIEW_BASE_URL`
+- [ ] Step 1: WebP thumbnail when file exists; gradient fallback; **Preview full site** per library template (`rel="noopener noreferrer"`)
+- [ ] Preview link a11y: `Preview {templateName} template in new tab` (spec §6)
+- [ ] LivePreviewPanel: mock wireframe + feature badges unchanged; **Preview full site →** when template selected
+- [ ] Step 1 heading **Choose your starter website**; subtext: all templates included on every plan (Q67)
+- [ ] Custom template card: no preview link
+- [ ] Selecting Sparkle Clean → preview href contains `sparkle-clean.localhost:3002` in local dev
 - [ ] No `@codedpixels/component-registry` import in marketing app
-- [ ] Starter framing copy visible on Step 1 per [`starter-template-library-plan.md`](starter-template-library-plan.md) §5
 - [ ] `npm test` green
 
 ---
@@ -972,10 +997,13 @@ flowchart LR
 - Custom template card: no preview link (bespoke only)
 
 **Acceptance:**
-- [ ] `/templates` shows preview link for each library template
-- [ ] Thumbnails use WebP when present; gradient otherwise
+- [ ] H1: **Starter designs for your business**
+- [ ] Gallery cards: WebP from `public/templates/previews/{templateId}.webp`; gradient fallback
+- [ ] **Preview full site** + **Start with this design** on each library card
+- [ ] Custom template card: no preview link
+- [ ] Thumbnail `alt`: `{templateName} website preview` (spec §6)
 - [ ] Category filter behaviour unchanged
-- [ ] CTA copy matches starter-template-library-plan §5
+- [ ] CTA copy matches [`starter-template-library-plan.md`](starter-template-library-plan.md) §5
 
 ---
 
@@ -994,9 +1022,12 @@ flowchart LR
 - Unit tests for all 10 library IDs
 
 **Acceptance:**
-- [ ] `sparkle-clean` rejected in slug validator
-- [ ] Valid customer slugs still accepted
-- [ ] Tests green
+- [ ] Import `RESERVED_TEMPLATE_SLUGS` / `isReservedTemplateSlug()` from `@codedpixels/shared-types` — **not** a local duplicate list
+- [ ] Reject all 10 library IDs in slug validator; accept valid customer slugs (e.g. `my-business`)
+- [ ] User-facing error: *“This address is reserved for template previews — choose another slug”*
+- [ ] Unit test per reserved ID + at least one valid slug case
+- [ ] **No change** to configurator `?template=sparkle-clean` or provisioning tests (spec §3.6)
+- [ ] `npm test` green
 
 ---
 
@@ -1016,9 +1047,11 @@ flowchart LR
 - Get-started gate card copy — references starter selection when `templateId` unset
 
 **Acceptance:**
-- [ ] Filter **Beauty & Wellness** shows subset; **All** shows 10 library + Custom
-- [ ] Starter package card mentions any template included
-- [ ] a11y: filter chips keyboard-operable
+- [ ] Category filter chips on Step 1 (`role="radiogroup"`); arrow-key navigation (spec §6, Nadia Sokolov)
+- [ ] Filter **Beauty & Wellness** shows subset; **All** shows 10 library + Custom (Custom always visible)
+- [ ] `groupTemplatesByCategory()` reused; client-side filter only
+- [ ] Starter package card: any starter design included — template choice does not change £9.99 base
+- [ ] Get-started gate copy references starter selection when `templateId` unset
 - [ ] `npm test` green
 
 **Aligned with Dr. Samuel Ruiz on Q67** — see [`starter-template-library-plan.md`](starter-template-library-plan.md).
@@ -1038,11 +1071,16 @@ flowchart LR
 - Playwright: homepage Step 1 — category filter → select starter → preview link `href` contains `templateId`
 - `/templates` — preview link present; **Start with this design** deep-links to configurator
 - Get-started still receives `templateId` from URL config (regression); CTA disabled until starter selected
-- Optional: smoke `sparkle-clean.localhost:3002` when emulator job present in CI
+- Optional tagged smoke: `@template-preview-smoke` — `sparkle-clean.localhost:3002` when emulator + renderer in CI
+- **No changes** to existing configurator E2E using `templateId` (spec §3.6)
 
 **Acceptance:**
-- [ ] New spec file under `apps/marketing/e2e/`
-- [ ] `npm run test:e2e` green (or tagged `@template-preview` if emulator optional)
+- [ ] `apps/marketing/e2e/template-preview.spec.ts` — filter → select starter → preview `href` contains `templateId`
+- [ ] `/templates`: preview link on library cards; custom card has no preview link
+- [ ] Get-started: CTA disabled until starter selected; `?template=` preserved (regression)
+- [ ] Existing `configurator.spec.ts`, `get-started.spec.ts`, `spine.spec.ts` unchanged and green (spec §3.6, §9)
+- [ ] Optional `@template-preview-smoke`: `sparkle-clean.localhost:3002` 200 when emulator + renderer in CI
+- [ ] `npm run test:e2e` green (core specs)
 
 ---
 
@@ -1081,8 +1119,8 @@ flowchart LR
 | **Blocks** | B10-001 |
 | **Expert** | Dr. Lena Moreau · Dr. Samuel Ruiz · Dr. Rafael Ortiz |
 
-**Scope:** Authoring checklist, minimum section bar (Q68), manifest/`lib/templates.ts` parity, CI gates, thumbnail prerequisite.  
-**Acceptance:** [ ] Spec on disk; [ ] expert sign-off; [ ] blocks B10-001 code.
+**Scope:** [`template-addition-governance-spec.md`](template-addition-governance-spec.md) — Q69 scaffold authority, Q70 finalized template IDs, §3 mandatory checklist, §4 per-template checklist, INF-007 CI gates.  
+**Acceptance:** [x] Spec on disk; [x] expert sign-off; [x] blocks B10-001 code; [x] Q69/Q70 in project plan §20
 
 ### B10-001 · Expand starter library (+4 templates)
 | | |
