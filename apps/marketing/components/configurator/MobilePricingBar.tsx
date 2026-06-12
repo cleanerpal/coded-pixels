@@ -130,10 +130,11 @@ export function MobilePricingBar({ config }: MobilePricingBarProps) {
 
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
+    const toggleButton = toggleRef.current;
 
     return () => {
       document.body.style.overflow = previousOverflow;
-      toggleRef.current?.focus();
+      toggleButton?.focus();
     };
   }, [expanded]);
 

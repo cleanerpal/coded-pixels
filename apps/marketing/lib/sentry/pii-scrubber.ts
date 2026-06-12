@@ -1,4 +1,4 @@
-import type { ErrorEvent, EventHint } from "@sentry/nextjs";
+import type { ErrorEvent } from "@sentry/nextjs";
 
 /** Aligned with expert-review-memo: beforeSend denylist for email + config payloads (Q61). */
 export const PII_DENYLISTED_KEYS = new Set([
@@ -57,10 +57,7 @@ function scrubEventPayload<T>(payload: T | undefined): T | undefined {
   return scrubValue(payload) as T;
 }
 
-export function scrubPiiFromSentryEvent(
-  event: ErrorEvent,
-  _hint?: EventHint,
-): ErrorEvent | null {
+export function scrubPiiFromSentryEvent(event: ErrorEvent): ErrorEvent | null {
   if (event.message) {
     event.message = scrubEmailInString(event.message);
   }

@@ -14,7 +14,7 @@ import {
   packageIncludesFeature,
   packageLiveMonthlyPence,
 } from '@/lib/pricing-comparison';
-import type { BillingCycle, PackageId } from '@codedpixels/shared-types';
+import type { BillingCycle } from '@codedpixels/shared-types';
 
 function CheckIcon() {
   return (
