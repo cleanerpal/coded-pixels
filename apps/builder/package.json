@@ -1,0 +1,12 @@
+{
+  "name": "@codedpixels/builder",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "echo \"Builder app not yet implemented — see B2-001\"",
+    "build": "echo \"Builder app not yet implemented — see B2-001\"",
+    "lint": "echo \"No lint target yet\"",
+    "typecheck": "echo \"No typecheck target yet\"",
+    "test": "echo \"No tests yet\""
+  }
+}

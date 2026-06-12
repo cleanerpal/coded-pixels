@@ -4,12 +4,15 @@ import { defineConfig } from 'vitest/config';
 export default defineConfig({
   test: {
     environment: 'node',
-    include: ['lib/**/*.test.ts', 'functions/src/**/*.test.ts'],
+    include: [
+      'apps/marketing/lib/**/*.test.ts',
+      'functions/src/**/*.test.ts',
+    ],
     exclude: ['tests/firestore/**', 'node_modules/**'],
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, '.'),
+      '@': path.resolve(__dirname, 'apps/marketing'),
     },
   },
 });

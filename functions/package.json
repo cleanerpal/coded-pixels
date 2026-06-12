@@ -8,14 +8,19 @@
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",
-    "test": "vitest run"
+    "typecheck": "tsc --noEmit",
+    "lint": "npm run typecheck",
+    "test": "vitest run --config vitest.config.ts"
   },
   "dependencies": {
+    "@codedpixels/shared-types": "*",
     "firebase-admin": "^13.6.0",
     "firebase-functions": "^6.6.0",
     "zod": "^3.25.76"
   },
   "devDependencies": {
-    "typescript": "^5.9.3"
+    "eslint": "^8.57.0",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
   }
 }

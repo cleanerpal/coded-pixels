@@ -1,3 +1,4 @@
+import type { ConfigSnapshot as SharedConfigSnapshot } from '@codedpixels/shared-types';
 import { z } from 'zod';
 
 /** Canonical feature IDs — firestore-schema.md §3 */
@@ -26,7 +27,7 @@ export const configSnapshotSchema = z.object({
   packageId: z.enum(['starter', 'growth', 'pro', 'custom']).optional(),
 });
 
-export type ConfigSnapshot = z.infer<typeof configSnapshotSchema>;
+export type ConfigSnapshot = SharedConfigSnapshot;
 
 const emailSchema = z
   .string()

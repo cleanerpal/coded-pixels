@@ -1,0 +1,12 @@
+{
+  "name": "@codedpixels/site-renderer",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "echo \"Site-renderer app not yet implemented — see B4-001\"",
+    "build": "echo \"Site-renderer app not yet implemented — see B4-001\"",
+    "lint": "echo \"No lint target yet\"",
+    "typecheck": "echo \"No typecheck target yet\"",
+    "test": "echo \"No tests yet\""
+  }
+}

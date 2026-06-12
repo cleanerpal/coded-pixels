@@ -20,7 +20,7 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const NEXT_DIR = join(ROOT, '.next');
+const NEXT_DIR = join(ROOT, 'apps/marketing/.next');
 
 /** Budgets — codedpixels-project-plan Q1 success metrics + § Performance */
 export const BUDGETS = {

@@ -1,0 +1,4 @@
+{
+  "extends": "@codedpixels/eslint-config",
+  "ignorePatterns": ["next-env.d.ts", "e2e/**", ".next/**"]
+}
