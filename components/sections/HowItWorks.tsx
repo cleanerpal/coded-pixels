@@ -4,22 +4,22 @@ const STEPS = [
   {
     title: "Choose a template",
     description:
-      "Pick from professional designs for trades, beauty, legal, and more — or start with a custom layout.",
+      "Browse ten industry templates or pick Custom Template for a bespoke design. Switch anytime — your selections stay in sync.",
   },
   {
     title: "Add only what you need",
     description:
-      "Toggle features like CRM, booking, or e-commerce. Every add-on shows + £X.XX/mo — no hidden fees.",
+      "Toggle features like CRM, booking, or e-commerce. Each add-on shows +£X.XX/mo. Starter, Growth, and Pro presets pre-fill choices you can change.",
   },
   {
     title: "See your live preview",
     description:
-      "Watch your site and price update instantly. The sidebar total is always the exact amount.",
+      "Watch your mock site and pricing summary update instantly. The sidebar total is always the exact monthly amount — package cards may round for display.",
   },
   {
-    title: "Get started",
+    title: "Save your plan",
     description:
-      "Save your plan and sign up when you are ready. Cancel or change your plan anytime.",
+      "Get Started with your email when you are ready. MVP sign-up takes no payment — we save your plan and will be in touch. Cancel anytime when billing goes live.",
   },
 ] as const;
 
@@ -38,7 +38,7 @@ export function HowItWorks() {
             How it works
           </h2>
           <p className="mt-3 text-text-muted">
-            Four simple steps from template to a plan you can share.
+            Four steps from template to a plan you can share — no payment on sign-up today.
           </p>
         </div>
 

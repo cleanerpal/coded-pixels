@@ -1,0 +1,9 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // INF-002+: expand per docs/specs/firestore-rules-spec.md §5
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

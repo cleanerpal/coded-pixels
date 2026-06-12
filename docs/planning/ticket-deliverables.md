@@ -43,7 +43,18 @@ If a ticket is marked complete but deliverables are missing → **reopen ticket*
 | **ENG-015** | `ConfiguratorShell.tsx`, `StepProgress.tsx`, `#configurator` wired in `app/page.tsx` |
 | **ENG-016** | `components/sections/Hero.tsx`, HowItWorks, Testimonials, FAQ; landing on `/` |
 
-## Wave 5+
+## Wave 5
+
+| Ticket | Required deliverables (minimum) |
+|--------|----------------------------------|
+| **DOC-002** | `app/privacy/page.tsx`, `app/terms/page.tsx` with real content |
+| **ENG-017** | `app/templates/page.tsx`, template gallery component |
+| **ENG-018** | `app/pricing/page.tsx`, comparison table component |
+| **ENG-019** | Real FAQ + HowItWorks content in `components/sections/` |
+| **INF-001** | `firebase.json`, `.firebaserc`, `functions/` scaffold |
+| **INF-004** | Sentry configs, `lib/sentry/pii-scrubber.ts`, tests |
+
+## Wave 6+
 
 **Manual browser verification:** [wave-verification/](wave-verification/README.md) — one guide per wave (Mia Thompson).
 

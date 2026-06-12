@@ -11,11 +11,11 @@
 | Field | Value |
 |-------|--------|
 | **Last updated** | 2025-06-12 |
-| **Current wave** | **5** |
-| **Current milestone** | M3 (Wave 5 next) |
-| **Last wave closed** | **4** |
-| **Last commit SHA** | `f434495` |
-| **Last commit message** | `wave(4): preview panel, billing toggle, configurator shell, landing sections` |
+| **Current wave** | **6** |
+| **Current milestone** | M3 (Wave 6 next) |
+| **Last wave closed** | **5** |
+| **Last commit SHA** | `(pending wave 5 push)` |
+| **Last commit message** | `(pending)` |
 | **Remote synced** | Yes |
 | **Git remote** | `https://github.com/cleanerpal/coded-pixels.git` (`origin`, branch `main`) |
 
@@ -42,6 +42,12 @@
 | ENG-014 | 4 | 2025-06-12 | f434495 | Annual billing toggle |
 | ENG-015 | 4 | 2025-06-12 | f434495 | Configurator integration |
 | ENG-016 | 4 | 2025-06-12 | f434495 | Hero + landing sections |
+| DOC-002 | 5 | 2025-06-12 | (pending push) | Privacy + Terms pages |
+| ENG-017 | 5 | 2025-06-12 | (pending push) | Templates gallery |
+| ENG-018 | 5 | 2025-06-12 | (pending push) | Pricing comparison |
+| ENG-019 | 5 | 2025-06-12 | (pending push) | FAQ + How It Works content |
+| INF-001 | 5 | 2025-06-12 | (pending push) | Firebase project init |
+| INF-004 | 5 | 2025-06-12 | (pending push) | Sentry marketing site |
 
 ---
 
@@ -55,7 +61,7 @@
 
 ## Next parallel spool
 
-**Wave 5** — DOC-002, ENG-017, ENG-018, ENG-019, INF-001 (PII-gated subset) — see `implementation-tickets.md`.
+**Wave 6** — INF-002, ENG-021 (after wave 5 push). PII-gated: INF-003, ENG-020 blocked until INF-002 + ENG-021/ENG-022.
 
 Full backlog: `implementation-tickets.md`
 
@@ -66,7 +72,7 @@ Full backlog: `implementation-tickets.md`
 | Gate | Status |
 |------|--------|
 | ENG-006 → Wave 3 UI | **CLOSED** |
-| M3 PII (DOC-002 + Sentry) | **OPEN** |
+| M3 PII (DOC-002 + Sentry) | **PARTIAL** — DOC-002 + INF-004 done; INF-002/003 + ENG-021/022 remain |
 | Platform B0 monorepo | **OPEN** |
 
 ---
@@ -79,8 +85,7 @@ Full backlog: `implementation-tickets.md`
 | 2025-06-12 | Wave 1 push | `3af0896` |
 | 2025-06-12 | Wave 2 push | `6731cfd` — M0 complete |
 | 2025-06-12 | Wave 3 push | `7009166` — M1 configurator components complete |
-| 2025-06-12 | `/codedpixels resume` | Verified waves 1–3 deliverables + 65 tests pass; spooled Wave 4 |
-| 2025-06-12 | Wave 4 push | `f434495` — M2 preview, billing toggle, landing shell complete |
+| 2025-06-12 | `/codedpixels resume` | Verified waves 1–3; closed Wave 4 `f434495`; closing Wave 5 |
 
 ---
 
