@@ -14,7 +14,7 @@
 | **Current wave** | **10** |
 | **Current milestone** | **M4 complete** — Platform Phase 2 prep next |
 | **Last wave closed** | **9** |
-| **Last commit SHA** | `(pending wave 9 push)` |
+| **Last commit SHA** | `0c2b3d3` |
 | **Last commit message** | `wave(9): M4 QA — Playwright, rules tests, SEO, Lighthouse budget` |
 | **Remote synced** | Yes |
 | **Git remote** | `https://github.com/cleanerpal/coded-pixels.git` (`origin`, branch `main`) |
@@ -54,12 +54,12 @@
 | ENG-022 | 7 | 2025-06-12 | 8cd2048 | Consent-gated GA4 |
 | ENG-020 | 8 | 2025-06-12 | 1da1ebf | Get-started flow |
 | ENG-023 | 8 | 2025-06-12 | 1da1ebf | Site Import waitlist UI |
-| QA-001 | 9 | 2025-06-12 | (wave 9) | Configurator E2E |
-| QA-002 | 9 | 2025-06-12 | (wave 9) | Get-started E2E |
-| QA-003 | 9 | 2025-06-12 | (wave 9) | Lighthouse perf budget |
-| QA-004 | 9 | 2025-06-12 | (wave 9) | SEO sitemap + JSON-LD |
-| QA-005 | 9 | 2025-06-12 | (wave 9) | Firestore rules tests |
-| QA-006 | 9 | 2025-06-12 | (wave 9) | Integration spine E2E |
+| QA-001 | 9 | 2025-06-12 | 0c2b3d3 | Configurator E2E |
+| QA-002 | 9 | 2025-06-12 | 0c2b3d3 | Get-started E2E |
+| QA-003 | 9 | 2025-06-12 | 0c2b3d3 | Lighthouse perf budget |
+| QA-004 | 9 | 2025-06-12 | 0c2b3d3 | SEO sitemap + JSON-LD |
+| QA-005 | 9 | 2025-06-12 | 0c2b3d3 | Firestore rules tests |
+| QA-006 | 9 | 2025-06-12 | 0c2b3d3 | Integration spine E2E |
 
 ---
 
