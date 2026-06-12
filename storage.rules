@@ -1,7 +1,15 @@
 rules_version = '2';
 service firebase.storage {
   match /b/{bucket}/o {
-    // INF-002+: expand per docs/specs/firestore-rules-spec.md §5
+    // B7-001 — firestore-rules-spec.md §5, Q44 (Dr. Nora Patel)
+    match /companies/{companyId}/sites/{siteId}/assets/{assetId}/{fileName} {
+      allow read: if request.auth != null
+        && firestore.get(/databases/(default)/documents/companies/$(companyId)/members/$(request.auth.uid)).data.role
+           in ['owner', 'admin', 'editor', 'viewer'];
+      // Phase 2: uploads via createAssetUpload Callable + signed URL only (Q64 ClamAV gate)
+      allow write: if false;
+    }
+
     match /{allPaths=**} {
       allow read, write: if false;
     }

@@ -1,6 +1,7 @@
 {
   "extensions": {
-    "firestore-stripe-payments": "stripe/firestore-stripe-payments"
+    "firestore-stripe-payments": "stripe/firestore-stripe-payments",
+    "storage-resize-images": "firebase/storage-resize-images"
   },
   "firestore": {
     "rules": "firestore.rules",

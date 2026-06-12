@@ -16,7 +16,8 @@ export const PUBLISH_RATE_LIMIT_MAX = 30;
 export type RateLimitAction =
   | 'submitSignup'
   | 'submitSiteImportWaitlist'
-  | 'publishSite';
+  | 'publishSite'
+  | 'submitLead';
 
 /** Max sections per page — firestore-schema.md §7.2 */
 export const MAX_SECTIONS_PER_PAGE = 50;

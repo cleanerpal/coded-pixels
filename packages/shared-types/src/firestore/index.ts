@@ -23,3 +23,10 @@ export type {
   ProvisioningJob,
   ProvisioningJobStatus,
 } from './provisioning-job';
+export type {
+  Lead,
+  LeadContact,
+  LeadFormType,
+  LeadSource,
+} from './lead';
+export type { Product } from './product';

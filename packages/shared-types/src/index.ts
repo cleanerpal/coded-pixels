@@ -34,4 +34,9 @@ export type {
   PageVersion,
   ProvisioningJob,
   ProvisioningJobStatus,
+  Lead,
+  LeadContact,
+  LeadFormType,
+  LeadSource,
+  Product,
 } from './firestore';
