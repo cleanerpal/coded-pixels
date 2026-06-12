@@ -1,0 +1,99 @@
+import { getApps, initializeApp, type FirebaseApp } from 'firebase/app';
+import {
+  initializeAppCheck,
+  ReCaptchaV3Provider,
+} from 'firebase/app-check';
+import {
+  connectFunctionsEmulator,
+  getFunctions,
+  type Functions,
+} from 'firebase/functions';
+
+const PROJECT_ID =
+  process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID ?? 'codedpixels';
+
+const firebaseConfig = {
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY ?? 'demo-api-key',
+  authDomain:
+    process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN ??
+    `${PROJECT_ID}.firebaseapp.com`,
+  projectId: PROJECT_ID,
+};
+
+let firebaseApp: FirebaseApp | undefined;
+let firebaseFunctions: Functions | undefined;
+let appCheckInitialized = false;
+
+function assertBrowser(): void {
+  if (typeof window === 'undefined') {
+    throw new Error('Firebase client is available in the browser only');
+  }
+}
+
+function configureAppCheckDebugToken(): void {
+  if (process.env.NODE_ENV !== 'development') {
+    return;
+  }
+
+  const debugToken = process.env.NEXT_PUBLIC_FIREBASE_APP_CHECK_DEBUG_TOKEN;
+  if (!debugToken) {
+    return;
+  }
+
+  (globalThis as typeof globalThis & { FIREBASE_APPCHECK_DEBUG_TOKEN?: string })
+    .FIREBASE_APPCHECK_DEBUG_TOKEN = debugToken;
+}
+
+function initAppCheck(app: FirebaseApp): void {
+  if (appCheckInitialized) {
+    return;
+  }
+
+  configureAppCheckDebugToken();
+
+  const siteKey =
+    process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ??
+    process.env.NEXT_PUBLIC_FIREBASE_APP_CHECK_RECAPTCHA_SITE_KEY;
+  if (!siteKey) {
+    return;
+  }
+
+  initializeAppCheck(app, {
+    provider: new ReCaptchaV3Provider(siteKey),
+    isTokenAutoRefreshEnabled: true,
+  });
+  appCheckInitialized = true;
+}
+
+/** Lazily initialise the Firebase web app (browser only). */
+export function getFirebaseApp(): FirebaseApp {
+  assertBrowser();
+
+  if (!firebaseApp) {
+    firebaseApp =
+      getApps().length > 0 ? getApps()[0]! : initializeApp(firebaseConfig);
+  }
+
+  return firebaseApp;
+}
+
+/** Cloud Functions client — europe-west2 per Q33; App Check on first Callable use. */
+export function getFirebaseFunctions(): Functions {
+  assertBrowser();
+
+  if (!firebaseFunctions) {
+    firebaseFunctions = getFunctions(getFirebaseApp(), 'europe-west2');
+
+    if (process.env.NEXT_PUBLIC_USE_FIREBASE_EMULATORS === 'true') {
+      connectFunctionsEmulator(firebaseFunctions, '127.0.0.1', 5001);
+    }
+  }
+
+  initAppCheck(getFirebaseApp());
+  return firebaseFunctions;
+}
+
+/** Whether App Check has been configured for this browser session. */
+export function isAppCheckInitialized(): boolean {
+  return appCheckInitialized;
+}

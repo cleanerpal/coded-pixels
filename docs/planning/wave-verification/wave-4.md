@@ -3,7 +3,9 @@
 **Written by:** Mia Thompson  
 **Wave closes when:** ENG-013, ENG-014, ENG-015, and ENG-016 are done  
 **Milestone:** M2 — the configurator is **live on the homepage**, with preview, annual toggle, and marketing sections  
-**Status when this was written:** Not yet shipped — use this guide when Wave 4 closes.
+**Status:** Shipped
+
+**Templates note:** Preview panel shows **styling only** (mock browser chrome) — not real page content. Real section content ships in **Wave 12** seeds and **Wave 15** renderer. Full lifecycle: [roadmap.md](roadmap.md).
 
 ---
 

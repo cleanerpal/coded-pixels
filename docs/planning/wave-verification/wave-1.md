@@ -8,7 +8,7 @@
 
 ## In one sentence
 
-After Wave 1, you have a working Next.js site with CodedPixels colours and fonts, a simple demo page proving the design tokens work, and all the pricing/template data sitting in code — plus a legal spec document on disk (not visible in the browser).
+After Wave 1, you have a working Next.js site with CodedPixels colours and fonts, a simple demo page proving the design tokens work, and all the pricing/template **names and metadata** sitting in code — plus a legal spec document on disk (not visible in the browser). Template **page layouts** in Firestore come much later (Wave 12 / B1-001) — see [roadmap.md](roadmap.md).
 
 ---
 
@@ -52,7 +52,7 @@ npm run build
 - No site header with logo and navigation (Wave 2)
 - No footer with Privacy/Terms links (Wave 2)
 - No configurator, package cards, or pricing sidebar (Waves 3–4)
-- No cookie banner (Wave 5)
+- No cookie banner (Wave 6)
 
 That is normal. Wave 1 is the engine room, not the shop floor.
 
@@ -87,7 +87,7 @@ Work through these in order. Tick each box when it passes.
 
 These are code-only in Wave 1; nothing on screen proves them yet.
 
-- [ ] `test -f types/index.ts && test -f lib/features.ts && test -f lib/packages.ts && test -f lib/templates.ts` — all four files exist
+- [ ] `test -f apps/marketing/lib/features.ts && test -f apps/marketing/lib/packages.ts && test -f apps/marketing/lib/templates.ts` — data files exist (paths after Wave 11 monorepo; on Wave 1 only, use `lib/` at repo root)
 - [ ] `npm test` passes (may say “No tests yet” or run Vitest if added later)
 
 Quick sanity in Node (optional):

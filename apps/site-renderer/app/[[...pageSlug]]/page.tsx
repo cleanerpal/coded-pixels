@@ -71,6 +71,10 @@ export default async function TenantCatchAllPage({ params }: TenantPageProps) {
       page={pageResult.page}
       siteName={routeContext.tenant.siteName}
       showPoweredBy={showPoweredBy}
+      tenant={{
+        companyId: routeContext.tenant.companyId,
+        siteId: routeContext.tenant.siteId,
+      }}
     />
   );
 }

@@ -3,8 +3,16 @@ import { CallableRequest, HttpsError } from 'firebase-functions/v2/https';
 import { ZodError, z } from 'zod';
 import { db } from '../lib/admin';
 import { marketingCallableOptions } from '../lib/callableOptions';
+import {
+  assertHoneypotClean,
+  stripHoneypotField,
+} from '../lib/honeypot';
 import { extractLeadContact } from '../lib/leads';
 import { assertSubmitLeadRateLimit } from '../lib/rateLimit';
+import {
+  isRecaptchaScoreAcceptable,
+  verifyRecaptchaToken,
+} from '../lib/recaptcha';
 import {
   extractClientIp,
   hashIp,
@@ -27,6 +35,7 @@ const submitLeadPayloadSchema = z.object({
     .refine((fields) => Object.keys(fields).length > 0, {
       message: 'At least one form field is required',
     }),
+  recaptchaToken: z.string().min(1).optional(),
 });
 
 export type SubmitLeadPayload = z.infer<typeof submitLeadPayloadSchema>;
@@ -37,7 +46,27 @@ function mapValidationError(error: unknown): never {
     throw new HttpsError('invalid-argument', message || 'Invalid request payload');
   }
 
+  if (error instanceof Error && error.message === 'HONEYPOT_FILLED') {
+    throw new HttpsError('permission-denied', 'Submission rejected');
+  }
+
   throw error;
+}
+
+async function assertRecaptchaAcceptable(token: string | undefined): Promise<void> {
+  if (!token) {
+    return;
+  }
+
+  const verification = await verifyRecaptchaToken(token);
+  console.info('submitLead recaptcha score', {
+    score: verification.score,
+    success: verification.success,
+  });
+
+  if (!verification.success || !isRecaptchaScoreAcceptable(verification.score)) {
+    throw new HttpsError('permission-denied', 'Submission rejected');
+  }
 }
 
 async function assertTenantSiteExists(
@@ -71,6 +100,16 @@ export async function handleSubmitLead(
     mapValidationError(error);
   }
 
+  try {
+    assertHoneypotClean(payload.fields);
+  } catch (error) {
+    mapValidationError(error);
+  }
+
+  await assertRecaptchaAcceptable(payload.recaptchaToken);
+
+  const sanitizedFields = stripHoneypotField(payload.fields);
+
   const ip = extractClientIp(request.rawRequest);
   const ipHash = hashIp(ip);
 
@@ -83,7 +122,7 @@ export async function handleSubmitLead(
   await assertTenantSiteExists(payload.companyId, payload.siteId);
 
   const userAgent = truncateUserAgent(request.rawRequest);
-  const contact = extractLeadContact(payload.fields);
+  const contact = extractLeadContact(sanitizedFields);
   const leadRef = db
     .collection('companies')
     .doc(payload.companyId)
@@ -96,7 +135,7 @@ export async function handleSubmitLead(
     status: 'new',
     source: payload.source,
     contact,
-    fields: payload.fields,
+    fields: sanitizedFields,
     submittedAt: FieldValue.serverTimestamp(),
     ipHash,
     ...(userAgent ? { userAgent } : {}),
