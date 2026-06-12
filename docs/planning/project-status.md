@@ -14,8 +14,8 @@
 | **Current wave** | **22** |
 | **Current milestone** | **Phase 2.1 — Custom domains** (Wave 22 P21-001–P21-003, QA-008) |
 | **Last wave closed** | **21** |
-| **Last commit SHA** | `58d93a9` |
-| **Last commit message** | `wave(21): production launch prerequisites — PL-001–PL-005` |
+| **Last commit SHA** | `7dd01a0` |
+| **Last commit message** | `docs: project-status — Wave 21 closed @ 58d93a9, current wave 22` |
 | **Remote synced** | Yes |
 | **Forge & Scale gate** | **CLOSED** — Wave 19 approved; comprehensive audit received |
 | **Git remote** | `https://github.com/cleanerpal/coded-pixels.git` (`origin`, branch `main`) |
@@ -172,6 +172,7 @@ Verification guides: `docs/planning/wave-verification/README.md`
 | 2025-06-12 | resume | Resume @ `dcfd7f0` — Wave 20 OK; tests green; spooled PL-001–PL-005 |
 | 2025-06-12 | resume | Wave 21 PL-001–PL-005 verified; lint/typecheck/test/build green; uncommitted |
 | 2025-06-12 | resume | Wave 21 closed — PL-001–PL-005 deliverables verified; lint/typecheck/test/build green; committing |
+| 2025-06-12 | resume | Wave 21 pushed @ `7dd01a0`; Wave 22 blocked — ticket acceptance blocks missing from implementation-tickets.md |
 
 ---
 
