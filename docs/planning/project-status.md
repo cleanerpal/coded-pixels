@@ -14,8 +14,8 @@
 | **Current wave** | **6** |
 | **Current milestone** | M3 (Wave 6 next) |
 | **Last wave closed** | **5** |
-| **Last commit SHA** | `(pending wave 5 push)` |
-| **Last commit message** | `(pending)` |
+| **Last commit SHA** | `7d052a1` |
+| **Last commit message** | `wave(5): legal pages, templates/pricing routes, Firebase + Sentry scaffold` |
 | **Remote synced** | Yes |
 | **Git remote** | `https://github.com/cleanerpal/coded-pixels.git` (`origin`, branch `main`) |
 
@@ -42,12 +42,12 @@
 | ENG-014 | 4 | 2025-06-12 | f434495 | Annual billing toggle |
 | ENG-015 | 4 | 2025-06-12 | f434495 | Configurator integration |
 | ENG-016 | 4 | 2025-06-12 | f434495 | Hero + landing sections |
-| DOC-002 | 5 | 2025-06-12 | (pending push) | Privacy + Terms pages |
-| ENG-017 | 5 | 2025-06-12 | (pending push) | Templates gallery |
-| ENG-018 | 5 | 2025-06-12 | (pending push) | Pricing comparison |
-| ENG-019 | 5 | 2025-06-12 | (pending push) | FAQ + How It Works content |
-| INF-001 | 5 | 2025-06-12 | (pending push) | Firebase project init |
-| INF-004 | 5 | 2025-06-12 | (pending push) | Sentry marketing site |
+| DOC-002 | 5 | 2025-06-12 | 7d052a1 | Privacy + Terms pages |
+| ENG-017 | 5 | 2025-06-12 | 7d052a1 | Templates gallery |
+| ENG-018 | 5 | 2025-06-12 | 7d052a1 | Pricing comparison |
+| ENG-019 | 5 | 2025-06-12 | 7d052a1 | FAQ + How It Works content |
+| INF-001 | 5 | 2025-06-12 | 7d052a1 | Firebase project init |
+| INF-004 | 5 | 2025-06-12 | 7d052a1 | Sentry marketing site |
 
 ---
 
@@ -85,7 +85,8 @@ Full backlog: `implementation-tickets.md`
 | 2025-06-12 | Wave 1 push | `3af0896` |
 | 2025-06-12 | Wave 2 push | `6731cfd` — M0 complete |
 | 2025-06-12 | Wave 3 push | `7009166` — M1 configurator components complete |
-| 2025-06-12 | `/codedpixels resume` | Verified waves 1–3; closed Wave 4 `f434495`; closing Wave 5 |
+| 2025-06-12 | `/codedpixels resume` | Verified waves 1–3; closed Wave 4 `f434495`; closed Wave 5 `7d052a1` |
+| 2025-06-12 | Wave 5 push | `7d052a1` — M3 pages + Firebase/Sentry scaffold |
 
 ---
 
